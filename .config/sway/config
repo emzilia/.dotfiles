@@ -89,7 +89,7 @@
     bindsym $mod+space exec $menu
 
     # Lock screen
-    bindsym $mod+ctrl+l exec swaylock -i ~/Pictures/Wall/wallp.jpg
+    bindsym $mod+ctrl+k exec swaylock -i ~/Pictures/Wall/wallp.jpg
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -141,9 +141,13 @@
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+    bindsym $mod+Ctrl+h workspace prev
+    bindsym $mod+Ctrl+l workspace next
 #
 # Workspaces:
 #
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -155,6 +159,7 @@
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
 
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
