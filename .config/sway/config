@@ -55,6 +55,9 @@
 #
 ### Input configuration
 #
+    input "type:keyboard" {
+	   xkb_layout us(intl)
+    }
     input "2:14:ETPS/2_Elantech_Touchpad" {
            dwt enabled 
            tap enabled
@@ -80,7 +83,7 @@
     bindsym $mod+Grave exec $term
 
     # Fancy floating terminal
-    bindsym $mod+Escape exec alacritty
+    bindsym $mod+Escape exec $term
 
     # Kill focused window
     bindsym $mod+q kill
@@ -182,7 +185,7 @@
     bindsym $mod+Shift+Home input type:touchpad events toggle enabled disabled
 
     # Compose key
-    exec swaymsg 'input * xkb_options compose:prsc'
+  #  exec swaymsg 'input * xkb_options compose:prsc'
 
     # Mute internal mic 
     bindsym $mod+x exec 'amixer set Capture toggle'
