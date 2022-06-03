@@ -3,15 +3,50 @@ include "%L"
 <Multi_key> <c> <u> : "Ç"
 <Multi_key> <c> <l> : "ç"
 
-<Multi_key> <e> <u> : "È"
-<Multi_key> <e> <l> : "è"
 
-<Multi_key> <3> <u> : "É"
-<Multi_key> <3> <l> : "é"
 
-<Multi_key> <4> <u> : "Ê"
-<Multi_key> <4> <l> : "ê"
 
-<Multi_key> <a> <u> : "À"
-<Multi_key> <a> <l> : "à"
+<Multi_key> <e> <a> <u> : "É"
+<Multi_key> <e> <a> <l> : "é"
 
+
+
+
+<Multi_key> <e> <g> <u> : "È"
+<Multi_key> <e> <g> <l> : "è"
+
+<Multi_key> <a> <g> <u> : "À"
+<Multi_key> <a> <g> <l> : "à"
+
+<Multi_key> <u> <g> <u> : "Ù"
+<Multi_key> <u> <g> <l> : "ù"
+
+
+
+
+<Multi_key> <e> <c> <u> : "Ê"
+<Multi_key> <e> <c> <l> : "ê"
+
+<Multi_key> <o> <c> <u> : "Ô"
+<Multi_key> <o> <c> <l> : "ô"
+
+<Multi_key> <a> <c> <u> : "Â"
+<Multi_Key> <a> <c> <l> : "â"
+
+<Multi_key> <i> <c> <u> : "Î"
+<Multi_key> <i> <c> <l> : "î"
+
+<Multi_key> <u> <c> <u> : "Û"
+<Multi_key> <u> <c> <l> : "û"
+
+
+
+
+<Multi_key> <e> <t> <u> : "Ë"
+<Multi_key> <e> <t> <u> : "ë"
+
+<Multi_key> <i> <t> <u> : "Ï"
+<Multi_key> <i> <t> <l> : "ï"
+
+<Multi_key> <u> <t> <u> : "Ü"
+<Multi_key> <u> <t> <l> : "ü"
