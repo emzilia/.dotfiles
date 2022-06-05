@@ -21,8 +21,8 @@ EDITOR=vi
 set -o vi
 bind 'set editing-mode vi'
 bind 'set show-mode-in-prompt on'
-bind 'set vi-ins-mode-string INSERT '
-bind 'set vi-cmd-mode-string NORMAL '
+bind 'set vi-ins-mode-string -'
+bind 'set vi-cmd-mode-string |'
 
 # Terminal color sequence via wpg/wal
 (cat ~/.config/wpg/sequences &)
