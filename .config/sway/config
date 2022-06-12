@@ -32,6 +32,9 @@
 
     default_border pixel 1
 
+    client.focused_inactive	#fc94f3 #212121 #d9d9d9 #0d1010 #0e0e1b
+    client.unfocused		#0e0e1b #0e0e1b #0e0e1b #0e0e1b #0e0e1b
+    client.focused		#fc94f3	#fc94f3 #fc94f3 #fc94f3 #fc94f3
 #
 # Example configuration:
 #
