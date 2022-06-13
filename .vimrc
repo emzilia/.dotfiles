@@ -1,5 +1,10 @@
 " yes
 
+if &compatible
+  set nocompatible
+endif
+
+syntax on
 set number
 set cursorline
 set cursorcolumn
