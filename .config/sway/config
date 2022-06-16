@@ -30,6 +30,9 @@
     bindsym $mod+Shift+p set $opacity .9
 
 
+    for_window [class="vlc"] opacity 1
+
+
     default_border pixel 1
 
     client.focused_inactive	#fc94f3 #212121 #d9d9d9 #0d1010 #0e0e1b
