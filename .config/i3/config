@@ -76,6 +76,8 @@ gaps inner 6
 exec picom -b
 
 
+for_window [class="Pavucontrol"] floating enable
+
 
 
 
