@@ -43,3 +43,6 @@
 !.config/rofi
 !.config/rofi/config.rasi
 !.config/rofi/theme.rasi
+
+!.tintin
+!.tintin/run.tin
