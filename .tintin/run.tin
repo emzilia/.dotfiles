@@ -1,0 +1,26 @@
+#nop tintin++ ###
+#nop the final boss
+
+#nop just connect
+#ses Hellmoo hellmoo.org 7777
+
+
+#nop window formatting
+#split 1 1 0 -150
+
+
+#nop highlighting
+#high {Vaskivo} {orange}
+#high {Avosivk} {orange}
+#high {Perfect} {orange}
+#high {[chatnet]} {white}
+#high {[tradenet]} {green}
+
+
+#nop aliases
+#alias {2connect} {#ses Hellmoo hellmoo.org 7777}
+#alias {2read} {#read .tintin/run.tin}
+#alias {2write} {#write .tintin/run.tin}
+
+
+#nop prompts
