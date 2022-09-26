@@ -26,6 +26,8 @@ exec --no-startup-id nitrogen --set-auto /home/cagnaccia/Pictures/Wallpapers/wal
 
 exec --no-startup-id "xrandr --output HDMI-0 --auto --primary --output DVI-D-0 --auto --left-of HDMI-0"
 
+exec --no-startup-id "redshift -l 39:-84"
+
 # Signal messaging
 
 assign [class="Signal"] $ws3
@@ -168,7 +170,9 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+bindsym $mod+Return exec "bash -c 'killall xdotool || while xdotool click --repeat 1 --delay 50 1; do :; done'"
 
+bindsym $mod+Shift+Return exec "killall xdotool"
 
 
 
