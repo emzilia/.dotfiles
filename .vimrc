@@ -23,6 +23,8 @@ ca w!! w !sudo tee >/dev/null "%"
 
 call plug#begin('~/.vim/autoload')
 
-Plug 'habamax/vim-godot'
+Plug 'theacodes/witchhazel'
 
 call plug#end()
+
+colorscheme witchhazel
