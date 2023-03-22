@@ -3,6 +3,7 @@
 *
 
 # except the dotties
+!dotfiles.sh
 !.gitignore
 !.vimrc
 !.bashrc
