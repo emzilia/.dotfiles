@@ -1,14 +1,22 @@
  {  
      // "layer":  "top", 
     "height": 3, 
-    "margin-top": 0,
+    "margin-top": 2,
     "spacing": 0, 
+    "padding": 2,
     // Order Of Modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/mpris"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "bluetooth", "pulseaudio",  "battery",  "backlight", "tray"],
+    "modules-right": ["tray", "network", "bluetooth", "pulseaudio",  "battery",  "backlight"],
 
     // ---------- Configuring Modules -----------
+
+    // Tray
+    "tray": {
+        "icon-size": 12,
+        "show-passive-items": true,
+        "spacing": 5
+    },
 
     // Sway Workspaces module
     "sway/workspaces": {
@@ -110,11 +118,6 @@
         "format": "  {:%I:%M %p   |       %A  %m/%d}",
     },
 
-    // Tray module
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
 }
 
 

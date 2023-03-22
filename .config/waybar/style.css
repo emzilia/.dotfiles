@@ -1,6 +1,6 @@
-@define-color --fg #DEA5DC;
-@define-color --bg #0D0421;
-@define-color --bga rgba(13, 4, 23, 0.7);
+@define-color --fg #E2D8D6;
+@define-color --bg #0E1014;
+@define-color --bga rgba(14, 16, 20, 0.7);
 * {
  border: none;
  min-height: 0;
@@ -26,13 +26,14 @@ tooltip label {
 #tray {
 	background: @--bga;
 	padding: 2px;
-	margin: 0px 13px;
+	color: @--fg;
+	margin: 0px 2px;
 	border-radius: 30px;
 	padding: 0px 15px;
 }
 #tray menu {
 	background: @--bga;
-	color: #91a8d0;
+	color: @--fg;
 	border: 2px solid @--fg;
 	border-radius: 6px;
 }
@@ -59,8 +60,8 @@ tooltip label {
 /* Workspaces */
 #workspaces {
 	background: @--bga;
-	margin-left: 0px;
-	border-radius: 0px 30px 30px 0px;
+	margin-left: 2px;
+	border-radius: 30px 30px 30px 30px;
 	padding: 0px 0px;
 }
 #workspaces button {
@@ -96,6 +97,6 @@ tooltip label {
 }
 
 #backlight {
-	border-radius: 0px 0px 0px 0px;
-	padding-right: 7px;
+	border-radius: 0px 30px 30px 0px;
+	padding-right: 10px;
 }

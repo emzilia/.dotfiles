@@ -15,17 +15,16 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 
     set $term alacritty
 
-    set $wallpaper ~/Pictures/Wall/wallport.jpg
+    set $wallpaper ~/Pictures/Wall/aport.jpg
 
-    set $bgcolor #3a5266
-    set $fgcolor #ee9699
+    set $bgcolor #0e1014
+    set $fgcolor #e2d8d6
 
     set $opacity .9
 
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
+# Note: pass the final command to swaymsg so that the resulting window can be# opened on the original workspace that the command was run on.
 
-    set $menu ~/packages/yofi/target/release/yofi | xargs swaymsg exec
+    set $menu yofi | xargs swaymsg exec
 
 ### Output configuration
     output * bg $wallpaper fill
@@ -52,15 +51,16 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 
     exec "gammastep -l 39:-84"
 
+    exec "nm-applet --indicator"
 
 ### Idle configuration
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+ exec swayidle -w \
+          timeout 1800 'swaylock -f -c 000000 -i /usr/share/pixmaps/aport.jpg' \
+          timeout 1000 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000 -i /usr/share/pixmaps/aport.jpg'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -88,13 +88,16 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 #    for_window [title="Alacritty"] floating enable
 
 
-     exec_always libinput-gestures-setup start
+    exec_always libinput-gestures-setup start
 
 #
 # Basics:
 #
     # Start a terminal
     bindsym $mod+Grave exec $term
+
+    # Start a xonsh terminal
+    bindsym $mod+F1 exec $term -e bash -ic 'xonsh'
 
     # Fancy floating terminal
     bindsym $mod+Escape exec $term
@@ -122,20 +125,23 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
     bindsym $mod+Shift+e exec swaynag -t warning -m 'They are trying to fuck our pussies!' -B '*cocks gun* say no more' 'swaymsg exit'
 
     # Screen brightness
-    bindsym $mod+F6 exec 'brightnessctl set 10%-'
-    bindsym $mod+F7 exec 'brightnessctl set 10%+'
+    bindsym $mod+F11 exec 'brightnessctl set 10%-'
+    bindsym $mod+F10 exec 'brightnessctl set 10%+'
     
     # Volume Control
-    bindsym $mod+F8 exec 'amixer set Master toggle'
-    bindsym $mod+F9 exec 'amixer set Master 10%-'
-    bindsym $mod+F10 exec 'amixer set Master 10%+'
+    bindsym $mod+F4 exec 'amixer set Master toggle'
+    bindsym $mod+F5 exec 'amixer set Master 10%-'
+    bindsym $mod+F6 exec 'amixer set Master 10%+'
 
-    bindsym $mod+F3 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send toggle'
-    bindsym $mod+F2 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send next'
-    bindsym $mod+F1 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send prev'
+    #bindsym $mod+F3 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send toggle'
+    #bindsym $mod+F2 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send next'
+    #bindsym $mod+F1 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send prev'
 
     # Run the git fetch/status script
     bindsym $mod+Ctrl+p exec '/bin/bash /home/emm/repos/bashscripts/gitstatus.sh'
+
+    # Run the gitui app
+    bindsym $mod+Ctrl+o exec "alacritty -e bash -ic 'gitui'"
 
 #
 # Moving around:
@@ -162,8 +168,8 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-    bindsym $mod+Ctrl+h workspace prev
-    bindsym $mod+Ctrl+l workspace next
+    bindsym $mod+minus workspace prev
+    bindsym $mod+equal workspace next
 
 
 
@@ -211,7 +217,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 #
 # GAPS !!!
 #   
-#    gaps inner 6
+    gaps inner 2
 
 
 
@@ -231,7 +237,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+F4 fullscreen
+    bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
