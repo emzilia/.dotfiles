@@ -11,12 +11,9 @@ set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
 "set termwinsize=12x0
+set ts=4
 set shiftwidth=4
 set autochdir
-
-set expandtab
-set tabstop=4
-set shiftwidth=4
 
 filetype plugin indent on
 
@@ -24,44 +21,35 @@ filetype plugin indent on
 let mapleader = " "
 
 " Leader key binds
-" control-w modifier with spacebar
+" Remap Ctrl-w to Space+w		control-w modifier with spacebar
 nnoremap <Leader>w <C-w>
-" kill buffer
+" Remap Ctrl-w/Ctrl-q to Space+k	kill buffer
 nnoremap <Leader>k <C-w><C-q>
-" super kill buffer
-nnoremap <Leader>K :q!<CR>
-" close all buffers but focused one
+" Remap :only to Space+o		close all buffers but focused one
 nnoremap <Leader>o :on<CR>
-" :find a file or directory
+" Remap :find to Space+f		:find a file or directory
 nnoremap <Leader>f :find 
-" :Vexplore current dir
+" Remap :Vexplore to Space+F		:Vexplore current dir
 nnoremap <Leader>F :Ve<CR>
-" switch tabs with space+h/space+l
+" Remap gt and gT to Space+h/Space+l	switch tabs with space+h/space+l
 nnoremap <Leader>h gt
 nnoremap <Leader>l gT
-" open :Vexplore on repos dir
+" Remap :Vexplore repos to Space+p	open :Vexplore on repos dir
 nnoremap <Leader>p :Ve $HOME/repos<CR>
-" create new empty tab
+" Remap :tabf to Space+t		create new empty tab
 nnoremap <Leader>t :tabnew<CR>
-" create new terminal buffer in bottom		
+" Remap :botright term to Space+s	create new terminal buffer in bottom		
 nnoremap <Leader>s :botright term ++rows=12 ++cols=0<CR>
-" create new terminal buffer in new tab
-nnoremap <Leader>q :tab term<CR>
-
-" compile rust package in terminal buffer
+" Remap 							compile rust package in terminal buffer
 nnoremap <Leader>c :botright term cargo run<CR>
-" same thing but for python
-nnoremap <Leader>x :botright !python3 %<CR>
-
-" reload vimrc
+" Remap :so ~/.vimrc to Space+r		reload vimrc
 nnoremap <Leader>r :so ~/.vimrc<CR>
-" load vim config for writing
+" Remap :so ~/.writerrc to Space+W	load vim config for writing
 nnoremap <Leader>W :so ~/.writerc<CR>
-" edit .vimrc
-nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
-
-" format file with Prettier
+" Remap for Prettier				format file with Prettier
 nnoremap <Leader>P <Plug>(Prettier)
+" Remap edit .vimrc
+nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
 
 " File exploration menu settings
  let g:netrw_banner = 0        " remove directions at top of file listing
@@ -87,5 +75,4 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 't
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',
 	    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-
 call plug#end()
