@@ -122,7 +122,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'They are trying to fuck our pussies!' -B '*cocks gun* say no more' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'you want to exit your sway session?' -B 'yeah' 'swaymsg exit'
 
     # Screen brightness
     bindsym $mod+F11 exec 'brightnessctl set 10%-'
@@ -207,7 +207,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
     bindsym $mod+Ctrl+F10 input type:touchpad events toggle enabled disabled
 
     # Compose key
-  #  exec swaymsg 'input * xkb_options compose:prsc'
+    #exec swaymsg 'input * xkb_options compose:prsc'
 
     # Mute internal mic 
     bindsym $mod+x exec 'amixer set Capture toggle'
