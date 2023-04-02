@@ -35,12 +35,12 @@ nnoremap <Leader>o :on<CR>
 " :find a file or directory
 nnoremap <Leader>F :find 
 " :Vexplore current dir
-nnoremap <Leader>f :Ve<CR>
+nnoremap <Leader>f :Vex<CR>
 " switch tabs with space+h/space+l
 nnoremap <Leader>h gt
 nnoremap <Leader>l gT
 " open :Vexplore on repos dir
-nnoremap <Leader>p :Ve $HOME/repos<CR>
+nnoremap <Leader>p :Vex $HOME/repos<CR>
 " create new empty tab
 nnoremap <Leader>t :tabnew<CR>
 " create new terminal buffer in bottom		
@@ -62,6 +62,8 @@ nnoremap <Leader>W :so ~/.writerc<CR>
 " edit .vimrc
 nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
 
+" venter toggle
+nnoremap <Leader>v :VenterToggle<CR>
 " format file with Prettier
 nnoremap <Leader>P <Plug>(Prettier)
 
@@ -89,7 +91,11 @@ ca w!! w !sudo tee >/dev/null "%"
 
 let g:prettier#config#trailing_comma = 'all'
 
+let g:venter_width = '18'
+
 call plug#begin()
+
+Plug 'jmckiern/vim-venter'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'python', 'rust',]}
 
