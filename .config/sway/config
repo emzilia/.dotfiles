@@ -4,6 +4,8 @@
 exec systemctl --user import-environment
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
+## Fix gtk theme in wayland
+exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 ### Variables
     # Use Mod1 for Alt.
     set $mod Mod4
