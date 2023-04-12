@@ -46,5 +46,8 @@
 !.config/picom
 !.config/picom/picom.conf
 
+!.config/qtile
+!.config/qtile/config.py
+
 !.tintin
 !.tintin/run.tin

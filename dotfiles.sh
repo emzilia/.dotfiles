@@ -58,3 +58,12 @@ ln -sf "$HOME"/.dotfiles/.config/polybar/config.ini \
 ln -sf "$HOME"/.dotfiles/.config/polybar/launch.sh \
        "$HOME"/.config/polybar/launch.sh
 
+
+mkdir -p "$HOME"/.config/qtile
+mkdir -p "$HOME"/.config/picom
+
+ln -sf "$HOME"/.dotfiles/.config/qtile/qtile.py \
+       "$HOME"/.config/qtile/config.py 
+
+ln -sf "$HOME"/.dotfiles/.config/picom/picom.conf \
+       "$HOME"/.config/picom/picom.conf
