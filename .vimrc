@@ -63,7 +63,7 @@ nnoremap <Leader>W :so ~/.writerc<CR>
 nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
 
 " venter toggle
-nnoremap <Leader>v :VenterToggle<CR>
+nnoremap <Leader>v :VenterToggle<CR>:Pencil<CR>
 " format file with Prettier
 nnoremap <Leader>P <Plug>(Prettier)
 
@@ -93,11 +93,13 @@ ca w!! w !sudo tee >/dev/null "%"
 
 let g:prettier#config#trailing_comma = 'all'
 
-let g:venter_width = '18'
+let g:venter_width = '28'
 
 call plug#begin()
 
 Plug 'jmckiern/vim-venter'
+
+Plug 'preservim/vim-pencil'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'python', 'rust',]}
 
