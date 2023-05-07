@@ -119,6 +119,9 @@
 
 (add-hook 'post-command-hook #'my-god-mode-update-mode-line)
 
+(use-package magit
+  :init)
+
 (use-package modus-themes
   :ensure t
   :config
