@@ -4,6 +4,18 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (global-display-line-numbers-mode)
+(add-hook 'shell-mode-hook #'god-local-mode)
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(global-set-key (kbd "C-;") 'execute-extended-command)
+
+(defun shell-command-on-buffer ()
+  (interactive)
+  (shell-command-on-region
+   (point-min) (point-max)
+   (read-shell-command "Shell command on buffer: ")))
+
+(global-set-key (kbd "M-\"") 'shell-command-on-buffer)
 
 ;; macro for updating lists in place
 (defmacro append-to-list (target suffix)
@@ -100,24 +112,24 @@
 
 (add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
 
-(defun my-god-mode-update-mode-line ()
-  (cond
-   (god-local-mode
-    (set-face-attribute 'mode-line nil
-	      :foreground "#dea5dc"
-	      :background "#0d0421")
-    (set-face-attribute 'mode-line-inactive nil
-			:foreground "#0d0421"
-			:background "#dea5dc"))
-   (t
-    (set-face-attribute 'mode-line nil
-			:foreground "#0a0a0a"
-			:background "#d7d7d7")
-    (set-face-attribute 'mode-line-inactive nil
-			:foreground "#404148"
-			:background "#efefef"))))
-
-(add-hook 'post-command-hook #'my-god-mode-update-mode-line)
+;;(defun my-god-mode-update-mode-line ()
+  ;;(cond
+   ;;(god-local-mode
+    ;;(set-face-attribute 'mode-line nil
+;;	      :foreground "#dea5dc"
+;;	      :background "#0d0421")
+;;  (set-face-attribute 'mode-line-inactive nil
+;;			:foreground "#0d0421"
+;;			:background "#dea5dc"))
+  ;; (t
+    ;;(set-face-attribute 'mode-line nil
+;;			:foreground "#0a0a0a"
+;;			:background "#d7d7d7")
+  ;;  (set-face-attribute 'mode-line-inactive nil
+;;			:foreground "#404148"
+;;			:background "#efefef"))))
+;;
+;;(add-hook 'post-command-hook #'my-god-mode-update-mode-line)
 
 (use-package magit
   :init)
