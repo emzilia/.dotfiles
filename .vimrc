@@ -14,11 +14,14 @@ set laststatus=2
 set shiftwidth=4
 set autochdir
 
-set expandtab
+set noexpandtab
 set tabstop=4
 set shiftwidth=4
 
 filetype plugin indent on
+
+" c coding
+autocmd Filetype c setlocal tabstop=8
 
 " Make space the leader key
 let mapleader = " "
@@ -101,7 +104,7 @@ Plug 'jmckiern/vim-venter'
 
 Plug 'preservim/vim-pencil'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'python', 'rust',]}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'c', 'python', 'rust',]}
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',
