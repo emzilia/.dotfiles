@@ -6,22 +6,28 @@ endif
 
 syntax on
 set number
+set nocindent
 set cursorline
 set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
 "set termwinsize=12x0
-set shiftwidth=4
 set autochdir
 
 set noexpandtab
-set tabstop=4
 set shiftwidth=4
+set tabstop=4
 
 filetype plugin indent on
 
+function Set_cindenting()
+  setlocal tabstop=8
+  setlocal shiftwidth=8
+endfunction
+
 " c coding
-autocmd Filetype c setlocal tabstop=8
+autocmd Filetype c call Set_cindenting()
+autocmd Filetype h call Set_cindenting()
 
 " Make space the leader key
 let mapleader = " "
@@ -104,7 +110,7 @@ Plug 'jmckiern/vim-venter'
 
 Plug 'preservim/vim-pencil'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'c', 'python', 'rust',]}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'c', 'python', 'rust', 'kotlin']}
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',
