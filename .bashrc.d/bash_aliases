@@ -26,31 +26,33 @@ check_git_status() {
 		if [[ $(echo "$git_results" | grep "Your branch is behind") ]]; then
 			git fetch -q &
 			export GITDIRSTAT="M"
-			exit
+			return 0
 		fi
 		if [[ $(echo "$git_results" | grep "Your branch is ahead") ]]; then
 			export GITDIRSTAT="P"
-			exit
+			return 0
   		fi
   		if [[ $(echo "$git_results" | grep "have diverged") ]]; then
 			export GITDIRSTAT="D"
-			exit
+			return 0
   		fi
   		if [[ $(echo "$git_results" | grep "Changes to be comm") ]]; then
 			export GITDIRSTAT="C"
-			exit
+			return 0
   		fi
   		if [[ $(echo "$git_results" | grep "Changes not staged") ]]; then
 			export GITDIRSTAT="U"
-			exit
+			return 0
   		fi
+		export GITDIRSTAT=""
+		return 0
 	else
 		export GITDIRSTAT=""
-		exit
+		return 0
 	fi
 }
 
 cd() {
-    command cd "$@" || return
+	command cd "$@" || return
 	check_git_status
 }
