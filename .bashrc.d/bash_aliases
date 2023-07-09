@@ -21,38 +21,35 @@ alias pm='podman'
 alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c actions.h actions.c display.h display.c gtime.h gtime.c'
 
 check_git_status() {
-	if [ -d .git ]; then
-  		git_results="$(git status)"
-		if [[ $(echo "$git_results" | grep "Your branch is behind") ]]; then
-			git fetch -q &
-			export GITDIRSTAT="M"
-			return 0
-		fi
-		if [[ $(echo "$git_results" | grep "Your branch is ahead") ]]; then
-			export GITDIRSTAT="P"
-			return 0
-  		fi
-  		if [[ $(echo "$git_results" | grep "have diverged") ]]; then
-			export GITDIRSTAT="D"
-			return 0
-  		fi
-  		if [[ $(echo "$git_results" | grep "Changes to be comm") ]]; then
-			export GITDIRSTAT="C"
-			return 0
-  		fi
-  		if [[ $(echo "$git_results" | grep "Changes not staged") ]]; then
-			export GITDIRSTAT="U"
-			return 0
-  		fi
-		export GITDIRSTAT=""
-		return 0
-	else
-		export GITDIRSTAT=""
+  	git_results="$(git status)"
+	if [[ $(echo "$git_results" | grep "Your branch is behind") ]]; then
+		git fetch -q &
+		export GITDIRSTAT="M"
 		return 0
 	fi
+	if [[ $(echo "$git_results" | grep "Your branch is ahead") ]]; then
+		export GITDIRSTAT="P"
+		return 0
+  	fi
+  	if [[ $(echo "$git_results" | grep "have diverged") ]]; then
+		export GITDIRSTAT="D"
+		return 0
+  	fi
+  	if [[ $(echo "$git_results" | grep "Changes to be comm") ]]; then
+		export GITDIRSTAT="C"
+		return 0
+  	fi
+  	if [[ $(echo "$git_results" | grep "Changes not staged") ]]; then
+		export GITDIRSTAT="U"
+		return 0
+  	fi
+	export GITDIRSTAT=""
+	return 0
 }
 
 cd() {
 	command cd "$@" || return
-	check_git_status
+	if [ -d .git ]; then
+		check_git_status
+	fi
 }
