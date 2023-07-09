@@ -22,27 +22,27 @@ alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c action
 check_git_status() {
 	if [ -d .git ]; then
   		git_results="$(git status)"
-	if [[ $(echo "$git_results" | grep "Your branch is behind") ]]; then
-		git fetch -q &
-    	echo 2
-		return
-	fi
-	if [[ $(echo "$git_results" | grep "Your branch is ahead") ]]; then
-    	echo 3
-		return
-  	fi
-  	if [[ $(echo "$git_results" | grep "have diverged") ]]; then
-    	echo 4
-		return
-  	fi
-  	if [[ $(echo "$git_results" | grep "Changes to be comm") ]]; then
-    	echo 5
-		return
-  	fi
-  	if [[ $(echo "$git_results" | grep "Changes not staged") ]]; then
-    	echo 6
-		return
-  	fi
+		if [[ $(echo "$git_results" | grep "Your branch is behind") ]]; then
+			git fetch -q &
+    		echo 2
+			return
+		fi
+		if [[ $(echo "$git_results" | grep "Your branch is ahead") ]]; then
+    		echo 3
+			return
+  		fi
+  		if [[ $(echo "$git_results" | grep "have diverged") ]]; then
+    		echo 4
+			return
+  		fi
+  		if [[ $(echo "$git_results" | grep "Changes to be comm") ]]; then
+    		echo 5
+			return
+  		fi
+  		if [[ $(echo "$git_results" | grep "Changes not staged") ]]; then
+    		echo 6
+			return
+  		fi
 	else
     	echo 0
 	fi
