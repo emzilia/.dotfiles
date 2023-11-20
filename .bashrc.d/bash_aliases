@@ -4,6 +4,8 @@ alias gitall='git add -A'
 alias gitcm='git commit -m'
 alias gitchk='git checkout'
 
+alias reboot='sudo reboot'
+
 alias :q='echo idiot'
 alias :q!='echo idiot'
 alias :wq='echo idiot'
@@ -19,6 +21,9 @@ alias tbr='toolbox run -c'
 alias pm='podman'
 
 alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c actions.h actions.c display.h display.c gtime.h gtime.c'
+
+alias xi="xbps-install" 
+alias xq="xbps-query"
 
 check_git_status() {
   	git_results="$(git status)"

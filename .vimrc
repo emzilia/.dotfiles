@@ -15,8 +15,8 @@ set laststatus=2
 set autochdir
 
 set noexpandtab
-set shiftwidth=4
-set tabstop=4
+"set shiftwidth=4
+"set tabstop=4
 
 filetype plugin indent on
 
@@ -46,8 +46,8 @@ nnoremap <Leader>F :find
 " :Vexplore current dir
 nnoremap <Leader>f :Vex<CR>
 " switch tabs with space+h/space+l
-nnoremap <Leader>h gt
-nnoremap <Leader>l gT
+nnoremap <Leader>l gt
+nnoremap <Leader>h gT
 " open :Vexplore on repos dir
 nnoremap <Leader>p :Vex $HOME/repos<CR>
 " create new empty tab
@@ -65,6 +65,8 @@ nnoremap <Leader>c :botright term cargo run<CR>
 nnoremap <Leader>x :botright term python3 %<CR>
 " same thing but for c
 nnoremap <Leader>m :make -C ../<CR>
+" same thing but for c#
+nnoremap <Leader>d :botright term dotnet build<CR>
 
 " reload vimrc
 nnoremap <Leader>r :so ~/.vimrc<CR>
@@ -112,7 +114,7 @@ Plug 'jmckiern/vim-venter'
 
 Plug 'preservim/vim-pencil'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'c', 'python', 'rust', 'kotlin']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'c', 'cs', 'python', 'rust', 'kotlin']}
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',

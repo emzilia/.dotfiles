@@ -2,8 +2,7 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal 
-import os
-
+import os 
 fgcolor = "#DEA5DC"
 bgcolor = "#0D0421"
 
@@ -11,16 +10,11 @@ homezip: str = os.popen(
     "curl ipinfo.io | grep postal | awk '{print $2}'"
     ).read().strip("\n\",")
 
-
 mod = "mod4"
 mod2 = "mod3"
 
 wallpaper = "~/Pictures/Wall/wallport.jpg" 
 os.system(f'nitrogen --set-auto {wallpaper}' )
-
-os.system('xinput set-prop 11 303 1')
-os.system('xinput set-prop 11 311 1')
-os.system('xinput set-prop 11 321 1')
 
 os.system("setxkbmap -layout us -variant intl")
 
@@ -132,7 +126,7 @@ layouts = [
 widget_defaults = dict(
     font="sans",
     fontsize=12,
-    padding=5,
+    padding=8,
     foreground="#DEA5DC"
 )
 extension_defaults = widget_defaults.copy()
@@ -161,13 +155,14 @@ screens = [
                 widget.Sep(),
                 widget.Memory(format='{MemUsed: .2f}{mm}/{MemTotal: .2f}{mm}', measure_mem='G'),
                 widget.Sep(),
-                widget.OpenWeather(format='{main_temp}°F {weather}', metric=False, zip=f'{homezip}'),
+                #widget.OpenWeather(format='{main_temp}°F {weather}', metric=False, zip=f'{homezip}'),
                 widget.Sep(),
-                widget.Volume(fmt='🕪 {}'),
+                #widget.Volume(fmt="🕪  {}"),
+                widget.Volume(),
                 widget.Sep(),
-                widget.Backlight(change_command='brightnessctl g', format='⛭ {percent:1.0%}', backlight_name='intel_backlight'),
+                widget.Backlight(change_command='brightnessctl g', backlight_name='intel_backlight'),
                 widget.Sep(),
-                widget.Battery(format=' {percent:1.0%}'),
+                widget.Battery(format='  {percent:1.0%}'),
                 widget.Systray(),
                 #widget.Sep(),
             ],

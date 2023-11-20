@@ -1,11 +1,10 @@
 ### Sway config file
 
 ## Fix dbus issue
-exec systemctl --user import-environment
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 ## Fix gtk theme in wayland
 exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
+
 ### Variables
     # Use Mod1 for Alt.
     set $mod Mod4
@@ -15,7 +14,7 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
     set $up k
     set $right l
 
-    set $term alacritty
+    set $term foot
 
     set $wallpaper ~/Pictures/Wall/wallport.jpg
 
@@ -54,6 +53,8 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 
     exec "gammastep -l 39:-84"
 
+	exec "pulseaudio"
+
 
 ### Idle configuration
 #
@@ -90,7 +91,7 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 #    for_window [title="Alacritty"] floating enable
 
 
-    exec_always libinput-gestures-setup start
+#    exec_always libinput-gestures-setup start
 
 #
 # Basics:
@@ -131,6 +132,8 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
     bindsym $mod+F8 exec 'amixer set Master toggle'
     bindsym $mod+F9 exec 'amixer set Master 10%-'
     bindsym $mod+F10 exec 'amixer set Master 10%+'
+
+    bindsym $mod+Shift+F10 exec "wtype -k 'F11'"
 
     bindsym $mod+F3 exec 'waybar-mpris --send toggle'
     bindsym $mod+F2 exec 'waybar-mpris --send next'
