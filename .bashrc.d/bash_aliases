@@ -1,30 +1,36 @@
+# git stuff
 alias gits='git status && check_git_status'
 alias gitp='git push && check_git_status'
 alias gitall='git add -A'
 alias gitcm='git commit -m'
 alias gitchk='git checkout'
 
-alias reboot='sudo reboot'
-
+# vim stuff
 alias :q='echo idiot'
 alias :q!='echo idiot'
 alias :wq='echo idiot'
 
-alias rg='ranger'
-
+# toolbox stuff
 alias tbl='toolbox list'
 alias tbs='toolbox start'
 alias tbst='podman stop'
 alias tbe='toolbox enter'
 alias tbr='toolbox run -c'
-
 alias pm='podman'
 
-alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c actions.h actions.c display.h display.c gtime.h gtime.c'
-
+# void stuff
 alias xi="xbps-install" 
 alias xq="xbps-query"
 
+alias reboot='sudo reboot'
+
+alias rg='ranger'
+
+alias cdr='cd ~/repos'
+
+alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c actions.h actions.c display.h display.c gtime.h gtime.c'
+
+# function for git cd function
 check_git_status() {
   	git_results="$(git status)"
 	if [[ $(echo "$git_results" | grep "Your branch is behind") ]]; then
@@ -52,6 +58,7 @@ check_git_status() {
 	return 0
 }
 
+# show git status in terminal prompt when applicable
 cd() {
 	command cd "$@" || return
 	if [ -d .git ]; then
