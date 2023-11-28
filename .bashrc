@@ -5,7 +5,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 alias ls='ls --color=auto'
-PS1=' \[\033[0;35m\]\h\[\033[00m\] \w $GITDIRSTAT \$ '
+PS1=' \[\033[0;35m\]\u@\h\[\033[00m\] \w $GITDIRSTAT \$ '
 
 
 # User specific environment
