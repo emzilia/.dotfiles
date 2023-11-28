@@ -8,7 +8,7 @@
     // Order Of Modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/mpris"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "bluetooth", "pulseaudio",  "battery",  "backlight", "tray"],
+    "modules-right": ["network", "bluetooth", "pulseaudio", "backlight", "battery", "tray"],
 
     // ---------- Configuring Modules -----------
 
@@ -18,14 +18,14 @@
          "format": "{icon}",
          "format-icons": {
              "urgent": "!!!",
-             "focused": "󰣐",
-             "default": "󱢠"
+             "focused": "",
+             "default": ""
          }
      },
     
     // Bluetooth module
     "bluetooth": {
-	"format": "󰂲",
+	"format": " UP",
 	"format-connected": " {device_alias}",
 	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
 	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
@@ -43,10 +43,10 @@
     // MPD module
      "custom/mpris": {
     	"return-type": "json",
-    	"exec": "/home/emm/go/pkg/mod/git.hrfee.pw/hrfee/waybar-mpris@v0.1.0/waybar-mpris --position --autofocus --order SYMBOL:ARTIST:TITLE:POSITION --play ⠀  --pause ⠀ ",
-    	"on-click": "/home/emm/go/pkg/mod/git.hrfee.pw/hrfee/waybar-mpris@v0.1.0/waybar-mpris --send toggle",
-        "on-click-right": "/home/emm/go/pkg/mod/git.hrfee.pw/hrfee/waybar-mpris@v0.1.0/waybar-mpris --send next",
-	"on-click-middle": "/home/emm/go/pkg/mod/git.hrfee.pw/hrfee/waybar-mpris@v0.1.0/waybar-mpris --send prev",
+    	"exec": "waybar-mpris --position --autofocus --order SYMBOL:ARTIST:TITLE:POSITION --play ⠀  --pause ⠀ ",
+    	"on-click": "waybar-mpris --send toggle",
+        "on-click-right": "waybar-mpris --send next",
+	"on-click-middle": "waybar-mpris --send prev",
     	// The options below will switch the selected player on scroll
         // "on-scroll-up": "waybar-mpris --send player-next",
         // "on-scroll-down": "waybar-mpris --send player-prev",
@@ -59,14 +59,14 @@
     // Volume module
      "pulseaudio": {
         "format": "{format_source} {volume}%",
-        "format-source": " ",
-        "format-source-muted": " ⚑",
+        "format-source": " ",
+        "format-source-muted": "",
         "format-bluetooth": "BT {format_source} {volume}%",
         "format-bluetooth-muted": "BTMuted {volume}%",
-        "format-muted": "🕨 0%",
+        "format-muted": " 0%",
         "format-icons": {
-            "headphone": "☊",
-            "speaker": "🕪",
+            "headphone": "",
+            "speaker": "",
             "headset": "Headset",
         },
         "on-click": "pamixer -t",
@@ -76,7 +76,7 @@
     // Brightness module
     "backlight": {
         "format": "{icon} {percent}%",
-        "format-icons": ["⛭", "⛭", "⛭"],
+        "format-icons": ["", "", ""],
         "on-click": "eww open sidebar",
         "on-click-right": "eww close sidebar",
 
@@ -89,20 +89,20 @@
             "warning": 45,
             "critical": 25
         },
-        "format": "{icon}   {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
     
     // Network module
    "network": {
     // "interface": "wlp*", 
-    "format-wifi": "󰖩  {essid}",
+    "format-wifi": "  {essid}",
     "format-ethernet": "🖧{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "󰤮 Disconnected",
+    "format-disconnected": " Disconnected",
     },
 
     // Date module
