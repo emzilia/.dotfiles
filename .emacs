@@ -1,163 +1,84 @@
-(require 'package)
-
-(tool-bar-mode -1)
+;; General
 (menu-bar-mode -1)
-(scroll-bar-mode -1)
+(tool-bar-mode -1)
 (global-display-line-numbers-mode)
-(add-hook 'shell-mode-hook #'god-local-mode)
+(fido-vertical-mode)
+(savehist-mode)
+(setq vc-follow-symlinks t)
+(setq inhibit-startup-screen t)
+(setq c-basic-offset 8)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(global-set-key (kbd "C-;") 'execute-extended-command)
-
-(defun shell-command-on-buffer ()
-  (interactive)
-  (shell-command-on-region
-   (point-min) (point-max)
-   (read-shell-command "Shell command on buffer: ")))
-
-(global-set-key (kbd "M-\"") 'shell-command-on-buffer)
-
-;; macro for updating lists in place
-(defmacro append-to-list (target suffix)
-  "Append SUFFIX to TARGET in place."
-  `(setq ,target (append ,target ,suffix)))
-
-;; set up emacs package archives
-(append-to-list package-archives
-		'(("melpa" . "http://melpa.org/packages/")
-		  ("melpa-stable" . "http://stable.melpa.org/packages/")
-		  ("org-elpa" . "https://orgmode.org/elpa/")))
-
+;; Add melpa package archive
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
+;; Package maintance/installation
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
 (require 'use-package)
 (setq
- use-package-always-ensure t
- use-package-verbose t)
+  use-package-always-ensure t
+  use-package-verbose t)
 
+;; Run a shell command on buffer contents
+(defun shell-command-on-buffer ()
+  (interactive)
+  (shell-command-on-region
+	(point-min) (point-max)
+	(read-shell-command "Shell command on buffer: ")))
+(global-set-key (kbd "M-\"") 'shell-command-on-buffer)
+
+;; Package: Add path to emacs shell
 (use-package exec-path-from-shell
-	     :config
-	     (exec-path-from-shell-initialize))
+			 :config
+			 (exec-path-from-shell-initialize))
 
-(use-package ivy
-  :init
-  (ivy-mode 1)
-  (setq ivy-height 10
-	ivy-use-virtual-buffers t
-	ivy-use-selectable-prompt -1))
+;; Package: Ivy
+;;(use-package ivy
+;;			 :init
+;;			 (ivy-mode 1)
+;;			 (setq
+;;			   ivy-height 10
+;;			   ivy-use-virtual-buffers t
+;;			   ivy-use-selectable-prompt -1))
 
-(use-package counsel
-  :after ivy
-  :init
-  (counsel-mode 1)
-  :bind (:map ivy-minibuffer-map))
+;; Package: Gotta have counsel too
+;;(use-package counsel
+;;			 :after ivy
+;;			 :init
+;;			 (counsel-mode 1)
+;;			 :bind (:map ivy-minibuffer-map))
 
-(use-package projectile
-  :init
-  (projectile-mode t)
-  :config
-  (setq projectile-enable-caching t
-	projectile-completion-system 'ivy))
-
-(global-set-key (kbd "C-S-P") #'projectile-switch-project)
-(global-set-key (kbd "C-S-A") #'projectile-add-known-project)
-(global-set-key (kbd "C-S-S") #'projectile-find-file)
-
+;; Package: company-mode
 (use-package company
-  :bind (("C-." . company-complete))
-  :custom
-  (company-idle-delay 0)
-  (company-dabbrev-downcase nil)
-  (company-show-numbers t)
-  (company-tooltip-limit 9)
-  :config
-  (global-company-mode)
+			 :bind (("C-." . company-complete))
+			 :custom
+			 (company-idle-delay 0)
+			 (company-dabbrev-downcase nil)
+			 (company-show-numbers t)
+			 (company-tooltip-limit 9)
+			 :config
+			 (global-company-mode))
+(global-set-key (kbd "C-c C-c") #'company-other-backend)
 
-  (let ((map company-active-map))
-    (mapc (lambda (x) (define-key map (format "%d" x)
-			`(lambda () (interactive) (company-complete-number ,x))))
-	  (number-sequence 0 9))))
-
+;; Package: Flycheck
 (use-package flycheck
-  :config
-  (add-hook 'prog-mode-hook 'flycheck-mode)
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-
-(use-package lsp-mode
-  :commands lsp
-  :config
-  (setq lsp-prefer-flymake nil
-	lsp-headerline-breadcrumb-mode nil))
-
-(use-package lsp-pyright
-  :ensure t
-  :hook (python-mode . (lambda ()
-			 (require 'lsp-pyright)
-			 (lsp))))
-
-(use-package god-mode
-  :init
-  (god-mode)
-  (setq god-exempt-major-modes nil
-	god-exempt-predicates nil))
-
-(global-set-key (kbd "M-[") #'god-local-mode)
-
-(defun my-god-mode-update-cursor-type ()
-  (setq cursor-type (if (or god-local-mode buffer-read-only) 'box 'bar)))
-
-(add-hook 'post-command-hook #'my-god-mode-update-cursor-type)
-
-;;(defun my-god-mode-update-mode-line ()
-  ;;(cond
-   ;;(god-local-mode
-    ;;(set-face-attribute 'mode-line nil
-;;	      :foreground "#dea5dc"
-;;	      :background "#0d0421")
-;;  (set-face-attribute 'mode-line-inactive nil
-;;			:foreground "#0d0421"
-;;			:background "#dea5dc"))
-  ;; (t
-    ;;(set-face-attribute 'mode-line nil
-;;			:foreground "#0a0a0a"
-;;			:background "#d7d7d7")
-  ;;  (set-face-attribute 'mode-line-inactive nil
-;;			:foreground "#404148"
-;;			:background "#efefef"))))
-;;
-;;(add-hook 'post-command-hook #'my-god-mode-update-mode-line)
-
-(use-package magit
-  :init)
-
-(use-package modus-themes
-  :ensure t
-  :config
-  (load-theme 'modus-vivendi-tinted t)
-  (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
- 
-
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file 'noerror)
-
-(global-set-key (kbd "C-S-t") 'tool-bar-mode)
+			 :config
+			 (add-hook 'prog-mode-hook 'flycheck-mode)
+			 (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (custom-set-variables
- ;; custom-set-variables was added by custom.
- ;; if you edit it by hand, you could mess it up, so be careful.
- ;; your init file should contain only one such instance.
- ;; if there is more than one, they won't work right.
- '(custom-safe-themes
-   '("02f57ef0a20b7f61adce51445b68b2a7e832648ce2e7efb19d217b6454c1b644" default))
- '(package-selected-packages '(doom-themes exec-path-from-shell use-package)))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(flycheck exec-path-from-shell)))
 (custom-set-faces
- ;; custom-set-faces was added by custom.
- ;; if you edit it by hand, you could mess it up, so be careful.
- ;; your init file should contain only one such instance.
- ;; if there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
-(put 'downcase-region 'disabled nil)
