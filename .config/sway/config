@@ -16,6 +16,8 @@
 
     set $term foot
 
+	set $fm thunar
+
     set $wallpaper ~/Pictures/Wall/wallport.jpg
 
     set $bgcolor #0d0421
@@ -23,7 +25,8 @@
 
     set $opacity .9
 
-# Note: pass the final command to swaymsg so that the resulting window can be opened
+	bindsym $mod+c exec pkill -SIGUSR1 '^waybar$'
+ 
 # on the original workspace that the command was run on.
 
     set $menu yofi | xargs swaymsg exec
@@ -109,6 +112,9 @@
     # Start your launcher
     bindsym $mod+space exec $menu
 
+	# File manager
+	bindsym $mod+e exec $fm
+
     # Lock screen
     bindsym $mod+Ctrl+F1 exec swaylock -i $wallpaper
 
@@ -135,6 +141,8 @@
     bindsym $mod+F10 exec 'amixer set Master 10%+'
 
     bindsym $mod+Shift+F10 exec "wtype -k 'F11'"
+
+    bindsym $mod+Shift+F3 exec '/bin/sh ~/repos/bashscripts/change_conn_profile.sh'
 
     bindsym $mod+F3 exec 'waybar-mpris --send toggle'
     bindsym $mod+F2 exec 'waybar-mpris --send next'
@@ -235,7 +243,7 @@
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+d layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+F4 fullscreen
