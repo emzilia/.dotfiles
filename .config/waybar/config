@@ -1,5 +1,5 @@
  {  
-     // "layer":  "top", 
+    "layer":  "overlay", 
     "height": 0, 
     "margin-top": 2,
 	"margin-right": 2,
@@ -25,7 +25,7 @@
     
     // Bluetooth module
     "bluetooth": {
-	"format": " UP",
+	"format": " Up",
 	"format-connected": " {device_alias}",
 	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
 	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
