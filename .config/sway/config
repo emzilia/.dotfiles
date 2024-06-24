@@ -1,48 +1,53 @@
 ### Sway config file
 
 ## Fix dbus issue
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 ## Fix gtk theme in wayland
 #exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 
 ### Variables
     # Use Mod1 for Alt.
-    set $mod Mod4
+exec autotiling
 
-    set $left h
-    set $down j
-    set $up k
-    set $right l
+set $mod Mod4
 
-    set $term foot
+set $left h
+set $down j
+set $up k
+set $right l
 
-	set $fm thunar
+set $term alacritty
 
-    set $wallpaper ~/Pictures/Wall/wallport.jpg
+set $fm thunar
 
-    set $bgcolor #0d0421
-    set $fgcolor #dea5dc
+set $wallpaper ~/Pictures/Wall/witch.*
 
-    set $opacity .9
+set $bgcolor #020202
+set $fgcolor #E6E6E7
 
-	bindsym $mod+c exec pkill -SIGUSR1 '^waybar$'
- 
+set $opacity 0.85
+
+bindsym $mod+c exec pkill -SIGUSR1 '^waybar$'
+
 # on the original workspace that the command was run on.
 
-    set $menu yofi | xargs swaymsg exec
+set $menu yofi | xargs swaymsg exec
 
 ### Output configuration
-    output * bg $wallpaper fill
+output * bg $wallpaper fill
 
     # Window transparency
     for_window [class=".*"] opacity $opacity
     for_window [app_id=".*"] opacity $opacity
 
-    bindsym $mod+Shift+o set $opacity 1
-    bindsym $mod+Shift+p set $opacity .9
+    #bindsym $mod+] swaymsg opacity 1
+    #bindsym $mod+[ swaymsg .9
 
     # Application transparency (depr)
-    for_window [class="vlc"] opacity 1
+	for_window [class="Chromium-browser"] opacity 0.96
+    for_window [app_id="firefox"] opacity 0.91
+    for_window [app_id="Alacritty"] opacity 1
     for_window [app_id="pavucontrol"] floating enable
 
 
@@ -50,7 +55,7 @@
 
     client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
     client.unfocused		$bgcolor $bgcolor $bgcolor $bgcolor
-    client.focused		$fgcolor $fgcolor $fgcolor $fgcolor
+    client.focused			$fgcolor $fgcolor $fgcolor $fgcolor
 
     # Hide cursor immediately after it stops moving
     seat seat0 hide_cursor 1500 
@@ -144,6 +149,8 @@
 
     bindsym $mod+Shift+F3 exec '/bin/sh ~/repos/bashscripts/change_conn_profile.sh'
 
+	bindsym $mod+Shift+o exec '/bin/sh ~/repos/bashscripts/gitstatus.sh'
+
     bindsym $mod+F3 exec 'waybar-mpris --send toggle'
     bindsym $mod+F2 exec 'waybar-mpris --send next'
     bindsym $mod+F1 exec 'waybar-mpris --send prev'
@@ -235,7 +242,7 @@
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
-    # $mod+v or $mod+b, for vertial and borizontal splits
+    # $mod+v or $mod+b, for vertical and borizontal splits
     # respectively.
     bindsym $mod+b splith
     bindsym $mod+v splitv
