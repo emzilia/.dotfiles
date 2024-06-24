@@ -7,7 +7,7 @@ endif
 syntax on
 set number
 set nocindent
-set cursorline
+"set cursorline
 set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
