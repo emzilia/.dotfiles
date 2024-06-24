@@ -1,5 +1,5 @@
  {  
-    "layer":  "overlay", 
+    "layer":  "top", 
     "height": 0, 
     "margin-top": 2,
 	"margin-right": 2,
@@ -108,8 +108,9 @@
     // Date module
     "clock": {
     // find a better way to define a calendar without this mess
+		"interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "   {:%I:%M %p   |      %A  %m/%d}",
+        "format": "   {:%H:%M:%S   |      %A  %x}",
     },
 
     // Tray module
