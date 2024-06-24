@@ -19,6 +19,9 @@ ln -sf "${HOME}"/.dotfiles/.vimrc \
 ln -sf "${HOME}"/.dotfiles/.writerc \
        "${HOME}"/.writerc
 
+ln -sf "${HOME}"/.dotfiles/.config/dunst/dunstrc \
+       "${HOME}"/.config/dunst/dunstrc
+
 # Wayland - Sway
 
 mkdir -p "${HOME}"/.config/sway
