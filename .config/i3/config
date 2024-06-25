@@ -1,133 +1,115 @@
+###########
+##i##333###
+########3##
+##i##333###
+##i#####3##
+##i##333###
+###########
+
+#
+### Variables
 #
 
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
+set $terminal konsole
+
+set $fm pcmanfm
+
+set $runner "rofi -show drun"
+
+set $fgcolor #FFFFFF
+set $bgcolor #13100F
+
+set $wallpaper1 ~/Pictures/Wallpapers/oneday1.*
+set $wallpaper2 ~/Pictures/Wallpapers/oneday2.*
+
+set $monitor1 DP-0
+set $monitor2 DVI-D-0
+
+
+
+#
+### System
+#
+
+# Font
 font pango:Fantasque Sans Mono 12
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-#font pango:DejaVu Sans Mono 8
-
-
 # Keyboard layout
-
 exec --no-startup-id "setxkbmap -layout us -variant intl"
-
 exec --no-startup-id "numlockx on"
 
-
 # Wallpaper
+exec_always --no-startup-id nitrogen --set-scale $wallpaper1 --head=0 && nitrogen --set-scale $wallpaper2 --head=1
 
-exec --no-startup-id nitrogen --set-auto /home/cagnaccia/Pictures/Wallpapers/wallhaven-39gogv.jpg --head=0 && nitrogen --set-auto /home/cagnaccia/Pictures/Wallpapers/wall11111.jpg --head=1
+# Monitors
+exec --no-startup-id "xrandr --output $monitor1 --auto --primary --output $monitor2 --auto --right-of $monitor1"
 
-
-# Ensure monitors are placed correctly
-
-exec --no-startup-id "xrandr --output DP-0 --auto --primary --output DVI-D-0 --auto --right-of DP-0"
-
+# Bluelight filter
 exec --no-startup-id "redshift -l 39:-84 -t 4500:4500"
 
-#exec --no-startup-id "xmodmap .Xmodmap"
+# Notifications
+exec --no-startup-id "dunst;killall dunst;notify-send Welcome"
 
-# Signal messaging
+# Autotiling
+exec_always --no-startup-id autotiling
 
-assign [class="Signal"] $ws3
+# Messenger
 exec --no-startup-id "signal-desktop --use-tray-icon"
 
 
-# notifcations
 
-exec --no-startup-id "dunst;killall dunst;notify-send Welcome"
+#
+### Display
+#
 
-
-
-
-
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-
-
-
-
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
-
-
-
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-
-
-
-
-# Windows
-new_window pixel 1
-
-for_window [class="^.*"] border pixel 1
-
+# Gaps
 gaps inner 6
-
 gaps top 20
 
+# Polybar
+exec_always --no-startup-id /home/cagnaccia/.config/polybar/launch.sh
+
+# Compositor
 exec --no-startup-id picom -b
 
-
+# Application specific settings
 for_window [class="Pavucontrol"] floating enable
-
 for_window [class="adventure (debug)"] floating enable
-
 for_window [class="kcalc"] floating enable
 
+assign [class="Signal"] $ws3
+
+#for_window [class="steam"] floating enable
+
+# Window borders
+for_window [class="^.*"] border pixel 1
+
+client.focused_inactive $fgcolor $fgcolor $fgcolor $fgcolor $fgcolor 
+client.unfocused        $bgcolor $bgcolor $bgcolor $bgcolor $bgcolor
+client.focused          $fgcolor $fgcolor $fgcolor $fgcolor $fgcolor 
 
 
-# Border color
-client.focused_inactive #fc94f3 #212121 #d9d9d9 #0d1010 #0e0e10 
 
-client.unfocused        #0e0e1B #0e0e1B #0e0e1b #0e0e1b #0e0e10 
-
-client.focused          #fc94f3 #fc94f3 #fc94f3 #fc94f3 #fc94f3 
-
-
-
-
-# Shortcuts
+#
+### System Keybindings
+#
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Escape exec alacritty
+bindsym $mod+Escape exec $terminal
 
 # kill focused window
 bindsym $mod+q kill
 
-# dmenu
-bindsym $mod+space exec "~/repos/shellscripts/dmenu.sh"
+# runner
+bindsym $mod+space exec $runner
 
 # file manager
-
-bindsym $mod+e exec "pcmanfm"
-
-# rofi
-#bindsym $mod+space exec "rofi -modi drun,run -show drun"
+bindsym $mod+e exec $fm
 
 # open volume mixer
 bindsym XF86AudioStop exec "pavucontrol"
@@ -182,20 +164,28 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# reload dunst notification daemon
+bindsym $mod+Shift+d exec "killall dunst;notify-send Reloading"
+
 # auto-clicker
 bindsym $mod+Return exec "bash -c 'killall xdotool || while xdotool click --repeat 1 --delay 50 1; do :; done'"
 
 bindsym $mod+Shift+Return exec "killall xdotool"
 
+# pause star wars empire at war (when its playing on my side monitor)
 bindsym $mod+F1 exec "xdotool mousemove 1930 780 sleep 0.25 click 1 mousemove restore"
-
-bindsym $mod+z exec "xdotool click 1"
 
 # run gitstatus script
 bindsym $mod+Ctrl+p exec "gitstat"
-
-# run gitgui script
-bindsym $mod+Ctrl+o exec "alacritty -e bash -ic 'gitui'"
 
 # reset bar
 bindsym $mod+Shift+b exec "bash -c /home/cagnaccia/.config/polybar/launch.sh"
@@ -203,7 +193,19 @@ bindsym $mod+Shift+b exec "bash -c /home/cagnaccia/.config/polybar/launch.sh"
 # screenshot
 bindsym $mod+Shift+s exec "flameshot gui"
 
-# Define names for default workspaces for which we configure key bindings later on.
+# adjust audio with pactl
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+
+
+#
+### Workspaces
+#
+
+# Names
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -225,7 +227,29 @@ set $ws18 "18"
 set $ws19 "19"
 set $ws20 "20"
 
-# switch to workspace
+# Monitors
+workspace $ws1 output $monitor2
+workspace $ws2 output $monitor2
+workspace $ws3 output $monitor2
+workspace $ws4 output $monitor2
+workspace $ws5 output $monitor2
+workspace $ws6 output $monitor2
+workspace $ws7 output $monitor2
+workspace $ws8 output $monitor2
+workspace $ws9 output $monitor2
+workspace $ws10 output $monitor2
+workspace $ws11 output $monitor1
+workspace $ws12 output $monitor1
+workspace $ws13 output $monitor1
+workspace $ws14 output $monitor1
+workspace $ws15 output $monitor1
+workspace $ws16 output $monitor1
+workspace $ws17 output $monitor1
+workspace $ws18 output $monitor1
+workspace $ws19 output $monitor1
+workspace $ws20 output $monitor1
+
+# Keybinds
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -236,7 +260,6 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-
 bindsym $mod+Shift+1 workspace number $ws11
 bindsym $mod+Shift+2 workspace number $ws12
 bindsym $mod+Shift+3 workspace number $ws13
@@ -248,31 +271,7 @@ bindsym $mod+Shift+8 workspace number $ws18
 bindsym $mod+Shift+9 workspace number $ws19
 bindsym $mod+Shift+0 workspace number $ws20
 
-# Set workspaces to monitors
-workspace $ws1 output DVI-D-0
-workspace $ws2 output DVI-D-0
-workspace $ws3 output DVI-D-0
-workspace $ws4 output DVI-D-0
-workspace $ws5 output DVI-D-0
-workspace $ws6 output DVI-D-0
-workspace $ws7 output DVI-D-0
-workspace $ws8 output DVI-D-0
-workspace $ws9 output DVI-D-0
-workspace $ws10 output DVI-D-0
-
-workspace $ws11 output DP-0
-workspace $ws12 output DP-0
-workspace $ws13 output DP-0
-workspace $ws14 output DP-0
-workspace $ws15 output DP-0
-workspace $ws16 output DP-0
-workspace $ws17 output DP-0
-workspace $ws18 output DP-0
-workspace $ws19 output DP-0
-workspace $ws20 output DP-0
-
-
-# move focused container to workspace
+# Move to binds
 bindsym $mod+Control+1 move container to workspace number $ws1
 bindsym $mod+Control+2 move container to workspace number $ws2
 bindsym $mod+Control+3 move container to workspace number $ws3
@@ -283,7 +282,6 @@ bindsym $mod+Control+7 move container to workspace number $ws7
 bindsym $mod+Control+8 move container to workspace number $ws8
 bindsym $mod+Control+9 move container to workspace number $ws9
 bindsym $mod+Control+0 move container to workspace number $ws10
-
 bindsym mod1+Control+1 move container to workspace number $ws11
 bindsym mod1+Control+2 move container to workspace number $ws12
 bindsym mod1+Control+3 move container to workspace number $ws13
@@ -295,55 +293,34 @@ bindsym mod1+Control+8 move container to workspace number $ws18
 bindsym mod1+Control+9 move container to workspace number $ws19
 bindsym mod1+Control+0 move container to workspace number $ws20
 
-# move workspace to other monitor
-#bindsym $mod+o move workspace to output right
-#bindsym $mod+p move workspace to output left
 
 
 
+#
+### Modes
+#
 
-
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-# reload dunst notification daemon
-bindsym $mod+Shift+d exec "killall dunst;notify-send Reloading"
-
-
-
-
-
-# resize window (you can also use the mouse for that)
+# Resize window
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    bindsym l resize shrink width 1 px or 1 ppt
+    bindsym k resize grow height 1 px or 1 ppt
+    bindsym j resize shrink height 1 px or 1 ppt
+    bindsym h resize grow width 1 px or 1 ppt
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym l resize shrink width 1 px or 1 ppt
-        bindsym k resize grow height 1 px or 1 ppt
-        bindsym j resize shrink height 1 px or 1 ppt
-        bindsym h resize grow width 1 px or 1 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 1 px or 1 ppt
+    bindsym Down resize grow height 1 px or 1 ppt
+    bindsym Up resize shrink height 1 px or 1 ppt bindsym Right resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 1 px or 1 ppt
-        bindsym Down resize grow height 1 px or 1 ppt
-        bindsym Up resize shrink height 1 px or 1 ppt bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-# move floating windows with keys
+# Move floating window
 bindsym $mod+m mode "move" focus floating
 mode "move" {
     bindsym $mod+Tab focus right
@@ -365,8 +342,3 @@ mode "move" {
 
 bindsym $mod+n mode "move"
 
-
-
-
-# Polybar shit
-exec_always --no-startup-id /home/cagnaccia/.config/polybar/launch.sh
