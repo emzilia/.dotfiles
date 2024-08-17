@@ -26,9 +26,23 @@ function Set_cindenting()
   setlocal shiftwidth=8
 endfunction
 
+function Set_shindenting()
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+  setlocal expandtab
+endfunction
+
+function Convert_pdf()
+  setlocal nnoremap <Leader>P :! pandoc --pdf-engine=xelatex %.md -o %.pdf && zathura %.pdf<CR>
+endfunction
+
+autocmd Filetype md call Convert_pdf()
+
+
 " c coding
 autocmd Filetype c call Set_cindenting()
 autocmd Filetype h call Set_cindenting()
+autocmd Filetype sh call Set_shindenting()
 
 " Make space the leader key
 let mapleader = " "
@@ -72,6 +86,8 @@ nnoremap <Leader>x :botright term python3 %<CR>
 nnoremap <Leader>m :make -C ../<CR>
 " same thing but for c#
 nnoremap <Leader>d :botright term dotnet build<CR>
+" same thing but for golang
+nnoremap <Leader>g :!go run %<CR>
 
 " reload vimrc
 nnoremap <Leader>r :so ~/.vimrc<CR>
@@ -83,7 +99,7 @@ nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
 " venter toggle
 nnoremap <Leader>v :VenterToggle<CR>:Pencil<CR>
 " format file with Prettier
-nnoremap <Leader>P <Plug>(Prettier)
+"nnoremap <Leader>P <Plug>(Prettier)
 
 nnoremap <F3> "=strftime('%Y-%m-%d')<CR>P
 
@@ -119,11 +135,16 @@ Plug 'jmckiern/vim-venter'
 
 Plug 'preservim/vim-pencil'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'c', 'cs', 'python', 'rust', 'kotlin']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'go', 'c', 'cs', 'python', 'rust', 'kotlin']}
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',
 	    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
+Plug 'rafi/awesome-vim-colorschemes'
+
 call plug#end()
 
+set termguicolors
+set background=dark
+colorscheme purify
