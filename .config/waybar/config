@@ -19,7 +19,8 @@
          "format-icons": {
              "urgent": "!!!",
              "focused": "",
-             "default": ""
+             "default": "",
+             "11": "VPN"
          }
      },
     
