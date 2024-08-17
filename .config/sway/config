@@ -17,7 +17,7 @@ set $term alacritty
 
 set $fm thunar
 
-set $wallpaper ~/Pictures/Wall/witch.*
+set $wallpaper ~/pictures/Wall/witch.*
 
 set $bgcolor #020202
 set $fgcolor #E6E6E7
@@ -39,8 +39,8 @@ set $menu yofi | xargs swaymsg exec
 ### Output configuration
 output * bg $wallpaper fill
 
-	# Window gaps
-	gaps inner 2
+    # Window gaps
+    gaps inner 2
 
     # Window transparency
     for_window [class=".*"] opacity $opacity
@@ -50,26 +50,27 @@ output * bg $wallpaper fill
     #bindsym $mod+[ swaymsg .9
 
     # Application transparency
-	for_window [class="Chromium-browser"] opacity 0.96
+    for_window [class="Chromium-browser"] opacity 0.96
     for_window [app_id="firefox"] opacity 0.91
+    for_window [app_id="librewolf"] opacity 0.91
     for_window [app_id="Alacritty"] opacity 1
     for_window [app_id="pavucontrol"] floating enable
 
-	# Application specific settings
-	#for_window [title="Alacritty"] floating enable
+    # Application specific settings
+    #for_window [title="Alacritty"] floating enable
 
-	# Window border size
+    # Window border size
     default_border pixel 1
 
-	# Window border color
-	client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
+    # Window border color
+    client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
     client.unfocused		$bgcolor $bgcolor $bgcolor $bgcolor
     client.focused			$fgcolor $fgcolor $fgcolor $fgcolor
 
     # Hide cursor immediately after it stops moving
     seat seat0 hide_cursor 1500 
 
-	# Adjust screen bluelight
+    # Adjust screen bluelight
     exec "gammastep -l 39:-84"
 
 
@@ -119,14 +120,14 @@ output * bg $wallpaper fill
     # Start your launcher
     bindsym $mod+space exec $menu
 
-	# File manager
-	bindsym $mod+e exec $fm
+    # File manager
+    bindsym $mod+e exec $fm
 
     # Lock screen
     bindsym $mod+Ctrl+F1 exec swaylock -i $wallpaper
 
-	# Hide waybar
-	bindsym $mod+c exec pkill -SIGUSR1 '^waybar$'
+    # Hide waybar
+    bindsym $mod+c exec pkill -SIGUSR1 '^waybar$'
 
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
@@ -147,23 +148,22 @@ output * bg $wallpaper fill
     bindsym $mod+F9 exec 'amixer set Master 10%-'
     bindsym $mod+F10 exec 'amixer set Master 10%+'
 
-	# Bind to send F11 key with Mod+Shift+F10
-    bindsym $mod+Shift+F10 exec "wtype -k 'F11'"
+    # Bind to send F11 key with Mod+Shift+F10
+    bindsym $mod+Shift+F10 exec "wtype -k 'F12'"
 
-	# Change connection profile
-    bindsym $mod+Shift+F3 exec '/bin/sh ~/repos/bashscripts/change_conn_profile.sh'
+    # Change connection profile
+    bindsym $mod+Shift+F3 exec '/bin/sh ~/repos/shellscripts/change_conn_profile.sh'
 
-	# Run gitstatus script
-	bindsym $mod+Shift+o exec '/bin/sh ~/repos/bashscripts/gitstatus.sh'
+    # Run gitstatus script
+    bindsym $mod+Shift+o exec '/bin/sh ~/repos/shellscripts/gitstatus.sh'
 
-	# Toggle media with waybar mpris
+    # Toggle media with waybar mpris
     bindsym $mod+F3 exec 'waybar-mpris --send toggle'
     bindsym $mod+F2 exec 'waybar-mpris --send next'
     bindsym $mod+F1 exec 'waybar-mpris --send prev'
 
-	# Change window opacity
-    #bindsym $mod+] swaymsg opacity 1
-    #bindsym $mod+[ swaymsg .9
+    # Change window opacity
+    bindsym $mod+d exec '~/repos/shellscripts/sway_opacity.sh'
 
     # Disable touchpad
     bindsym $mod+Ctrl+F10 input type:touchpad events toggle enabled disabled
@@ -241,13 +241,13 @@ output * bg $wallpaper fill
     # You can "split" the current object of your focus with
     # $mod+v or $mod+b, for vertical and borizontal splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+Shift+v splitv
+    bindsym $mod+Shift+b splith
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+d layout toggle split
+    #bindsym $mod+s layout stacking
+    #bindsym $mod+w layout tabbed
+    #bindsym $mod+d layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+F4 fullscreen
