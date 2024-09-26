@@ -30,7 +30,8 @@ alias reboot='sudo reboot'
 
 alias rg='ranger'
 
-alias cdr='cd ~/repos'
+#alias cdr='cd ~/repos'
+alias cdc='cd ~/.config'
 
 alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c actions.h actions.c display.h display.c gtime.h gtime.c'
 
@@ -39,6 +40,16 @@ docmd () {
 }
 mddoc () {
     pandoc -f markdown -t docx "$1" -o "$1".docx
+}
+
+cdr () {
+	if [ "$#" -eq 0 ]; then
+		cd "$HOME"/repos
+		return 0
+	else
+		cd "$HOME"/repos/"$1"
+		return 0
+	fi
 }
 
 gitpeek() {
