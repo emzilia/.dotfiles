@@ -6,7 +6,6 @@
 ###......##.....##.##.####.#####
 ################################
 
-
 ### Variables
 #
     # Use Mod1 for Alt.
@@ -68,8 +67,13 @@
     for_window [app_id="pavucontrol"] floating enable
     for_window [app_id="blueman-manager"] floating enable
 
+	for_window [app_id="org.kde.kcalc"] floating enable
+
 	assign [class="Signal"] workspace number 13
 	exec signal-desktop
+
+	assign [class="Mullvad VPN"] workspace number 20
+	exec "/opt/Mullvad VPN/mullvad-gui"
 
 	# Window borders
     default_border pixel 1
@@ -83,6 +87,8 @@
 	# Bluelight filter
     exec "gammastep -l 39:-84"
 
+	# Notifications
+	exec "killall dunst; dunst -conf ~/.config/dunst/dunstrc"
 
 #
 ### Idle configuration
@@ -149,11 +155,13 @@
 	bindsym $mod+d exec '~/repos/shellscripts/sway_opacity.sh'
 
     # Run the git fetch/status script
-    bindsym $mod+Ctrl+p exec '/bin/bash /home/emm/repos/bashscripts/gitstatus.sh'
+    bindsym $mod+Shift+o exec '/home/em/repos/shellscripts/gitstatus.sh'
 
     # Mute mic 
-    bindsym $mod+x exec 'amixer set Capture toggle'
+    bindsym $mod+x exec '/home/em/repos/shellscripts/toggle_mute.sh'
 
+	# Screenshots
+	bindsym $mod+Shift+s exec "flameshot gui"
 
 #
 ## Workspace manipulation hotkeys
