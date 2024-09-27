@@ -24,6 +24,7 @@ ln -sf "$HOME"/.dotfiles/.writerc \
 mkdir -p "$HOME"/.config/sway
 mkdir -p "$HOME"/.config/waybar
 mkdir -p "$HOME"/.config/yofi
+mkdir -p "$HOME"/.config/dunst
 
 ln -sf "$HOME"/.dotfiles/.config/sway/config \
        "$HOME"/.config/sway/config
@@ -36,6 +37,9 @@ ln -sf "$HOME"/.dotfiles/.config/waybar/config \
 
 ln -sf "$HOME"/.dotfiles/.config/waybar/style.css \
        "$HOME"/.config/waybar/style.css
+
+ln -sf "$HOME"/.dotfiles/.config/dunst/dunstrc \
+       "$HOME"/.config/dunst/dunstrc
 
 # X11 - i3
 
