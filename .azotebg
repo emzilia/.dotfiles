@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+monitor1="HDMI-A-1"
+monitor2="DP-1"
+wall1="/home/em/drive/Pictures/Wallpapers/rustic2.jpg"
+wall2="/home/em/drive/Pictures/Wallpapers/rustic2.jpg"
+
+pkill swaybg
+swaybg -o "$monitor1" -i "$wall1" -m fill &
+swaybg -o "$monitor2" -i "$wall2" -m fill &
