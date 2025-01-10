@@ -1,29 +1,29 @@
- {  
-     // "layer":  "top", 
-    "height": 3, 
-    "margin-top": 0,
-    "spacing": 0, 
-    // Order Of Modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/mpris"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "cpu", "memory", "network", "pulseaudio", "bluetooth"],
+ {	
+	 // "layer":  "top", 
+	"height": 34, 
+	"margin-top": 0,
+	"spacing": 0, 
+	// Order Of Modules
+	"modules-left": ["sway/workspaces", "sway/mode", "custom/mpris"],
+	"modules-center": ["clock"],
+	"modules-right": ["tray", "cpu", "memory", "network", "pulseaudio", "bluetooth"],
 
-    // ---------- Configuring Modules -----------
+	// ---------- Configuring Modules -----------
 
-    // Sway Workspaces module
-    "sway/workspaces": {
-	 "disable-scroll": true,
-         "format": "{name}",
-         "format-icons": {
-             "urgent": "!!!",
-             "focused": ":3",
-             "default": ":)"
-         }
-     },
-    
-    // Bluetooth module
-    "bluetooth": {
-	"format": "    ",
+	// Sway Workspaces module
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}",
+		"format-icons": {
+			"urgent": "!!!",
+			"focused": ":3",
+			"default": ":)"
+		}
+	},
+	
+	// Bluetooth module
+	"bluetooth": {
+	"format": " 	",
 	"format-connected": " {device_alias} ",
 	"format-connected-battery": " {device_alias} {device_battery_percentage}% ",
 	"on-click": "blueman-manager",
@@ -33,80 +33,81 @@
 	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
 },
 
-    // Sway Mode module
-    "sway/mode": {
-        "format": "    {}"
-    },
+	// Sway Mode module
+	"sway/mode": {
+		"format": "  	{}"
+	},
 
-    // MPD module
-     "custom/mpris": {
-    	"return-type": "json",
-    	"exec": "waybar-mpris --position --autofocus --order SYMBOL:ARTIST:TITLE:POSITION --play   --pause  ",
+	// MPD module
+	 "custom/mpris": {
+		"return-type": "json",
+		"exec": "waybar-mpris --position --autofocus --order SYMBOL:ARTIST:TITLE:POSITION --play 	--pause  ",
 		"exec-length": 10,
-    	"on-click": "waybar-mpris --send toggle",
-        "on-click-right": "waybar-mpris --send next",
+		"on-click": "waybar-mpris --send toggle",
+		"on-click-right": "waybar-mpris --send next",
 	"on-click-middle": "waybar-mpris --send prev",
-    	// The options below will switch the selected player on scroll
-        // "on-scroll-up": "waybar-mpris --send player-next",
-        // "on-scroll-down": "waybar-mpris --send player-prev",
-    	// The options below will go to next/previous track on scroll
-        // "on-scroll-up": "waybar-mpris --send next",
-        // "on-scroll-down": "waybar-mpris --send prev",
-   	 "escape": true,
-    },
+		// The options below will switch the selected player on scroll
+		// "on-scroll-up": "waybar-mpris --send player-next",
+		// "on-scroll-down": "waybar-mpris --send player-prev",
+		// The options below will go to next/previous track on scroll
+		// "on-scroll-up": "waybar-mpris --send next",
+		// "on-scroll-down": "waybar-mpris --send prev",
+	 "escape": true,
+	},
 
-    // Volume module
-     "pulseaudio": {
-        "format": "{format_source} {volume}0%",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-bluetooth": "BT {format_source} {volume}%",
-        "format-bluetooth-muted": "BTMuted {volume}%",
-        "format-muted": " ",
-        "format-icons": {
-            "headphone": "",
-            "speaker": "",
-            "headset": "Headset",
-        },
-        "on-click": "pamixer -t",
-        "on-click-right": "pavucontrol",
+	// Volume module
+	 "pulseaudio": {
+		"format": "{format_source} {volume}0%",
+		"format-source": "",
+		"format-source-muted": "",
+		"format-bluetooth": "BT {format_source} {volume}%",
+		"format-bluetooth-muted": "BTMuted {volume}%",
+		"format-muted": " ",
+		"format-icons": {
+			"headphone": "",
+			"speaker": "",
+			"headset": "Headset",
+		},
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol",
 		"on-scroll-up": "~/repos/shellscripts/increase_volume.sh",
 		"on-scroll-down": "pamixer -d 1"
-    },
+	},
 
 	// CPU module
 	"cpu": {
 	"interval": 1,
-	"format": "   {}%",
+	"format": "   {usage}%",
 	},
 
 	"memory": {
-   	"interval": 1,
-   	"format": "  {used:0.1f}G"
+	"interval": 1,
+	"format": "  {used:0.1f}G"
 	},
 
-    // Network module
+	// Network module
    "network": {
-    // "interface": "wlp2*", 
-    "format-wifi": " {essid}",
-    "format-ethernet": "  {ipaddr}",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected",
-    },
+	// "interface": "wlp2*", 
+	"format-wifi": " {essid}",
+	"format-ethernet": "  {ipaddr}",
+	"tooltip-format": "{ifname} via {gwaddr} ",
+	"format-linked": "{ifname} (No IP) ",
+	"format-disconnected": "Disconnected",
+	},
 
-    // Date module
-    "clock": {
-    // find a better way to define a calendar without this mess
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " {:%I:%M %p |  %A %m/%d/%y}",
-    },
+	// Date module
+	"clock": {
+	// find a better way to define a calendar without this mess
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": " {:%I:%M:%S %p |  %A %m/%d/%y}",
+		"interval": 1
+	},
 
-    // Tray module
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
+	// Tray module
+	"tray": {
+		// "icon-size": 21,
+		"spacing": 10
+	},
 }
 
 
