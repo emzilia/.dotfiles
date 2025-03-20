@@ -90,7 +90,7 @@ exec --no-startup-id picom -b
 
 for_window [class="Pavucontrol"] floating enable
 
-
+for_window [class="adventure (debug)"] floating enable
 
 
 
