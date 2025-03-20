@@ -7,7 +7,6 @@ endif
 syntax on
 set number
 set cursorline
-set cursorcolumn
 set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
@@ -40,6 +39,12 @@ nnoremap <Leader>p :Ve $HOME/repos<CR>
 nnoremap <Leader>t :tabnew<CR>
 " Remap :botright term to Space+s	create new terminal buffer in bottom		
 nnoremap <Leader>s :botright term<CR>
+" Remap :so ~/.vimrc to Space+r		reload vimrc
+nnoremap <Leader>r :so ~/.vimrc<CR>
+" Remap :so ~/.writerrc to Space+W	load vim config for writing
+nnoremap <Leader>W :so ~/.writerc<CR>
+" Remap for Prettier				format file with Prettier
+nnoremap <Leader>P <Plug>(Prettier)
 
 " File exploration menu settings
  let g:netrw_banner = 0        " remove directions at top of file listing
@@ -51,3 +56,16 @@ nnoremap <Leader>s :botright term<CR>
 
 " Sudo write
 ca w!! w !sudo tee >/dev/null "%"
+
+let g:prettier#config#trailing_comma = 'all'
+
+autocmd BufNew,BufEnter *.js,*.ts,*.json,*.vim,*.lua execute "silent! CocEnable"
+autocmd BufLeave *.js,*.ts,*.json,*.vim,*.lua execute "silent! CocDisable"
+
+call plug#begin()
+
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'lua', ]}
+Plug 'prettier/vim-prettier', {
+	  \ 'do': 'yarn install --frozen-lockfile --production',
+	    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+call plug#end()
