@@ -5,6 +5,8 @@
 ########.##.#.#.##.##.####.#####
 ###......##.....##.##.####.#####
 ################################
+
+
 ### Variables
 #
     # Use Mod1 for Alt.
@@ -18,6 +20,9 @@
 
 	# Terminal
     set $term alacritty
+
+	# File manager
+	set $fm pcmanfm-qt
 
 	# Wallpaper
     set $wallpaper ~/pictures/wall*.jpg
@@ -49,6 +54,9 @@
 
 	# Gaps
 	gaps inner 3
+
+	# Theming
+	exec "dbus-update-activation-environment -systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"
 	
     # Application specific window settings
     for_window [class=".*"] opacity $opacity
@@ -59,6 +67,9 @@
 
     for_window [app_id="pavucontrol"] floating enable
     for_window [app_id="blueman-manager"] floating enable
+
+	assign [class="Signal"] workspace number 13
+	exec signal-desktop
 
 	# Window borders
     default_border pixel 1
@@ -111,6 +122,9 @@
 
     # Start your launcher
     bindsym $mod+space exec $menu
+
+	# Start file manager
+	bindsym $mod+e exec $fm
 
     # Lock screen
     bindsym $mod+Ctrl+F1 exec swaylock -i $wallpaper
@@ -169,13 +183,8 @@
     bindsym $mod+Ctrl+l workspace next
 
     # Vertical and borizontal splits, respectively
-    bindsym $mod+v splith
-    bindsym $mod+b splith
-
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+Shift+v splith
+    bindsym $mod+Shift+b splith
 
     # Toggle fullscreen
     bindsym $mod+f fullscreen
