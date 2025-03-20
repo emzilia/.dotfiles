@@ -48,6 +48,9 @@
 	output $monitor1 position 0 0
 	output $monitor2 position 1920 0
 
+	# Tablet
+	input 1386:886:Wacom_Intuos_BT_S_Pen map_to_output $monitor2
+
 	# Wallpaper
 	exec ~/.azotebg
 
@@ -93,8 +96,8 @@
 #
 ### Idle configuration
 
- exec swayidle -w \
-          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+# exec swayidle -w \
+#         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 
 
 #
@@ -162,6 +165,10 @@
 
 	# Screenshots
 	bindsym $mod+Shift+s exec "flameshot gui"
+
+	# Disable/enable side monitor
+	bindsym $mod+Ctrl+s output "DP-1" enable ; output "HDMI-A-1" disable
+	bindsym $mod+Ctrl+d output "DP-1" enable ; output "HDMI-A-1" enable
 
 #
 ## Workspace manipulation hotkeys
