@@ -16,3 +16,5 @@ alias tbe='toolbox enter'
 alias tbr='toolbox run -c'
 
 alias pm='podman'
+
+alias cdr='cd $HOME/repos'
