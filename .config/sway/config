@@ -16,8 +16,6 @@
 
     set $menu ~/Packages/yofi/yofi/target/release/yofi | xargs swaymsg exec
 
-    exec swaymsg "workspace 1; exec mpd;"
-
 ### Output configuration
     output * bg /home/emm/Pictures/Wall/newage.jpg fill
 
@@ -78,6 +76,8 @@
     for_window [title="Alacritty"] floating enable
 
 
+     exec libinput-gestures-setup autostart start
+
 #
 # Basics:
 #
@@ -94,7 +94,7 @@
     bindsym $mod+space exec $menu
 
     # Lock screen
-    bindsym $mod+Shift+End exec swaylock -i ~/Pictures/Wall/wallp.jpg
+    bindsym $mod+Shift+End exec swaylock -i ~/Pictures/Wall/newage.jpg
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -151,6 +151,7 @@
 
     bindsym $mod+Ctrl+h workspace prev
     bindsym $mod+Ctrl+l workspace next
+
 
 
 #
