@@ -73,7 +73,7 @@ for_window [class="^.*"] border pixel 1
 
 gaps inner 6
 
-exec picom -b
+exec --no-startup-id picom -b
 
 
 for_window [class="Pavucontrol"] floating enable
