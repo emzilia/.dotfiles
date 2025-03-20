@@ -169,9 +169,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# auto-clicker
 bindsym $mod+Return exec "bash -c 'killall xdotool || while xdotool click --repeat 1 --delay 50 1; do :; done'"
 
 bindsym $mod+Shift+Return exec "killall xdotool"
+
+# run gitstatus script
+bindsym $mod+Ctrl+p exec "/bin/bash $HOME/repos/bashscripts/gitstatus.sh"
 
 
 
