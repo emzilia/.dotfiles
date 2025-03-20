@@ -18,9 +18,9 @@ export PATH
 EDITOR=vi
 
 bind 'set editing-mode vi'
-vind 'set show-mode-in-prompt on'
-bind 'set vi-ins-mode-string INSERT'
-bind 'set vi-cmd-mode-string NORMAL'
+bind 'set show-mode-in-prompt on'
+bind 'set vi-ins-mode-string INSERT '
+bind 'set vi-cmd-mode-string NORMAL '
 
 # Terminal color sequence via wpg/wal
 (cat ~/.config/wpg/sequences &)
