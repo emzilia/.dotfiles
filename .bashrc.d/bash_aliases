@@ -25,7 +25,7 @@ lastupdate() {
 }
 
 docmd() {
-	pandoc -f docx -t markdown "$1" -o "$1".md
+	pandoc -f docx -t markdown "$1" -o "$1".md && vim "$1".md
 }
 mddoc() {
 	pandoc -f markdown -t docx "$1" -o "$1".docx
