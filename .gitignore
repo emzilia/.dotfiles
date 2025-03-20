@@ -28,3 +28,5 @@
 
 !.config/wpg/*
 
+!.config/vimium
+!.config/vimium/vimium-options.json
