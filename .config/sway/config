@@ -170,6 +170,7 @@
 
     # Special media workspace
     bindsym $mod+Shift+m workspace number 10
+    bindsym $mod+Shift+n workspace number 9
 
 
     # Disable touchpad
