@@ -8,6 +8,8 @@
 !.bashrc
 !.inputrc
 !.XCompose
+!.bashrc.d
+!.bashrc.d/bash_aliases
 
 !.config
 
