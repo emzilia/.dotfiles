@@ -18,14 +18,16 @@ exec --no-startup-id "numlockx on"
 
 # Wallpaper
 
-exec --no-startup-id nitrogen --set-auto /home/cagnaccia/Pictures/Wallpapers/wallp.jpg --head=0 && nitrogen --set-auto /home/cagnaccia/Pictures/Wallpapers/wallp.jpg --head=1
+exec --no-startup-id nitrogen --set-auto /home/cagnaccia/Pictures/Wallpapers/wallhaven-39gogv.jpg --head=0 && nitrogen --set-auto /home/cagnaccia/Pictures/Wallpapers/wall11111.jpg --head=1
 
 
 # Ensure monitors are placed correctly
 
-exec --no-startup-id "xrandr --output HDMI-0 --auto --primary --output DVI-D-0 --auto --left-of HDMI-0"
+exec --no-startup-id "xrandr --output DP-0 --auto --primary --output DVI-D-0 --auto --right-of DP-0"
 
-exec --no-startup-id "redshift -l 39:-84"
+exec --no-startup-id "redshift -l 39:-84 -t 4500:4500"
+
+#exec --no-startup-id "xmodmap .Xmodmap"
 
 # Signal messaging
 
@@ -92,11 +94,15 @@ for_window [class="Pavucontrol"] floating enable
 
 for_window [class="adventure (debug)"] floating enable
 
+for_window [class="kcalc"] floating enable
+
 
 
 # Border color
-client.focused_inactive #fc94f3 #212121 #d9d9d9 #0d1010 #0e0e10                                                                            
-client.unfocused        #0e0e1B #0e0e1B #0e0e1b #0e0e1b #0e0e10                                                                           
+client.focused_inactive #fc94f3 #212121 #d9d9d9 #0d1010 #0e0e10 
+
+client.unfocused        #0e0e1B #0e0e1B #0e0e1b #0e0e1b #0e0e10 
+
 client.focused          #fc94f3 #fc94f3 #fc94f3 #fc94f3 #fc94f3 
 
 
@@ -114,7 +120,14 @@ bindsym $mod+Escape exec alacritty
 bindsym $mod+q kill
 
 # dmenu
-bindsym $mod+space exec "rofi -modi drun,run -show drun -disable-history -sort"
+bindsym $mod+space exec "~/repos/shellscripts/dmenu.sh"
+
+# file manager
+
+bindsym $mod+e exec "pcmanfm"
+
+# rofi
+#bindsym $mod+space exec "rofi -modi drun,run -show drun"
 
 # open volume mixer
 bindsym XF86AudioStop exec "pavucontrol"
@@ -153,9 +166,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Ctrl+s layout stacking
+bindsym $mod+Ctrl+w layout tabbed
+bindsym $mod+Ctrl+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -174,12 +187,21 @@ bindsym $mod+Return exec "bash -c 'killall xdotool || while xdotool click --repe
 
 bindsym $mod+Shift+Return exec "killall xdotool"
 
+bindsym $mod+F1 exec "xdotool mousemove 1930 780 sleep 0.25 click 1 mousemove restore"
+
+bindsym $mod+z exec "xdotool click 1"
+
 # run gitstatus script
-bindsym $mod+Ctrl+p exec "/bin/bash $HOME/repos/bashscripts/gitstatus.sh"
+bindsym $mod+Ctrl+p exec "gitstat"
 
 # run gitgui script
 bindsym $mod+Ctrl+o exec "alacritty -e bash -ic 'gitui'"
 
+# reset bar
+bindsym $mod+Shift+b exec "bash -c /home/cagnaccia/.config/polybar/launch.sh"
+
+# screenshot
+bindsym $mod+Shift+s exec "flameshot gui"
 
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "1"
@@ -215,16 +237,16 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-bindsym mod1+1 workspace number $ws11
-bindsym mod1+2 workspace number $ws12
-bindsym mod1+3 workspace number $ws13
-bindsym mod1+4 workspace number $ws14
-bindsym mod1+5 workspace number $ws15
-bindsym mod1+6 workspace number $ws16
-bindsym mod1+7 workspace number $ws17
-bindsym mod1+8 workspace number $ws18
-bindsym mod1+9 workspace number $ws19
-bindsym mod1+0 workspace number $ws20
+bindsym $mod+Shift+1 workspace number $ws11
+bindsym $mod+Shift+2 workspace number $ws12
+bindsym $mod+Shift+3 workspace number $ws13
+bindsym $mod+Shift+4 workspace number $ws14
+bindsym $mod+Shift+5 workspace number $ws15
+bindsym $mod+Shift+6 workspace number $ws16
+bindsym $mod+Shift+7 workspace number $ws17
+bindsym $mod+Shift+8 workspace number $ws18
+bindsym $mod+Shift+9 workspace number $ws19
+bindsym $mod+Shift+0 workspace number $ws20
 
 # Set workspaces to monitors
 workspace $ws1 output DVI-D-0
@@ -238,44 +260,44 @@ workspace $ws8 output DVI-D-0
 workspace $ws9 output DVI-D-0
 workspace $ws10 output DVI-D-0
 
-workspace $ws11 output HDMI-0
-workspace $ws12 output HDMI-0
-workspace $ws13 output HDMI-0
-workspace $ws14 output HDMI-0
-workspace $ws15 output HDMI-0
-workspace $ws16 output HDMI-0
-workspace $ws17 output HDMI-0
-workspace $ws18 output HDMI-0
-workspace $ws19 output HDMI-0
-workspace $ws20 output HDMI-0
+workspace $ws11 output DP-0
+workspace $ws12 output DP-0
+workspace $ws13 output DP-0
+workspace $ws14 output DP-0
+workspace $ws15 output DP-0
+workspace $ws16 output DP-0
+workspace $ws17 output DP-0
+workspace $ws18 output DP-0
+workspace $ws19 output DP-0
+workspace $ws20 output DP-0
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Control+1 move container to workspace number $ws1
+bindsym $mod+Control+2 move container to workspace number $ws2
+bindsym $mod+Control+3 move container to workspace number $ws3
+bindsym $mod+Control+4 move container to workspace number $ws4
+bindsym $mod+Control+5 move container to workspace number $ws5
+bindsym $mod+Control+6 move container to workspace number $ws6
+bindsym $mod+Control+7 move container to workspace number $ws7
+bindsym $mod+Control+8 move container to workspace number $ws8
+bindsym $mod+Control+9 move container to workspace number $ws9
+bindsym $mod+Control+0 move container to workspace number $ws10
 
-bindsym mod1+Shift+1 move container to workspace number $ws11
-bindsym mod1+Shift+2 move container to workspace number $ws12
-bindsym mod1+Shift+3 move container to workspace number $ws13
-bindsym mod1+Shift+4 move container to workspace number $ws14
-bindsym mod1+Shift+5 move container to workspace number $ws15
-bindsym mod1+Shift+6 move container to workspace number $ws16
-bindsym mod1+Shift+7 move container to workspace number $ws17
-bindsym mod1+Shift+8 move container to workspace number $ws18
-bindsym mod1+Shift+9 move container to workspace number $ws19
-bindsym mod1+Shift+0 move container to workspace number $ws20
+bindsym mod1+Control+1 move container to workspace number $ws11
+bindsym mod1+Control+2 move container to workspace number $ws12
+bindsym mod1+Control+3 move container to workspace number $ws13
+bindsym mod1+Control+4 move container to workspace number $ws14
+bindsym mod1+Control+5 move container to workspace number $ws15
+bindsym mod1+Control+6 move container to workspace number $ws16
+bindsym mod1+Control+7 move container to workspace number $ws17
+bindsym mod1+Control+8 move container to workspace number $ws18
+bindsym mod1+Control+9 move container to workspace number $ws19
+bindsym mod1+Control+0 move container to workspace number $ws20
 
 # move workspace to other monitor
-bindsym $mod+o move workspace to output right
-bindsym $mod+p move workspace to output left
+#bindsym $mod+o move workspace to output right
+#bindsym $mod+p move workspace to output left
 
 
 
@@ -303,15 +325,15 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym l resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym h resize grow width 10 px or 10 ppt
+        bindsym l resize shrink width 1 px or 1 ppt
+        bindsym k resize grow height 1 px or 1 ppt
+        bindsym j resize shrink height 1 px or 1 ppt
+        bindsym h resize grow width 1 px or 1 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 1 px or 1 ppt
+        bindsym Down resize grow height 1 px or 1 ppt
+        bindsym Up resize shrink height 1 px or 1 ppt bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -321,9 +343,27 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# move floating windows with keys
+bindsym $mod+m mode "move" focus floating
+mode "move" {
+    bindsym $mod+Tab focus right
 
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
 
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
 
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+n mode "move"
 
 
 
