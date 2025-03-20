@@ -21,8 +21,8 @@ set $runner "rofi -show drun"
 set $fgcolor #FFFFFF
 set $bgcolor #13100F
 
-set $wallpaper1 ~/Pictures/Wallpapers/oneday1.*
-set $wallpaper2 ~/Pictures/Wallpapers/oneday2.*
+set $wallpaper1 /home/cagnaccia/Pictures/Wallpapers/oneday1.*
+set $wallpaper2 /home/cagnaccia/Pictures/Wallpapers/oneday2.*
 
 set $monitor1 DP-0
 set $monitor2 DVI-D-0
@@ -41,7 +41,7 @@ exec --no-startup-id "setxkbmap -layout us -variant intl"
 exec --no-startup-id "numlockx on"
 
 # Wallpaper
-exec_always --no-startup-id nitrogen --set-scale $wallpaper1 --head=0 && nitrogen --set-scale $wallpaper2 --head=1
+exec_always --no-startup-id nitrogen --set-scaled $wallpaper1 --head=0 && nitrogen --set-scaled $wallpaper2 --head=1
 
 # Monitors
 exec --no-startup-id "xrandr --output $monitor1 --auto --primary --output $monitor2 --auto --right-of $monitor1"
@@ -78,15 +78,16 @@ exec --no-startup-id picom -b
 for_window [class="Pavucontrol"] floating enable
 for_window [class="adventure (debug)"] floating enable
 for_window [class="kcalc"] floating enable
+for_window [class="Alacritty"] floating enable
 
 assign [class="Signal"] $ws3
 
 #for_window [class="steam"] floating enable
 
 # Window borders
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 
-client.focused_inactive $fgcolor $fgcolor $fgcolor $fgcolor $fgcolor 
+client.focused_inactive $fgcolor $fgcolor $bgcolor $bgcolor $bgcolor 
 client.unfocused        $bgcolor $bgcolor $bgcolor $bgcolor $bgcolor
 client.focused          $fgcolor $fgcolor $fgcolor $fgcolor $fgcolor 
 
@@ -177,12 +178,15 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Shift+d exec "killall dunst;notify-send Reloading"
 
 # auto-clicker
-bindsym $mod+Return exec "bash -c 'killall xdotool || while xdotool click --repeat 1 --delay 50 1; do :; done'"
+bindsym $mod+Shift+Return exec "bash -c 'killall xdotool || while xdotool click --repeat 0 --delay 50 1; do :; done'"
 
-bindsym $mod+Shift+Return exec "killall xdotool"
+bindsym $mod+Ctrl+Shift+Return exec "killall xdotool"
 
 # pause star wars empire at war (when its playing on my side monitor)
 bindsym $mod+F1 exec "xdotool mousemove 1930 780 sleep 0.25 click 1 mousemove restore"
+
+# alternative enter key
+bindsym $mod+w exec "xdotool sleep 0.2 key Return"
 
 # run gitstatus script
 bindsym $mod+Ctrl+p exec "gitstat"
@@ -192,6 +196,9 @@ bindsym $mod+Shift+b exec "bash -c /home/cagnaccia/.config/polybar/launch.sh"
 
 # screenshot
 bindsym $mod+Shift+s exec "flameshot gui"
+
+# top shortcut
+bindsym $mod+F10 exec "alacritty -e top"
 
 # adjust audio with pactl
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
