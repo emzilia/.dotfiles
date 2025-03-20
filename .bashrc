@@ -46,4 +46,7 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
+PATH=~"$HOME/.nix-profile/bin:$PATH"
+export PATH
+
 lastupdate
