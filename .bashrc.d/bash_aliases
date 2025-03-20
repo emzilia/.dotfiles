@@ -19,6 +19,11 @@ alias pm='podman'
 
 alias cdr='cd $HOME/repos'
 
+lastupdate () {
+	last_update="$(awk 'END{sub(/\[/,""); print $1}' /var/log/pacman.log | head -c 10)"
+	printf "Last Update: %s\n" "$last_update"
+}
+
 docmd () {
 	pandoc -f docx -t markdown "$1" -o "$1".md
 }
