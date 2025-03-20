@@ -11,12 +11,11 @@ set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
 "set termwinsize=12x0
-set shiftwidth=4
 set autochdir
 
-set expandtab
-set tabstop=4
-set shiftwidth=4
+set noexpandtab
+set tabstop=8
+set shiftwidth=8
 
 filetype plugin indent on
 
@@ -99,7 +98,7 @@ call plug#begin()
 
 Plug 'jmckiern/vim-venter'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'python', 'rust',]}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'c', 'cs', 'javascript', 'kotlin', 'typescript', 'python', 'rust',]}
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',
