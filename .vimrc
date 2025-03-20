@@ -44,7 +44,6 @@ nnoremap <Leader>s :botright term<CR>
  let g:netrw_altv = 1
  let g:netrw_winsize=20        " width of window
  let g:netrw_preview=1
- augroup ProjectDrawer autocmd!  autocmd VimEnter * :Vexplore augroup END
 
 " Sudo write
 ca w!! w !sudo tee >/dev/null "%"
