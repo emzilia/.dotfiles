@@ -17,18 +17,28 @@ alias tbr='toolbox run -c'
 
 alias pm='podman'
 
-alias cdr='cd $HOME/repos'
+alias cdc='cd $HOME/.config'
 
-lastupdate () {
+lastupdate() {
 	last_update="$(awk 'END{sub(/\[/,""); print $1}' /var/log/pacman.log | head -c 10)"
 	printf "Last Update: %s\n" "$last_update"
 }
 
-docmd () {
+docmd() {
 	pandoc -f docx -t markdown "$1" -o "$1".md
 }
-mddoc () {
+mddoc() {
 	pandoc -f markdown -t docx "$1" -o "$1".docx
+}
+
+cdr() {
+	if [ "$#" -eq 0 ]; then
+		cd "$HOME"/repos
+		return 0
+	else
+		cd "$HOME"/repos/"$1"
+		return 0
+	fi
 }
 
 gitpeek() {
@@ -37,19 +47,9 @@ gitpeek() {
         printf "%s\n" "Usage: gitpeek [account name] [repo name] [branch name] [filename]"
         return
     fi
-    # if the file to be peeked is within a directory, replace $3 with the path
-    # requires that the main branch be named main
+    # if the file to be peeked is within a directory, replace $4 with the path
     result="$(curl -s https://raw.githubusercontent.com/"$1"/"$2"/"$3"/"$4")"
 
-    # if the repo is following the older naming scheme then the main branch will
-    # be called master
-    if [[ $(echo "$result" | grep "404") ]]; then
-        result="$(curl -s https://raw.githubusercontent.com/"$1"/"$2"/master/"$3")"
-        printf "%s\n" "$result"
-        return 0
-    else
-        # prints the original result if there's no errors
-        printf "%s\n" "$result"
-        return 0
-    fi
+    printf "%s\n" "$result"
+    return 0
 }
