@@ -178,7 +178,7 @@ bindsym $mod+Shift+Return exec "killall xdotool"
 bindsym $mod+Ctrl+p exec "/bin/bash $HOME/repos/bashscripts/gitstatus.sh"
 
 # run gitgui script
-bindsym $mod+Ctrl+o exec "alacritty -e bash -ic 'gitgui'"
+bindsym $mod+Ctrl+o exec "alacritty -e bash -ic 'gitui'"
 
 
 # Define names for default workspaces for which we configure key bindings later on.
