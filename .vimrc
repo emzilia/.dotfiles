@@ -30,8 +30,9 @@ function Set_shindenting()
   setlocal expandtab
 endfunction
 
-autocmd Filetype sh call Set_shindenting()
 autocmd Filetype c call Set_cindenting()
+autocmd Filetype h call Set_cindenting()
+autocmd Filetype sh call Set_shindenting()
 
 " Make space the leader key
 let mapleader = " "
@@ -87,6 +88,7 @@ nnoremap <Leader>v :vertical resize 20<CR>
 " format file with Prettier
 nnoremap <Leader>P <Plug>(Prettier)
 
+" insert date
 nnoremap <F3> "=strftime('%Y-%m-%d')<CR>P
 
 " File exploration menu settings
@@ -117,12 +119,17 @@ let g:venter_width = '18'
 
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'c', 'go', 'cs', 'javascript', 'kotlin', 'typescript', 'python', 'rust',]}
+Plug 'neoclide/coc.nvim', {
+      \ 'branch': 'release', 
+	    \ 'for': ['json', 'c', 'go', 'cs', 'javascript', 'kotlin', 'typescript', 'python', 'rust',]}
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',
-	    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+	    \ 'for': ['javascript', 'typescript', 'css', 'json', 'markdown', 'yaml', 'html']}
 
+Plug 'Yggdroot/indentLine'
+
+" colorscheme
 Plug 'ghifarit53/tokyonight-vim'
 
 call plug#end()
