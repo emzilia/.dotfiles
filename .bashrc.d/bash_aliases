@@ -1,20 +1,18 @@
-alias config='/usr/bin/git --git-dir=/home/emm/.cfg --work-tree=/home/emm'
-
 alias gits='git status'
 alias gitall='git add -A'
 alias gitcm='git commit -m'
+alias gitchk='git checkout'
 
-alias dilb='fm6000 -m 13 -g 11 -l 25'
-
-alias nmcliup='nmcli connection up DEA_SURVEILLANCE_37'
-alias nmclidown='nmcli connection down DEA_SURVEILLANCE_37'
+alias :q='echo idiot'
+alias :q!='echo idiot'
+alias :wq='echo idiot'
 
 alias rg='ranger'
 
-alias howdoiconnect='echo nmcli d wifi connect *ssid* password *password*'
+alias tbl='toolbox list'
+alias tbs='toolbox start'
+alias tbst='podman stop'
+alias tbe='toolbox enter'
+alias tbr='toolbox run -c'
 
-alias weather='curl wttr.in'
-
-alias tin='tt++ .tintin/run.tin'
-
-alias coderemote='ssh -L 8080:127.0.0.1:8080 remote'
+alias pm='podman'
