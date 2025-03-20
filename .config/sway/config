@@ -182,7 +182,7 @@
     bindsym $mod+Shift+Home input type:touchpad events toggle enabled disabled
 
     # Compose key
-    exec swaymsg 'input * xkb_options compose;prsc'
+    exec swaymsg 'input * xkb_options compose:prsc'
 
     # Mute internal mic 
     bindsym $mod+x exec 'amixer set Capture toggle'
