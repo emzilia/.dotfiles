@@ -92,7 +92,7 @@ client.focused          #fc94f3 #fc94f3 #fc94f3 #fc94f3 #fc94f3
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Escape exec konsole
+bindsym $mod+Escape exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
