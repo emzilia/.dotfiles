@@ -48,7 +48,7 @@
     // Volume module
      "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
-        "format-source": "Unmuted",
+        "format-source": "",
         "format-source-muted": "Muted",
         "format-bluetooth": "BT {volume}%",
         "format-bluetooth-muted": "BTMuted {volume}%",
