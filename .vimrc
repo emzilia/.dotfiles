@@ -101,6 +101,7 @@ nnoremap <F3> "=strftime('%Y-%m-%d')<CR>P
 
 " IndentLine plugin char
 let g:indentLine_char = '│'
+set list lcs=tab:\│\ 
 
 " Line number color
 hi LineNr ctermfg=Red
