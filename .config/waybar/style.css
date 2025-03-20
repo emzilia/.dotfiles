@@ -1,5 +1,6 @@
-@define-color --fg #d39354;
-@define-color --bg #1b0d08;
+@define-color --fg #EE9699;
+@define-color --bg #3A5266;
+@define-color --bga rgba(58, 82, 102, 0.7);
 * {
  border: none;
  min-height: 0;
@@ -15,22 +16,22 @@ window#waybar {
 
 /* Tooltip */
 tooltip {
- 	background: rgba(27, 13, 8, 0.7);
-  	border: 2px solid rgba(34, 34, 34, 0.5);
+ 	background: @--bga;
+  	border: 2px solid @--fg;
 }
 tooltip label {
 	color: @--fg;
 }
 /* System tray */
 #tray {
-	background: rgba(27, 13, 8, 0.7);
+	background: @--bga;
 	padding: 2px;
 	margin: 0px 13px;
 	border-radius: 30px;
 	padding: 0px 15px;
 }
 #tray menu {
-	background: rgba(27, 13, 8, 1.0);
+	background: @--bga;
 	color: #91a8d0;
 	border: 2px solid @--fg;
 	border-radius: 6px;
@@ -42,12 +43,12 @@ tooltip label {
 }
 #tray menu menuitem:hover {
 	color: #8378c6;
-	background: rgba(27, 13, 8, 0.6);
+	background: @--bga
 }
 /* MPD */
 #custom-mpris {
 	margin-left: 140px;
-	background: rgba(27, 13, 8, 0.7);
+	background: @--bga;
 	color: @--fg;
 	padding: 2px;
 	margin-left: 13px;
@@ -57,21 +58,21 @@ tooltip label {
 
 /* Workspaces */
 #workspaces {
-	background: rgba(27, 13, 8, 0.7);
-	padding: 0px;
+	background: @--bga;
 	margin-left: 0px;
-	border-radius: 30px;
+	border-radius: 0px 30px 30px 0px;
 	padding: 0px 0px;
 }
 #workspaces button {
-	color: #d49364;
+	color: @--fg;
 }
 #workspaces button.focused {
-	color: #d49364;
+	color: #ffffff;
+
 }
 /* Date */
 #clock {
-	background: rgba(27, 13, 8, 0.7);
+	background: @--bga;
 	color: @--fg;
 	padding: 2px;
 	margin-left: 5px;
@@ -81,7 +82,7 @@ tooltip label {
 
 /* Right side */
 #bluetooth, #network, #pulseaudio, #battery, #backlight {
-	background: rgba(27, 13, 8, 0.7);
+	background: @--bga;
 	color: @--fg;
 	padding: 2px 5px;
 }
@@ -95,6 +96,6 @@ tooltip label {
 }
 
 #backlight {
-	border-radius: 0px 30px 30px 0px;
+	border-radius: 0px 0px 0px 0px;
 	padding-right: 7px;
 }
