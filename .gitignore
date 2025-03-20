@@ -1,0 +1,30 @@
+# this is the thing
+
+# everything
+*
+
+# except the dotties
+!.gitignore
+!.vimrc
+!.bashrc
+
+!.config
+
+!.config/sway
+!.config/sway/config
+
+!.config/waybar
+!.config/waybar/config
+!.config/waybar/style.css
+
+!.config/yofi
+!.config/yofi/yofi.config
+
+!.config/mpd
+!.config/mpd/mpd.conf
+
+!.config/ncmpcpp
+!.config/ncmpcpp/config
+
+!.config/wpg*
+

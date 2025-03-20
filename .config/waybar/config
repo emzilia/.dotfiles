@@ -1,0 +1,109 @@
+ {  
+     // "layer":  "top", 
+    "height": 3, 
+    "margin-top": 5,
+    "spacing": 0, 
+    // Order Of Modules
+    "modules-left": ["sway/workspaces", "sway/mode", "mpd"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "pulseaudio",  "battery",  "backlight", "tray"],
+
+    // ---------- Configuring Modules -----------
+
+    // Sway Workspaces module
+    "sway/workspaces": {
+	 "disable-scroll": true,
+	 "disable-click": true,
+         "format": "{icon}",
+         "format-icons": {
+             "urgent": "!!!",
+             "focused": ":3",
+             "default": ":)"
+         }
+     },
+    
+    // Sway Mode module
+    "sway/mode": {
+        "format": "    {}"
+    },
+
+    // MPD module
+    "mpd": {
+        "format": "{stateIcon}    ( ꒡ o ꒡ ) ｡ ｡ ｡ {artist}  -  {title}",
+        "format-disconnected":  "( X ｡ X )",
+        "format-stopped": "( ∪ ｡ ∪ ) ｡ ｡ ｡ z z z Z Z Z",
+        "unknown-tag": "Owo",
+        "interval": 2,
+        "title-len": 40,
+        // Icons
+        "state-icons": {
+            "playing": "⏸",
+            "paused": ""
+        },
+        "tooltip-format": "pwaying OwO",
+        "tooltip-format-stopped": "stawpped p-pwaying (・ω・)",
+        "tooltip-format-disconnected": "disconnected (・`ω´・)"
+    },
+
+    // Volume module
+     "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "BT {volume}%",
+        "format-bluetooth-muted": "BTMuted {volume}%",
+        "format-muted": "{icon} {volume}%",
+        "format-icons": {
+            "headphone": "🎧︎",
+            "speaker": "🕪",
+            "headset": "Headset",
+        },
+        "on-click": "pamixer -t",
+        "on-click-right": "pavucontrol"
+    },
+
+    // Brightness module
+    "backlight": {
+        "format": "{icon}  {percent}%",
+        "format-icons": ["⛭", "⛭", "⛭"],
+        "on-click": "eww open sidebar",
+        "on-click-right": "eww close sidebar",
+
+    },
+
+    // Battery module
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 45,
+            "critical": 25
+        },
+        "format": "{icon} {capacity}% ",
+        "format-charging": " {capacity}% ",
+        "format-plugged": "{icon} {capacity}% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    
+    // Network module
+   "network": {
+    // "interface": "wlp2*", 
+    "format-wifi": " {essid}  -  {ipaddr}/{cidr}  ",
+    "format-ethernet": "🖧{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected",
+    },
+
+    // Date module
+    "clock": {
+    // find a better way to define a calendar without this mess
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " {:%I:%M %p   |        %A  %m/%d}",
+    },
+
+    // Tray module
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+}
+
+
