@@ -1,5 +1,5 @@
-@define-color --fg #fc94f3;
-@define-color --bg #221128;
+@define-color --fg #d39354;
+@define-color --bg #1b0d08;
 * {
  border: none;
  min-height: 0;
@@ -15,7 +15,7 @@ window#waybar {
 
 /* Tooltip */
 tooltip {
- 	background: rgba(14, 14, 24, 0.7);
+ 	background: rgba(27, 13, 8, 0.7);
   	border: 2px solid rgba(34, 34, 34, 0.5);
 }
 tooltip label {
@@ -23,14 +23,14 @@ tooltip label {
 }
 /* System tray */
 #tray {
-	background: rgba(14, 14, 24, 0.7);
+	background: rgba(27, 13, 8, 0.7);
 	padding: 2px;
 	margin: 0px 13px;
 	border-radius: 30px;
 	padding: 0px 15px;
 }
 #tray menu {
-	background: rgba(14, 14, 24, 1.0);
+	background: rgba(27, 13, 8, 1.0);
 	color: #91a8d0;
 	border: 2px solid @--fg;
 	border-radius: 6px;
@@ -42,12 +42,12 @@ tooltip label {
 }
 #tray menu menuitem:hover {
 	color: #8378c6;
-	background: rgba(14, 14, 24, 0.6);
+	background: rgba(27, 13, 8, 0.6);
 }
 /* MPD */
 #custom-mpris {
 	margin-left: 140px;
-	background: rgba(14, 14, 24, 0.7);
+	background: rgba(27, 13, 8, 0.7);
 	color: @--fg;
 	padding: 2px;
 	margin-left: 13px;
@@ -57,7 +57,7 @@ tooltip label {
 
 /* Workspaces */
 #workspaces {
-	background: rgba(14, 14, 24, 0.7);
+	background: rgba(27, 13, 8, 0.7);
 	padding: 2px;
 	margin-left: 13px;
 	border-radius: 30px;
@@ -67,11 +67,11 @@ tooltip label {
 	color: #ffffff;
 }
 #workspaces button.focused {
-	color: #fc94f3;
+	color: #d49364;
 }
 /* Date */
 #clock {
-	background: rgba(14, 14, 24, 0.7);
+	background: rgba(27, 13, 8, 0.7);
 	color: @--fg;
 	padding: 2px;
 	margin-left: 13px;
@@ -81,7 +81,7 @@ tooltip label {
 
 /* Right side */
 #network, #pulseaudio, #battery, #backlight {
-	background: rgba(14, 14, 24, 0.7);
+	background: rgba(27, 13, 8, 0.7);
 	color: @--fg;
 	padding: 2px 5px;
 }

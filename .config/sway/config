@@ -19,7 +19,7 @@
     exec swaymsg "workspace 1; exec mpd;"
 
 ### Output configuration
-    output * bg /home/emm/Pictures/Wall/wallp.jpg fill
+    output * bg /home/emm/Pictures/Wall/newage.jpg fill
 
     # Window transparency
     set $opacity .93
@@ -37,7 +37,7 @@
 
     client.focused_inactive	#fc94f3 #212121 #d9d9d9 #0d1010 #0e0e1b
     client.unfocused		#0e0e1b #0e0e1b #0e0e1b #0e0e1b #0e0e1b
-    client.focused		#fc94f3	#fc94f3 #fc94f3 #fc94f3 #fc94f3
+    client.focused		#d49364	#d49364 #d49364 #d49364 #d49364
 
     # Hide cursor immediately after it stops moving
     seat seat0 hide_cursor 1500 
