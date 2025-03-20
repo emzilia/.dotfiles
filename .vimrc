@@ -19,6 +19,11 @@ set shiftwidth=4
 
 filetype plugin indent on
 
+function Set_cindenting()
+	setlocal tabstop=8
+	setlocal shiftwidth=8
+endfunction
+
 function Set_shindenting()
   setlocal tabstop=2
   setlocal shiftwidth=2
@@ -26,6 +31,7 @@ function Set_shindenting()
 endfunction
 
 autocmd Filetype sh call Set_shindenting()
+autocmd Filetype c call Set_cindenting()
 
 " Make space the leader key
 let mapleader = " "
@@ -46,6 +52,10 @@ nnoremap <Leader>f :Vex<CR>
 " switch tabs with space+h/space+l
 nnoremap <Leader>h gt
 nnoremap <Leader>l gT
+" switch panes with space+H/space+L
+nnoremap <Leader>H <C-w>h
+nnoremap <Leader>L <C-w>l
+
 " open :Vexplore on repos dir
 nnoremap <Leader>p :Vex $HOME/repos<CR>
 " create new empty tab
@@ -61,6 +71,8 @@ nnoremap <Leader>q :tab term<CR>
 nnoremap <Leader>c :botright term cargo run<CR>
 " same thing but for python
 nnoremap <Leader>x :botright term python3 %<CR>
+" compile go package
+nnoremap <Leader>G :! clear; go run .<CR>
 
 " reload vimrc
 nnoremap <Leader>r :so ~/.vimrc<CR>
@@ -69,8 +81,9 @@ nnoremap <Leader>W :so ~/.writerc<CR>
 " edit .vimrc
 nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
 
-" venter toggle
-nnoremap <Leader>v :VenterToggle<CR>
+" fix netrw size
+nnoremap <Leader>v :vertical resize 20<CR>
+
 " format file with Prettier
 nnoremap <Leader>P <Plug>(Prettier)
 
@@ -104,13 +117,18 @@ let g:venter_width = '18'
 
 call plug#begin()
 
-Plug 'jmckiern/vim-venter'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'c', 'cs', 'javascript', 'kotlin', 'typescript', 'python', 'rust',]}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'c', 'go', 'cs', 'javascript', 'kotlin', 'typescript', 'python', 'rust',]}
 
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',
 	    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
+Plug 'ghifarit53/tokyonight-vim'
+
 call plug#end()
 
+" Colorscheme
+set termguicolors
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
