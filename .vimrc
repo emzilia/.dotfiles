@@ -10,9 +10,10 @@ set cursorline
 set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
-set termwinsize=8x0
+set termwinsize=12x0
 set ts=4
 set shiftwidth=4
+set autochdir
 
 filetype plugin indent on
 
@@ -39,6 +40,8 @@ nnoremap <Leader>p :Ve $HOME/repos<CR>
 nnoremap <Leader>t :tabnew<CR>
 " Remap :botright term to Space+s	create new terminal buffer in bottom		
 nnoremap <Leader>s :botright term<CR>
+" Remap 							compile rust package in terminal buffer
+nnoremap <Leader>c :botright term cargo run<CR>
 " Remap :so ~/.vimrc to Space+r		reload vimrc
 nnoremap <Leader>r :so ~/.vimrc<CR>
 " Remap :so ~/.writerrc to Space+W	load vim config for writing
@@ -54,6 +57,11 @@ nnoremap <Leader>P <Plug>(Prettier)
  let g:netrw_winsize=20        " width of window
  let g:netrw_preview=1
 
+" Coc plugin coloring
+hi CocInlayHint ctermfg=White ctermbg=Red
+hi CocFloating ctermfg=Grey ctermbg=Black
+hi CocHintHighlight ctermbg=White ctermfg=Brown
+
 " Sudo write
 ca w!! w !sudo tee >/dev/null "%"
 
@@ -64,7 +72,7 @@ autocmd BufLeave *.js,*.ts,*.json,*.vim,*.lua execute "silent! CocDisable"
 
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'lua', ]}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'javascript', 'typescript', 'python', 'rust',]}
 Plug 'prettier/vim-prettier', {
 	  \ 'do': 'yarn install --frozen-lockfile --production',
 	    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
