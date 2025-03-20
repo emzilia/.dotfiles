@@ -10,7 +10,7 @@ set cursorline
 set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
-set termwinsize=12x0
+"set termwinsize=12x0
 set ts=4
 set shiftwidth=4
 set autochdir
@@ -39,7 +39,7 @@ nnoremap <Leader>p :Ve $HOME/repos<CR>
 " Remap :tabf to Space+t		create new empty tab
 nnoremap <Leader>t :tabnew<CR>
 " Remap :botright term to Space+s	create new terminal buffer in bottom		
-nnoremap <Leader>s :botright term<CR>
+nnoremap <Leader>s :botright term ++rows=12 ++cols=0<CR>
 " Remap 							compile rust package in terminal buffer
 nnoremap <Leader>c :botright term cargo run<CR>
 " Remap :so ~/.vimrc to Space+r		reload vimrc
@@ -48,6 +48,8 @@ nnoremap <Leader>r :so ~/.vimrc<CR>
 nnoremap <Leader>W :so ~/.writerc<CR>
 " Remap for Prettier				format file with Prettier
 nnoremap <Leader>P <Plug>(Prettier)
+" Remap edit .vimrc
+nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
 
 " File exploration menu settings
  let g:netrw_banner = 0        " remove directions at top of file listing
@@ -66,9 +68,6 @@ hi CocHintHighlight ctermbg=White ctermfg=Brown
 ca w!! w !sudo tee >/dev/null "%"
 
 let g:prettier#config#trailing_comma = 'all'
-
-autocmd BufNew,BufEnter *.js,*.ts,*.json,*.vim,*.lua execute "silent! CocEnable"
-autocmd BufLeave *.js,*.ts,*.json,*.vim,*.lua execute "silent! CocDisable"
 
 call plug#begin()
 
