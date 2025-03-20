@@ -41,10 +41,10 @@
     // MPD module
      "custom/mpris": {
     	"return-type": "json",
-    	"exec": "waybar-mpris --position --autofocus --order SYMBOL:ARTIST:TITLE:POSITION --play ⠀  --pause ⠀ ",
-    	"on-click": "waybar-mpris --send toggle",
-        "on-click-right": "waybar-mpris --send next",
-	"on-click-middle": "waybar-mpris --send prev",
+    	"exec": "/home/emm/go/pkg/mod/git.hrfee.pw/hrfee/waybar-mpris@v0.1.0/waybar-mpris --position --autofocus --order SYMBOL:ARTIST:TITLE:POSITION --play ⠀  --pause ⠀ ",
+    	"on-click": "/home/emm/go/pkg/mod/git.hrfee.pw/hrfee/waybar-mpris@v0.1.0/waybar-mpris --send toggle",
+        "on-click-right": "/home/emm/go/pkg/mod/git.hrfee.pw/hrfee/waybar-mpris@v0.1.0/waybar-mpris --send next",
+	"on-click-middle": "/home/emm/go/pkg/mod/git.hrfee.pw/hrfee/waybar-mpris@v0.1.0/waybar-mpris --send prev",
     	// The options below will switch the selected player on scroll
         // "on-scroll-up": "waybar-mpris --send player-next",
         // "on-scroll-down": "waybar-mpris --send player-prev",
@@ -73,7 +73,7 @@
 
     // Brightness module
     "backlight": {
-        "format": "{icon}  {percent}%",
+        "format": "{icon} {percent}%",
         "format-icons": ["⛭", "⛭", "⛭"],
         "on-click": "eww open sidebar",
         "on-click-right": "eww close sidebar",
