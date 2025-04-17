@@ -1,6 +1,6 @@
 ;; General
 (menu-bar-mode -1)
-(tool-bar-mode -1)
+;;(tool-bar-mode -1)
 (global-display-line-numbers-mode)
 (fido-vertical-mode)
 (savehist-mode)
@@ -9,12 +9,36 @@
 (setq c-basic-offset 8)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Add melpa package archive
+;;
+;; Custom binds
+;;
+(keymap-global-set "C-x m" #'compile)
+(keymap-global-set "C-x g" #'goto-line)
+
+;;
+;; Backups/autosaves
+;;
+(setq
+   backup-by-copying t
+   backup-directory-alist
+    '(("." . "~/.emacs-saves/"))
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)
+
+(setq auto-save-file-name-transforms
+  `((".*" "~/.emacs-saves/" t)))
+
+;;
+;; Package maintance/installation
+;;
 (require 'package)
+(setq package-native-compile t)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-;; Package maintance/installation
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -23,6 +47,7 @@
   use-package-always-ensure t
   use-package-verbose t)
 
+
 ;; Run a shell command on buffer contents
 (defun shell-command-on-buffer ()
   (interactive)
@@ -30,6 +55,7 @@
 	(point-min) (point-max)
 	(read-shell-command "Shell command on buffer: ")))
 (global-set-key (kbd "M-\"") 'shell-command-on-buffer)
+
 
 ;; Package: Add path to emacs shell
 (use-package exec-path-from-shell
@@ -45,37 +71,64 @@
 ;;			   ivy-use-virtual-buffers t
 ;;			   ivy-use-selectable-prompt -1))
 
-;; Package: Gotta have counsel too
+
+;; Package: Counsel
 ;;(use-package counsel
 ;;			 :after ivy
 ;;			 :init
 ;;			 (counsel-mode 1)
 ;;			 :bind (:map ivy-minibuffer-map))
 
+
 ;; Package: company-mode
 (use-package company
-			 :bind (("C-." . company-complete))
-			 :custom
-			 (company-idle-delay 0)
-			 (company-dabbrev-downcase nil)
-			 (company-show-numbers t)
-			 (company-tooltip-limit 9)
-			 :config
-			 (global-company-mode))
-(global-set-key (kbd "C-c C-c") #'company-other-backend)
+  :custom
+  (company-idle-delay 0)
+  (company-dabbrev-downcase nil)
+  (company-show-numbers t)
+  (company-tooltip-limit 9)
+  :config
+  (global-company-mode))
+
 
 ;; Package: Flycheck
 (use-package flycheck
-			 :config
-			 (add-hook 'prog-mode-hook 'flycheck-mode)
-			 (add-hook 'after-init-hook #'global-flycheck-mode))
+  :config
+  (add-hook 'prog-mode-hook 'flycheck-mode)
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
+
+;; Package: rustic
+(use-package rustic
+  :config
+  (setq rustic-format-on-save t)
+  :hook
+  (rustic-mode . (lambda ()
+		   (setq indent-tabs-mode nil)
+		   (setq rust-indent-offset 4))))
+
+
+;; Package: lsp-mode
+(use-package lsp-mode
+  :hook
+  ((c-mode . lsp))
+  ((python-mode . lsp)))
+
+
+;; Enable native compilation
+(when (and (fboundp 'native-comp-available-p)
+         (native-comp-available-p))
+  (setq native-comp-async-report-warnings-errors nil)
+  (setq comp-deferred-compilation t))
+
+;; Custom-set-variables
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(flycheck exec-path-from-shell)))
+ '(company-show-quick-access t nil nil "Customized with use-package company")
+ '(package-selected-packages '(company exec-path-from-shell flycheck lsp-mode rustic)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
