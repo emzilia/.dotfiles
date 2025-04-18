@@ -19,14 +19,15 @@ ln -sf "${HOME}"/.dotfiles/.vimrc \
 ln -sf "${HOME}"/.dotfiles/.writerc \
        "${HOME}"/.writerc
 
-ln -sf "${HOME}"/.dotfiles/.config/dunst/dunstrc \
-       "${HOME}"/.config/dunst/dunstrc
+ln -sf "${HOME}"/.dotfiles/.emacs \
+       "${HOME}"/.emacs
 
 # Wayland - Sway
 
 mkdir -p "${HOME}"/.config/sway
 mkdir -p "${HOME}"/.config/waybar
 mkdir -p "${HOME}"/.config/yofi
+mkdir -p "${HOME}"/.config/dunst
 
 ln -sf "${HOME}"/.dotfiles/.config/sway/config \
        "${HOME}"/.config/sway/config
@@ -39,6 +40,10 @@ ln -sf "${HOME}"/.dotfiles/.config/waybar/config \
 
 ln -sf "${HOME}"/.dotfiles/.config/waybar/style.css \
        "${HOME}"/.config/waybar/style.css
+
+ln -sf "${HOME}"/.dotfiles/.config/dunst/dunstrc \
+       "${HOME}"/.config/dunst/dunstrc
+
 
 # X11 - i3
 
