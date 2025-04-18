@@ -11,6 +11,7 @@
 !.azotebg
 !.bashrc.d
 !.bashrc.d/bash_aliases
+!.emacs
 
 !.config
 
@@ -52,6 +53,9 @@
 
 !.config/alacritty
 !.config/alacritty/alacritty.toml
+
+!.config/dunst
+!.config/dunst/dunstrc
 
 !.tintin
 !.tintin/run.tin
