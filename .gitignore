@@ -11,6 +11,7 @@
 !.XCompose
 !.bashrc.d
 !.bashrc.d/bash_aliases
+!.emacs
 
 !.config
 
@@ -43,6 +44,9 @@
 !.config/rofi
 !.config/rofi/config.rasi
 !.config/rofi/theme.rasi
+
+!.config/dunst
+!.config/dunst/dunstrc
 
 !.config/picom
 !.config/picom/picom.conf
