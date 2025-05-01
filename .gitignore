@@ -18,6 +18,12 @@
 !.config/sway
 !.config/sway/config
 
+!.config/swayidle
+!.config/swayidle/config
+
+!.config/swaylock
+!.config/swaylock/config
+
 !.config/i3
 !.config/i3/config
 
