@@ -31,7 +31,7 @@ nnoremap <Leader>F :Ve<CR>
 nnoremap <Leader>h gt
 nnoremap <Leader>l gT
 " RUSERap :Vexplore repos to Space+p	open :Vexplore on repos dir
-nnoremap <Leader>p :Ve repos<CR>
+nnoremap <Leader>p :Ve $HOME/repos<CR>
 " RUSERap :tabf to Space+t		create new empty tab
 nnoremap <Leader>t :tabnew<CR>
 " RUSERap :botright term to Space+s	create new terminal buffer in bottom		
