@@ -13,10 +13,11 @@ set statusline=%f%=%l,%c
 set laststatus=2
 "set termwinsize=12x0
 set autochdir
+set hidden
 
 set noexpandtab
-"set shiftwidth=4
-"set tabstop=4
+set shiftwidth=4
+set tabstop=4
 
 filetype plugin indent on
 
@@ -39,6 +40,10 @@ nnoremap <Leader>w <C-w>
 nnoremap <Leader>k <C-w><C-q>
 " super kill buffer
 nnoremap <Leader>K :q!<CR>
+" list buffers to switch to
+nnoremap <Leader>b :ls<CR>:b<space>
+" reorder buffer list
+nnoremap <Leader>B :argdel *<CR>:bufdo argadd %<CR>:%bw<CR>:argdo e<CR>
 " close all buffers but focused one
 nnoremap <Leader>o :on<CR>
 " :find a file or directory
