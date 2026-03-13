@@ -118,9 +118,11 @@
     bindsym XF86AudioLowerVolume exec 'amixer set Master 10%-'
     bindsym XF86AudioRaiseVolume exec 'amixer set Master 10%+'
 
-    bindsym XF86AudioPlay exec 'mpc toggle'
-    bindsym XF86AudioNext exec 'mpc next'
-    bindsym XF86AudioPrev exec 'mpc prev'
+    bindsym XF86AudioPlay exec 'waybar-mpris --send toggle'
+    bindsym XF86AudioNext exec 'waybar-mpris --send next'
+    bindsym XF86AudioPrev exec 'waybar-mpris --send prev'
+
+    bindsym $mod+XF86AudioPlay exec 'waybar-mpris --send player-next'
 
 #
 # Moving around:
@@ -149,6 +151,8 @@
 
     bindsym $mod+Ctrl+h workspace prev
     bindsym $mod+Ctrl+l workspace next
+
+
 #
 # Workspaces:
 #
