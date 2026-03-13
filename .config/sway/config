@@ -1,15 +1,11 @@
 ### Sway config file
 
+
 ## Fix dbus issue
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
-## Fix gtk theme in wayland
-#exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 
 ### Variables
-    # Use Mod1 for Alt.
-exec autotiling
-
 set $mod Mod4
 
 set $left h
@@ -28,14 +24,23 @@ set $fgcolor #E6E6E7
 
 set $opacity 0.85
 
-bindsym $mod+c exec pkill -SIGUSR1 '^waybar$'
-
-# on the original workspace that the command was run on.
-
 set $menu yofi | xargs swaymsg exec
+
+
+### Application autostart
+
+	# Autotiling (thank god)
+	exec autotiling
+
+	# Blue light filter
+	exec gammastep -l 39:-84
+
 
 ### Output configuration
 output * bg $wallpaper fill
+
+	# Window gaps
+	gaps inner 2
 
     # Window transparency
     for_window [class=".*"] opacity $opacity
@@ -44,28 +49,31 @@ output * bg $wallpaper fill
     #bindsym $mod+] swaymsg opacity 1
     #bindsym $mod+[ swaymsg .9
 
-    # Application transparency (depr)
+    # Application transparency
 	for_window [class="Chromium-browser"] opacity 0.96
     for_window [app_id="firefox"] opacity 0.91
     for_window [app_id="Alacritty"] opacity 1
     for_window [app_id="pavucontrol"] floating enable
 
+	# Application specific settings
+	#for_window [title="Alacritty"] floating enable
 
+	# Window border size
     default_border pixel 1
 
-    client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
+	# Window border color
+	client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
     client.unfocused		$bgcolor $bgcolor $bgcolor $bgcolor
     client.focused			$fgcolor $fgcolor $fgcolor $fgcolor
 
     # Hide cursor immediately after it stops moving
     seat seat0 hide_cursor 1500 
 
+	# Adjust screen bluelight
     exec "gammastep -l 39:-84"
 
-    exec "pulseaudio"
 
-
-### Idle configuration
+### Idle configuration - Unused
 #
 # Example configuration:
 #
@@ -78,6 +86,8 @@ output * bg $wallpaper fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 #
+
+
 ### Input configuration
 #
     input "type:keyboard" {
@@ -93,14 +103,6 @@ output * bg $wallpaper fill
     # Enable numlock on startup
     input * xkb_numlock enable
 
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-
-#    for_window [title="Alacritty"] floating enable
-
-
-#    exec_always libinput-gestures-setup start
 
 #
 # Basics:
@@ -123,9 +125,9 @@ output * bg $wallpaper fill
     # Lock screen
     bindsym $mod+Ctrl+F1 exec swaylock -i $wallpaper
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
+	# Hide waybar
+	bindsym $mod+c exec pkill -SIGUSR1 '^waybar$'
+
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
@@ -145,19 +147,33 @@ output * bg $wallpaper fill
     bindsym $mod+F9 exec 'amixer set Master 10%-'
     bindsym $mod+F10 exec 'amixer set Master 10%+'
 
+	# Bind to send F11 key with Mod+Shift+F10
     bindsym $mod+Shift+F10 exec "wtype -k 'F11'"
 
+	# Change connection profile
     bindsym $mod+Shift+F3 exec '/bin/sh ~/repos/bashscripts/change_conn_profile.sh'
 
+	# Run gitstatus script
 	bindsym $mod+Shift+o exec '/bin/sh ~/repos/bashscripts/gitstatus.sh'
 
+	# Toggle media with waybar mpris
     bindsym $mod+F3 exec 'waybar-mpris --send toggle'
     bindsym $mod+F2 exec 'waybar-mpris --send next'
     bindsym $mod+F1 exec 'waybar-mpris --send prev'
 
-    # Run the git fetch/status script
-    bindsym $mod+Ctrl+p exec 'cgits'
-    bindsym $mod+Ctrl+o exec "alacritty -e bash -ic '~/repos/tagalogpy/gitui.py'"
+	# Change window opacity
+    #bindsym $mod+] swaymsg opacity 1
+    #bindsym $mod+[ swaymsg .9
+
+    # Disable touchpad
+    bindsym $mod+Ctrl+F10 input type:touchpad events toggle enabled disabled
+
+    # Compose key
+    #exec swaymsg 'input * xkb_options compose:prsc'
+
+    # Mute internal mic 
+    bindsym $mod+x exec 'amixer set Capture toggle'
+
 
 #
 # Moving around:
@@ -217,25 +233,6 @@ output * bg $wallpaper fill
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-
-
-    # Disable touchpad
-    bindsym $mod+Ctrl+F10 input type:touchpad events toggle enabled disabled
-
-    # Compose key
-    #exec swaymsg 'input * xkb_options compose:prsc'
-
-    # Mute internal mic 
-    bindsym $mod+x exec 'amixer set Capture toggle'
-
-
-
-#
-# GAPS !!!
-#   
-   gaps inner 2
-
-
 
 
 #
