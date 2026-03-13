@@ -1,6 +1,6 @@
  {  
      // "layer":  "top", 
-    "height": 3, 
+    "height": 0, 
     "margin-top": 2,
 	"margin-right": 2,
 	"margin-left": 2,
@@ -18,15 +18,15 @@
          "format": "{icon}",
          "format-icons": {
              "urgent": "!!!",
-             "focused": ":3",
-             "default": ":)"
+             "focused": "󰣐",
+             "default": "󱢠"
          }
      },
     
     // Bluetooth module
     "bluetooth": {
-	"format": "☢",
-	"format-connected": "☢ {device_alias}",
+	"format": "󰂲",
+	"format-connected": " {device_alias}",
 	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
 	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
 	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
@@ -37,7 +37,7 @@
 
     // Sway Mode module
     "sway/mode": {
-        "format": "    {}"
+        "format": "  {}"
     },
 
     // MPD module
@@ -59,7 +59,7 @@
     // Volume module
      "pulseaudio": {
         "format": "{format_source} {volume}%",
-        "format-source": "☊",
+        "format-source": " ",
         "format-source-muted": " ⚑",
         "format-bluetooth": "BT {format_source} {volume}%",
         "format-bluetooth-muted": "BTMuted {volume}%",
@@ -89,27 +89,27 @@
             "warning": 45,
             "critical": 25
         },
-        "format": "{icon} {capacity}% ",
-        "format-charging": "🗲    {capacity}% ",
-        "format-plugged": "🗲 {capacity}% ",
+        "format": "{icon}   {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
     
     // Network module
    "network": {
-    // "interface": "wlp2*", 
-    "format-wifi": " {essid}",
+    // "interface": "wlp*", 
+    "format-wifi": "󰖩  {essid}",
     "format-ethernet": "🖧{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected",
+    "format-disconnected": "󰤮 Disconnected",
     },
 
     // Date module
     "clock": {
     // find a better way to define a calendar without this mess
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "  {:%I:%M %p   |     %A  %m/%d}",
+        "format": "   {:%I:%M %p   |      %A  %m/%d}",
     },
 
     // Tray module
