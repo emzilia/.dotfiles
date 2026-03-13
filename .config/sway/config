@@ -1,7 +1,7 @@
 ### Sway config file, bitch
 
 ### Variables
-    # Logo key. Use Mod1 for Alt.
+    # Use Mod1 for Alt.
     set $mod Mod4
 
     set $left h
@@ -13,9 +13,10 @@
 
     set $wallpaper ~/Pictures/Wall/cyberpunk01.jpg
 
-
     set $bgcolor #3a5266
     set $fgcolor #ee9699
+
+    set $opacity .8
 
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -26,7 +27,6 @@
     output * bg $wallpaper fill
 
     # Window transparency
-    set $opacity .8
     for_window [class=".*"] opacity $opacity
     for_window [app_id=".*"] opacity $opacity
     bindsym $mod+Shift+o set $opacity 1
@@ -112,7 +112,7 @@
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'They are trying to fuck our pussies!' -B '*cocks gun* say no more' 'swaymsg exit'
@@ -191,7 +191,7 @@
 
 
     # Disable touchpad
-    bindsym $mod+Shift+Home input type:touchpad events toggle enabled disabled
+    bindsym $mod+Ctrl+F10 input type:touchpad events toggle enabled disabled
 
     # Compose key
   #  exec swaymsg 'input * xkb_options compose:prsc'
