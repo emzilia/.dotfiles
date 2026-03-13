@@ -30,6 +30,11 @@ alias reboot='sudo reboot'
 
 alias rg='ranger'
 
+# mullvad
+alias ms="mullvad status"
+alias md="mullvad disconnect && mullvad status"
+alias mc="mullvad connect && sleep .5 && mullvad status"
+
 #alias cdr='cd ~/repos'
 alias cdc='cd ~/.config'
 
