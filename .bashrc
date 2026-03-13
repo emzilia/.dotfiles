@@ -59,3 +59,5 @@ alias rg='ranger'
 alias howdoiconnect='echo nmcli d wifi connect *ssid* password *password*'
 
 alias weather='curl wttr.in'
+
+alias tin='tt++ .tintin/run.tin'
