@@ -33,6 +33,7 @@ unset rc
 alias config='/usr/bin/git --git-dir=/home/USERm/.cfg --work-tree=/home/USERm'
 
 alias gits='git status'
+alias gitall='git add -A'
 
 
 alias nmcliup='nmcli connection up DEA_SURVEILLANCE_37'
