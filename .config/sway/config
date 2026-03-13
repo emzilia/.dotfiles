@@ -11,16 +11,22 @@
 
     set $term foot
 
+    set $wallpaper ~/Pictures/Wall/cyberpunk01.jpg
+
+
+    set $bgcolor #3a5266
+    set $fgcolor #ee9699
+
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 
     set $menu ~/packages/yofi/target/release/yofi | xargs swaymsg exec
 
 ### Output configuration
-    output * bg /home/emm/Pictures/Wall/wallhaven-r296lw.jpg fill
+    output * bg $wallpaper fill
 
     # Window transparency
-    set $opacity .93
+    set $opacity .8
     for_window [class=".*"] opacity $opacity
     for_window [app_id=".*"] opacity $opacity
     bindsym $mod+Shift+o set $opacity 1
@@ -33,9 +39,9 @@
 
     default_border pixel 1
 
-    client.focused_inactive	#fc94f3 #212121 #d9d9d9 #0d1010 #0e0e1b
-    client.unfocused		#0e0e1b #0e0e1b #0e0e1b #0e0e1b #0e0e1b
-    client.focused		#d49364	#d49364 #d49364 #d49364 #d49364
+    client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
+    client.unfocused		$bgcolor $bgcolor $bgcolor $bgcolor
+    client.focused		$fgcolor $fgcolor $fgcolor $fgcolor
 
     # Hide cursor immediately after it stops moving
     seat seat0 hide_cursor 1500 
@@ -96,7 +102,7 @@
     bindsym $mod+space exec $menu
 
     # Lock screen
-    bindsym $mod+Shift+F1 exec swaylock -i ~/Pictures/Wall/wallhaven-r296lw.jpg
+    bindsym $mod+Ctrl+F1 exec swaylock -i $wallpaper
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -112,19 +118,17 @@
     bindsym $mod+Shift+e exec swaynag -t warning -m 'They are trying to fuck our pussies!' -B '*cocks gun* say no more' 'swaymsg exit'
 
     # Screen brightness
-    bindsym XF86MonBrightnessDown exec 'brightnessctl set 10%-'
-    bindsym XF86MonBrightnessUp exec 'brightnessctl set 10%+'
+    bindsym $mod+F6 exec 'brightnessctl set 10%-'
+    bindsym $mod+F7 exec 'brightnessctl set 10%+'
     
     # Volume Control
-    bindsym XF86AudioMute exec 'amixer set Master toggle'
-    bindsym XF86AudioLowerVolume exec 'amixer set Master 10%-'
-    bindsym XF86AudioRaiseVolume exec 'amixer set Master 10%+'
+    bindsym $mod+F8 exec 'amixer set Master toggle'
+    bindsym $mod+F9 exec 'amixer set Master 10%-'
+    bindsym $mod+F10 exec 'amixer set Master 10%+'
 
-    bindsym XF86AudioPlay exec 'waybar-mpris --send toggle'
-    bindsym XF86AudioNext exec 'waybar-mpris --send next'
-    bindsym XF86AudioPrev exec 'waybar-mpris --send prev'
-
-    bindsym $mod+XF86AudioPlay exec 'waybar-mpris --send player-next'
+    bindsym $mod+F3 exec 'waybar-mpris --send toggle'
+    bindsym $mod+F2 exec 'waybar-mpris --send next'
+    bindsym $mod+F1 exec 'waybar-mpris --send prev'
 
 #
 # Moving around:
@@ -200,7 +204,7 @@
 #
 # GAPS !!!
 #   
-    gaps inner 6
+#    gaps inner 6
 
 
 
@@ -220,7 +224,7 @@
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+F4 fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
