@@ -41,3 +41,6 @@ if [ -d ~/.bashrc.d ]; then
 		fi
 	done
 fi
+
+# Run the todo every time
+tdp
