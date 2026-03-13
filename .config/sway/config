@@ -185,7 +185,7 @@
     exec swaymsg 'input * xkb_options compose;prsc'
 
     # Mute internal mic 
-    bindsym F1 'amixer set Capture toggle'
+    bindsym $mod+x exec 'amixer set Capture toggle'
 
 
 
