@@ -51,5 +51,7 @@ cd() {
 	command cd "$@" || return
 	if [ -d .git ]; then
 		check_git_status
+	else
+		export GITDIRSTAT=""
 	fi
 }
