@@ -24,12 +24,16 @@ exec --no-startup-id nitrogen --set-auto /home/cagnaccia/Pictures/Wallpapers/wal
 
 # Ensure monitors are placed correctly
 
-exec_always --no-startup-id "xrandr --output HDMI-0 --auto --primary --output DVI-D-0 --auto --left-of HDMI-0"
+exec --no-startup-id "xrandr --output HDMI-0 --auto --primary --output DVI-D-0 --auto --left-of HDMI-0"
 
 # Signal messaging
 
 assign [class="Signal"] $ws3
 exec --no-startup-id "signal-desktop --use-tray-icon"
+
+# KDE connect
+
+exec --no-startup-id "kdeconnect-indicator"
 
 
 
