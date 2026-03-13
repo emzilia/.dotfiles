@@ -31,7 +31,7 @@ nnoremap <Leader>F :Ve<CR>
 nnoremap <Leader>h gt
 nnoremap <Leader>l gT
 " Remap :Vexplore repos to Space+p	open :Vexplore on repos dir
-nnoremap <Leader>p :Ve repos<CR>
+nnoremap <Leader>p :Ve $HOME/repos<CR>
 " Remap :tabf to Space+t		create new empty tab
 nnoremap <Leader>t :tabnew<CR>
 " Remap :botright term to Space+s	create new terminal buffer in bottom		
