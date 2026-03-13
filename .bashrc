@@ -5,7 +5,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 alias ls='ls --color=auto'
-PS1=' \[\033[0;35m\]\u@\h\[\033[00m\] \w $GITDIRSTAT \$ '
+PS1=' \[\033[0;35m\]\u@\h\[\033[00m\] \w \$ '
 
 
 # User specific environment
@@ -48,6 +48,9 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+#clear the tty on login
+clear
 
 #dotnet
 export DOTNET_ROOT=$HOME/dotnet
