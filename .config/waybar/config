@@ -109,7 +109,7 @@
     "clock": {
     // find a better way to define a calendar without this mess
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "  {:%I:%M %p   |       %A  %m/%d}",
+        "format": "  {:%I:%M %p   |     %A  %m/%d}",
     },
 
     // Tray module
