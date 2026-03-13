@@ -10,7 +10,7 @@
 
 #nop --- window formatting ---
 
-#split 0 1 1 40
+#split 1 1 0 40
 #echo {{%Y-%m-%d %H:%M:%S} {1}} {printed}
 
 
@@ -22,7 +22,7 @@
 #high {Vaskivo} {light orange}
 #high {Avosivk} {light orange}
 #high {Perfect} {light orange}
-#high {[chatnet]} {white}
+#high {[chatnet]} {light cyan}
 #high {[tradenet]} {green}
 
 
@@ -40,7 +40,7 @@
 #alias {@skip all} {@skip *bugs *ideas *comedy *clp *gr *chatter}
 
 #nop abortion job
-#alias {abort} {use coat on %1}
+#alias {abort} {abort %1 with coat}
 
 
 #nop ----------------------------------------------------------------
