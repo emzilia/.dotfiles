@@ -21,8 +21,3 @@ set cursorcolumn
 "  sudo write
 ca w!! w !sudo tee >/dev/null "%"
 
-call plug#begin('~/.vim/autoload')
-
-Plug 'habamax/vim-godot'
-
-call plug#end()
