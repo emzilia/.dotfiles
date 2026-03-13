@@ -46,6 +46,4 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-
-# Run the todo every time
-#tdp
+lastupdate
