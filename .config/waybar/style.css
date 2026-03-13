@@ -1,6 +1,6 @@
-@define-color --fg #DEA5DC;
-@define-color --bg #0D0421;
-@define-color --bga rgba(13, 4, 23, 0.7);
+@define-color --fg #E6E6E7;
+@define-color --bg #020202;
+@define-color --bga rgba(2, 2, 2, 0.8);
 * {
  border: none;
  min-height: 0;
