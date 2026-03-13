@@ -32,6 +32,8 @@ unset rc
 . "$HOME/.cargo/env"
 alias config='/usr/bin/git --git-dir=/home/emm/.cfg --work-tree=/home/emm'
 
+alias gits='git status'
+
 
 alias nmcliup='nmcli connection up DEA_SURVEILLANCE_37'
 alias nmclidown='nmcli connection down DEA_SURVEILLANCE_37'
