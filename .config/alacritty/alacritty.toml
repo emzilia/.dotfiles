@@ -1,0 +1,7 @@
+[window]
+	padding = { x = 2, y = 2 }
+[font]
+	normal = { family = "UbuntuMono Nerd Font", style = "Mono" }
+	size = 12
+[scrolling]
+	history = 30000

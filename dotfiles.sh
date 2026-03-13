@@ -19,12 +19,17 @@ ln -sf "$HOME"/.dotfiles/.vimrc \
 ln -sf "$HOME"/.dotfiles/.writerc \
        "$HOME"/.writerc
 
+ln -sf "$HOME"/.dotfiles/.azotebg \
+       "$HOME"/.azotebg
+
+
 # Wayland - Sway
 
 mkdir -p "$HOME"/.config/sway
 mkdir -p "$HOME"/.config/waybar
 mkdir -p "$HOME"/.config/yofi
 mkdir -p "$HOME"/.config/dunst
+mkdir -p "$HOME"/.config/alacritty
 
 ln -sf "$HOME"/.dotfiles/.config/sway/config \
        "$HOME"/.config/sway/config
@@ -40,6 +45,10 @@ ln -sf "$HOME"/.dotfiles/.config/waybar/style.css \
 
 ln -sf "$HOME"/.dotfiles/.config/dunst/dunstrc \
        "$HOME"/.config/dunst/dunstrc
+
+ln -sf "$HOME"/.dotfiles/.config/alacritty/alacritty.toml \
+       "$HOME"/.config/alacritty/alacritty.toml
+
 
 # X11 - i3
 

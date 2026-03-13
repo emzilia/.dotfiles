@@ -8,6 +8,7 @@
 !.bashrc
 !.inputrc
 !.XCompose
+!.azotebg
 !.bashrc.d
 !.bashrc.d/bash_aliases
 
@@ -48,6 +49,9 @@
 
 !.config/picom
 !.config/picom/picom.conf
+
+!.config/alacritty
+!.config/alacritty/alacritty.toml
 
 !.tintin
 !.tintin/run.tin
