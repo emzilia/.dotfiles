@@ -1,5 +1,8 @@
 ### Sway config file, bitch
 
+## Fix dbus issue
+exec systemctl --user import-environment
+
 ### Variables
     # Use Mod1 for Alt.
     set $mod Mod4
