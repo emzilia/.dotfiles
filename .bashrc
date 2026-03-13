@@ -28,7 +28,10 @@ bind 'set vi-ins-mode-string >'
 bind 'set vi-cmd-mode-string |'
 
 # Terminal color sequence via wpg/wal
-(cat ~/.config/wpg/sequences &)
+if ! [ "$TERM" = "dumb" ];
+then
+    (cat ~/.config/wpg/sequences &)
+fi
 force_color_prompt=yes
 
 #set term=xterm=256color
