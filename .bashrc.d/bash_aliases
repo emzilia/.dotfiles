@@ -1,4 +1,5 @@
-alias gits='git status'
+alias gits='git status && check_git_status'
+alias gitp='git push && check_git_status'
 alias gitall='git add -A'
 alias gitcm='git commit -m'
 alias gitchk='git checkout'
@@ -24,44 +25,32 @@ check_git_status() {
   		git_results="$(git status)"
 		if [[ $(echo "$git_results" | grep "Your branch is behind") ]]; then
 			git fetch -q &
-    		echo 2
-			return
+			export GITDIRSTAT="M"
+			exit
 		fi
 		if [[ $(echo "$git_results" | grep "Your branch is ahead") ]]; then
-    		echo 3
-			return
+			export GITDIRSTAT="P"
+			exit
   		fi
   		if [[ $(echo "$git_results" | grep "have diverged") ]]; then
-    		echo 4
-			return
+			export GITDIRSTAT="D"
+			exit
   		fi
   		if [[ $(echo "$git_results" | grep "Changes to be comm") ]]; then
-    		echo 5
-			return
+			export GITDIRSTAT="C"
+			exit
   		fi
   		if [[ $(echo "$git_results" | grep "Changes not staged") ]]; then
-    		echo 6
-			return
+			export GITDIRSTAT="U"
+			exit
   		fi
 	else
-    	echo 0
+		export GITDIRSTAT=""
+		exit
 	fi
 }
 
 cd() {
-    command cd "$@" &&
-	symbol=$(check_git_status)
-	if [ "$symbol" -eq 2 ]; then
-      export GITDIRSTAT="M"
-    elif [ "$symbol" -eq 3 ]; then
-      export GITDIRSTAT="P"
-    elif [ "$symbol" -eq 4 ]; then
-      export GITDIRSTAT="D"
-    elif [ "$symbol" -eq 5 ]; then
-      export GITDIRSTAT="C"
-    elif [ "$symbol" -eq 6 ]; then
-      export GITDIRSTAT="U"
-    else
-      export GITDIRSTAT=""
-    fi
+    command cd "$@" || return
+	check_git_status
 }
