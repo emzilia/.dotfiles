@@ -15,10 +15,10 @@ then
 fi
 export PATH
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
+# editor
 EDITOR=vi
 
+# vi style editing
 set -o vi
 bind 'set editing-mode vi'
 bind 'set show-mode-in-prompt on'
@@ -32,8 +32,6 @@ then
 fi
 force_color_prompt=yes
 
-export TERM=xterm-256color
-
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
 	for rc in ~/.bashrc.d/*; do
@@ -43,14 +41,19 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# sdkman stuff
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-#clear the tty on login
+# clear the tty on login
 clear
 
-#dotnet
+# random quote
+source "$HOME"/.bashrc.d/prompt_quote
+
+# dotnet
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
+
+# cargo
 . "$HOME/.cargo/env"
