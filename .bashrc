@@ -38,6 +38,7 @@ alias config='/usr/bin/git --git-dir=/home/USERm/.cfg --work-tree=/home/USERm'
 
 alias gits='git status'
 alias gitall='git add -A'
+alias gitcm='git commit -m'
 
 alias dilb='fm6000 -m 13 -g 11 -l 25'
 
