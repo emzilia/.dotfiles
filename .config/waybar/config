@@ -29,7 +29,7 @@
 
     // MPD module
     "mpd": {
-        "format": "{stateIcon}    ( ꒡ o ꒡ ) ｡ ｡ ｡ {artist}  -  {title}",
+        "format": "{stateIcon}   {artist}  -  {title}",
         "format-disconnected":  "( X ｡ X )",
         "format-stopped": "( ∪ ｡ ∪ ) ｡ ｡ ｡ z z z Z Z Z",
         "unknown-tag": "Owo",
@@ -49,10 +49,10 @@
      "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
         "format-source": "",
-        "format-source-muted": "Muted",
+        "format-source-muted": " ⚑",
         "format-bluetooth": "BT {volume}%",
         "format-bluetooth-muted": "BTMuted {volume}%",
-        "format-muted": "{icon} Deafened",
+        "format-muted": "{icon} Sound Muted",
         "format-icons": {
             "headphone": "🎧︎",
             "speaker": "🕪",
@@ -79,15 +79,15 @@
             "critical": 25
         },
         "format": "{icon} {capacity}% ",
-        "format-charging": " {capacity}% ",
-        "format-plugged": "{icon} {capacity}% ",
+        "format-charging": " 🗲 {capacity}% ",
+        "format-plugged": "🗲 {capacity}% ",
         "format-icons": ["", "", "", "", ""]
     },
     
     // Network module
    "network": {
     // "interface": "wlp2*", 
-    "format-wifi": " {essid}  -  {ipaddr}/{cidr}  ",
+    "format-wifi": " {essid}",
     "format-ethernet": "🖧{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
