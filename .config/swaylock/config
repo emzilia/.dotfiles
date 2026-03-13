@@ -1,0 +1,11 @@
+image="$HOME/drive/Pictures/Wallpapers/naples.jpg"
+ignore-empty-password
+no-unlock-indicator
+daemonize
+clock
+indicator
+indicator-thickness=1
+fade-in=0.2
+indicator-radius=125
+effect-vignette=0.4:1
+grace=5
