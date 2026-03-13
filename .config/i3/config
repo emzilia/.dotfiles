@@ -11,7 +11,7 @@ font pango:Roboto 8
 
 # Keyboard layout
 
-exec "setxkbmap -layout us -variant intl"
+exec --no-startup-id "setxkbmap -layout us -variant intl"
 
 
 
