@@ -181,6 +181,8 @@
     # Disable touchpad
     bindsym $mod+Shift+Home input type:touchpad events toggle enabled disabled
 
+    # Compose key
+    swaymsg 'input * xkb_options compose;prsc'
 
 
 
