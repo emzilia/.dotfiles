@@ -17,6 +17,8 @@ export PATH
 # export SYSTEMD_PAGER=
 EDITOR=vi
 
+
+set -o vi
 bind 'set editing-mode vi'
 bind 'set show-mode-in-prompt on'
 bind 'set vi-ins-mode-string INSERT '
@@ -35,8 +37,6 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-unset rc
-. "$HOME/.cargo/env"
 
 alias config='/usr/bin/git --git-dir=/home/emm/.cfg --work-tree=/home/emm'
 
