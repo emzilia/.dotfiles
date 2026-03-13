@@ -15,32 +15,33 @@ set $right l
 
 set $term alacritty
 
-set $fm thunar
+set $fm pcmanfm-qt
 
-set $wallpaper ~/pictures/Wall/witch.*
+set $wallpaper ~/drive/Pictures/Wallpapers/naples.*
 
-set $bgcolor #020202
-set $fgcolor #E6E6E7
+set $bgcolor #40416f
+set $fgcolor #c2d6d7
 
 set $opacity 0.85
 
-set $menu yofi | xargs swaymsg exec
+set $menu sirula | xargs swaymsg exec
 
 
 ### Application autostart
 
 	# Autotiling (thank god)
-	exec autotiling
+	exec autotiling-rs
 
 	# Blue light filter
 	exec gammastep -l 39:-84
 
 
 ### Output configuration
-output * bg $wallpaper fill
+output * bg $wallpaper stretch
 
     # Window gaps
-    gaps inner 2
+    gaps inner 5
+    gaps top 0
 
     # Window transparency
     for_window [class=".*"] opacity $opacity
@@ -51,7 +52,7 @@ output * bg $wallpaper fill
 
     # Application transparency
     for_window [class="Chromium-browser"] opacity 0.96
-    for_window [app_id="firefox"] opacity 0.91
+    for_window [app_id="firefox"] opacity 0.92
     for_window [app_id="librewolf"] opacity 0.91
     for_window [app_id="Alacritty"] opacity 1
     for_window [app_id="pavucontrol"] floating enable
@@ -60,7 +61,7 @@ output * bg $wallpaper fill
     #for_window [title="Alacritty"] floating enable
 
     # Window border size
-    default_border pixel 1
+    default_border pixel 2
 
     # Window border color
     client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
@@ -74,20 +75,12 @@ output * bg $wallpaper fill
     exec "gammastep -l 39:-84"
 
 
-### Idle configuration - Unused
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-#
+### Idle configuration
+# Managed via powercheck systemd user unit -- see $HOME/pyprojects/power_check.py
 
+### Lock configuration
+#
+bindswitch --reload --locked lid:on exec swaylock
 
 ### Input configuration
 #
@@ -124,7 +117,7 @@ output * bg $wallpaper fill
     bindsym $mod+e exec $fm
 
     # Lock screen
-    bindsym $mod+Ctrl+F1 exec swaylock -i $wallpaper
+    bindsym $mod+Ctrl+l exec swaylock
 
     # Hide waybar
     bindsym $mod+c exec pkill -SIGUSR1 '^waybar$'
@@ -140,13 +133,13 @@ output * bg $wallpaper fill
     bindsym $mod+Shift+e exec swaynag -t warning -m 'exit this sway desktop session?' -B 'yeah' 'swaymsg exit'
 
     # Screen brightness
-    bindsym $mod+F6 exec 'brightnessctl set 10%-'
-    bindsym $mod+F7 exec 'brightnessctl set 10%+'
+    bindsym $mod+F5 exec 'brightnessctl set 10%-'
+    bindsym $mod+F6 exec 'brightnessctl set 10%+'
 
     # Volume Control
-    bindsym $mod+F8 exec 'amixer set Master toggle'
-    bindsym $mod+F9 exec 'amixer set Master 10%-'
-    bindsym $mod+F10 exec 'amixer set Master 10%+'
+    bindsym $mod+F1 exec 'amixer set Master toggle'
+    bindsym $mod+F2 exec 'amixer set Master 10%-'
+    bindsym $mod+F3 exec 'amixer set Master 10%+'
 
     # Bind to send F11 key with Mod+Shift+F10
     bindsym $mod+Shift+F10 exec "wtype -k 'F12'"
@@ -158,9 +151,9 @@ output * bg $wallpaper fill
     bindsym $mod+Shift+o exec '/bin/sh ~/repos/shellscripts/gitstatus.sh'
 
     # Toggle media with waybar mpris
-    bindsym $mod+F3 exec 'waybar-mpris --send toggle'
-    bindsym $mod+F2 exec 'waybar-mpris --send next'
-    bindsym $mod+F1 exec 'waybar-mpris --send prev'
+    bindsym $mod+F10 exec 'waybar-mpris --send toggle'
+    bindsym $mod+F11 exec 'waybar-mpris --send next'
+    bindsym $mod+F12 exec 'waybar-mpris --send prev'
 
     # Change window opacity
     bindsym $mod+d exec '~/repos/shellscripts/sway_opacity.sh'
@@ -200,8 +193,8 @@ output * bg $wallpaper fill
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-    bindsym $mod+Ctrl+h workspace prev
-    bindsym $mod+Ctrl+l workspace next
+    #bindsym $mod+Ctrl+h workspace prev
+    #bindsym $mod+Ctrl+l workspace next
 
 
 
@@ -250,7 +243,7 @@ output * bg $wallpaper fill
     #bindsym $mod+d layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+F4 fullscreen
+    bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
