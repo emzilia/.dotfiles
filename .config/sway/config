@@ -5,7 +5,7 @@
 ########.##.#.#.##.##.####.#####
 ###......##.....##.##.####.#####
 ################################
-
+#
 ### Variables
 #
     # Use Mod1 for Alt.
@@ -24,7 +24,8 @@
     set $fm pcmanfm-qt
 
     # Wallpaper
-    set $wallpaper ~/pictures/wall*.jpg
+    # set $wallpaper ~/pictures/wall*.jpg
+    # // see .azotebg
 
     # Color variables
     set $bgcolor #13100F
@@ -108,10 +109,10 @@
 	   xkb_layout us(intl)
     }
     input "type:touchpad" {
-#          dwt enabled 
-           tap enabled
-           natural_scroll enabled
-           middle_emulation enabled
+    	  dwt enabled
+	  tap enabled
+	  natural_scroll enabled
+	  middle_emulation enabled
     }
 
     # Enable numlock on startup
@@ -187,7 +188,7 @@
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-	# Switch windows
+    # Switch windows
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
