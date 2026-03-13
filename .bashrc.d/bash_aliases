@@ -22,6 +22,7 @@ alias pm='podman'
 alias xi="xbps-install" 
 alias xq="xbps-query"
 
+alias em="emacs -nw"
 alias reboot='sudo reboot'
 
 alias rg='ranger'
@@ -29,6 +30,29 @@ alias rg='ranger'
 alias cdr='cd ~/repos'
 
 alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c actions.h actions.c display.h display.c gtime.h gtime.c'
+
+gitpeek() {
+	# if no arguments given or if the one argument is -h/--help, show the format
+	if [ "$#" -eq 0 ] || [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+		printf "%s\n" "Usage: gitpeek [account name] [repo name] [filename]"
+		return
+	fi
+	# if the file to be peeked is within a directory, replace $3 with the path
+	# requires that the main branch be named main
+	result="$(curl -s https://raw.githubusercontent.com/"$1"/"$2"/main/"$3")"
+	
+	# if the repo is following the older naming scheme then the main branch will 
+	# be called master
+	if [[ $(echo "$result" | grep "404") ]]; then
+		result="$(curl -s https://raw.githubusercontent.com/"$1"/"$2"/master/"$3")"
+		printf "%s\n" "$result"
+		return 0
+	else
+		# prints the original result if there's no errors
+		printf "%s\n" "$result"
+		return 0
+	fi
+}
 
 # function for git cd function
 check_git_status() {
@@ -59,11 +83,11 @@ check_git_status() {
 }
 
 # show git status in terminal prompt when applicable
-cd() {
-	command cd "$@" || return
-	if [ -d .git ]; then
-		check_git_status
-	else
-		export GITDIRSTAT=""
-	fi
-}
+#cd() {
+#	command cd "$@" || return
+#	if [ -d .git ]; then
+#		check_git_status
+#	else
+#		export GITDIRSTAT=""
+#	fi
+#}
