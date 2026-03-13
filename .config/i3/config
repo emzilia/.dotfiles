@@ -21,8 +21,8 @@ set $runner "rofi -show drun"
 set $fgcolor #FFFFFF
 set $bgcolor #13100F
 
-set $wallpaper1 /home/USER/Pictures/Wallpapers/oneday1.*
-set $wallpaper2 /home/USER/Pictures/Wallpapers/oneday2.*
+set $wallpaper1 ~/Pictures/Wallpapers/oneday1.*
+set $wallpaper2 ~/Pictures/Wallpapers/oneday2.*
 
 set $monitor1 DP-0
 set $monitor2 DVI-D-0
@@ -69,7 +69,7 @@ gaps inner 6
 gaps top 20
 
 # Polybar
-exec_always --no-startup-id /home/USER/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Compositor
 exec --no-startup-id picom -b
@@ -192,7 +192,7 @@ bindsym $mod+w exec "xdotool sleep 0.2 key Return"
 bindsym $mod+Ctrl+p exec "gitstat"
 
 # reset bar
-bindsym $mod+Shift+b exec "bash -c /home/USER/.config/polybar/launch.sh"
+bindsym $mod+Shift+b exec "bash -c ~/.config/polybar/launch.sh"
 
 # screenshot
 bindsym $mod+Shift+s exec "flameshot gui"
