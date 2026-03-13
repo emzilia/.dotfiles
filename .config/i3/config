@@ -104,6 +104,9 @@ bindsym $mod+q kill
 # dmenu
 bindsym $mod+space exec "rofi -modi drun,run -show drun"
 
+# open volume mixer
+bindsym XF86AudioStop exec "pavucontrol"
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
