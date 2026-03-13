@@ -1,26 +1,58 @@
-#nop tintin++ ###
-#nop the final boss
+#nop ### tintin++ ###
+#nop --- the final boss ---
+#nop --- just connect ---
 
-#nop just connect
 #ses Hellmoo hellmoo.org 7777
 
 
-#nop window formatting
-#split 1 1 0 -150
+#nop -----------------------------------------------------------
 
 
-#nop highlighting
-#high {Vaskivo} {orange}
-#high {Avosivk} {orange}
-#high {Perfect} {orange}
+#nop --- window formatting ---
+
+#split 0 1 1 40
+#echo {{%Y-%m-%d %H:%M:%S} {1}} {printed}
+
+
+#nop -----------------------------------------------------------
+
+
+#nop --- highlighting ---
+
+#high {Vaskivo} {light orange}
+#high {Avosivk} {light orange}
+#high {Perfect} {light orange}
 #high {[chatnet]} {white}
 #high {[tradenet]} {green}
 
 
-#nop aliases
+#nop -----------------------------------------------------------
+
+
+#nop --- aliases ---
+
+#nop client
 #alias {2connect} {#ses Hellmoo hellmoo.org 7777}
 #alias {2read} {#read .tintin/run.tin}
 #alias {2write} {#write .tintin/run.tin}
 
+#nop mailnet
+#alias {@skip all} {@skip *bugs *ideas *comedy *clp *gr *chatter}
 
-#nop prompts
+#nop abortion job
+#alias {abort} {use coat on %1}
+
+
+#nop ----------------------------------------------------------------
+
+#nop --- prompts ---
+
+
+
+#nop ----------------------------------------------------------------
+
+
+#nop --- gags ---
+
+#gag {The young concubine}
+
