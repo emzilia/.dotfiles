@@ -18,3 +18,50 @@ alias tbr='toolbox run -c'
 alias pm='podman'
 
 alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c actions.h actions.c display.h display.c gtime.h gtime.c'
+
+check_git_status() {
+	if [ -d .git ]; then
+  		git_results="$(git status)"
+	if [[ $(echo "$git_results" | grep "Your branch is behind") ]]; then
+		git fetch -q &
+    	echo 2
+		return
+	fi
+	if [[ $(echo "$git_results" | grep "Your branch is ahead") ]]; then
+    	echo 3
+		return
+  	fi
+  	if [[ $(echo "$git_results" | grep "have diverged") ]]; then
+    	echo 4
+		return
+  	fi
+  	if [[ $(echo "$git_results" | grep "Changes to be comm") ]]; then
+    	echo 5
+		return
+  	fi
+  	if [[ $(echo "$git_results" | grep "Changes not staged") ]]; then
+    	echo 6
+		return
+  	fi
+	else
+    	echo 0
+	fi
+}
+
+cd() {
+    command cd "$@" &&
+	symbol=$(check_git_status)
+	if [ "$symbol" -eq 2 ]; then
+      export GITDIRSTAT="M"
+    elif [ "$symbol" -eq 3 ]; then
+      export GITDIRSTAT="P"
+    elif [ "$symbol" -eq 4 ]; then
+      export GITDIRSTAT="D"
+    elif [ "$symbol" -eq 5 ]; then
+      export GITDIRSTAT="C"
+    elif [ "$symbol" -eq 6 ]; then
+      export GITDIRSTAT="U"
+    else
+      export GITDIRSTAT=""
+    fi
+}
