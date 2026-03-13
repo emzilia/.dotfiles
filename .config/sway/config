@@ -113,8 +113,8 @@
     
     # Volume Control
     bindsym XF86AudioMute exec 'amixer set Master toggle'
-    bindsym XF86AudioLowerVolume exec 'amixer set Master 10-'
-    bindsym XF86AudioRaiseVolume exec 'amixer set Master 10+'
+    bindsym XF86AudioLowerVolume exec 'amixer set Master 10%-'
+    bindsym XF86AudioRaiseVolume exec 'amixer set Master 10%+'
 
     bindsym XF86AudioPlay exec 'mpc toggle'
     bindsym XF86AudioNext exec 'mpc next'
