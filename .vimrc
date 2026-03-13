@@ -63,6 +63,8 @@ nnoremap <Leader>q :tab term<CR>
 nnoremap <Leader>c :botright term cargo run<CR>
 " same thing but for python
 nnoremap <Leader>x :botright term python3 %<CR>
+" same thing but for c
+nnoremap <Leader>m :make -C ../<CR>
 
 " reload vimrc
 nnoremap <Leader>r :so ~/.vimrc<CR>
