@@ -18,3 +18,11 @@ alias tbr='toolbox run -c'
 alias pm='podman'
 
 alias cdr='cd $HOME/repos'
+
+docmd () {
+	pandoc -f docx -t markdown "$1" -o "$1".md
+}
+mddoc () {
+	pandoc -f markdown -t docx "$1" -o "$1".docx
+}
+
