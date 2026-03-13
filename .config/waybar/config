@@ -42,7 +42,7 @@
     // MPD module
      "custom/mpris": {
     	"return-type": "json",
-    	"exec": "waybar-mpris --position --autofocus --play ⠀  --pause ⠀ ",
+    	"exec": "waybar-mpris --position --autofocus --order SYMBOL:ARTIST:TITLE:POSITION --play ⠀  --pause ⠀ ",
     	"on-click": "waybar-mpris --send toggle",
         "on-click-right": "waybar-mpris --send player-next",
     	// The options below will switch the selected player on scroll
