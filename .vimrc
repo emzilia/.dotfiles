@@ -19,6 +19,8 @@ set noexpandtab
 set shiftwidth=4
 set tabstop=4
 
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
+
 filetype plugin indent on
 
 function Set_cindenting()
@@ -159,6 +161,8 @@ Plug 'prettier/vim-prettier', {
 
 Plug 'rafi/awesome-vim-colorschemes'
 
+Plug 'ghifarit53/tokyonight-vim'
+
 call plug#end()
 <<<<<<< HEAD
 >>>>>>> d1aa6cf (added coc and prettier plugins)
@@ -168,6 +172,17 @@ call plug#end()
 >>>>>>> 9f39ad3 (updated .vimrc from surface)
 =======
 set termguicolors
+<<<<<<< HEAD
 set background=dark
 colorscheme purify
 >>>>>>> a96792a (added go to coc.nvim, added colorscheme plugin)
+=======
+"set background=dark
+"colorscheme purify
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
+colorscheme tokyonight
+"hi NonText ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
+>>>>>>> 85b3b80 (added colorscheme)
