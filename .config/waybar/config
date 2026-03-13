@@ -52,7 +52,7 @@
         "format-source-muted": "Muted",
         "format-bluetooth": "BT {volume}%",
         "format-bluetooth-muted": "BTMuted {volume}%",
-        "format-muted": "{icon} {volume}%",
+        "format-muted": "{icon} Deafened",
         "format-icons": {
             "headphone": "🎧︎",
             "speaker": "🕪",
