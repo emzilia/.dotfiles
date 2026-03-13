@@ -1,10 +1,14 @@
 # .bashrc
+#
+#
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
 alias ls='ls --color=auto'
+
+# Shell prompt
 PS1=' \[\033[0;35m\]\h\[\033[00m\] \w \$ '
 
 
@@ -21,6 +25,7 @@ export PATH
 EDITOR=vi
 
 
+# Readline settings
 set -o vi
 bind 'set editing-mode vi'
 bind 'set show-mode-in-prompt on'
@@ -28,10 +33,9 @@ bind 'set vi-ins-mode-string >'
 bind 'set vi-cmd-mode-string |'
 
 # Terminal color sequence via wpg/wal
-(cat ~/.config/wpg/sequences &)
+#(cat ~/.config/wpg/sequences &)
 force_color_prompt=yes
 
-#set term=xterm=256color
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
@@ -42,5 +46,6 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
+
 # Run the todo every time
-tdp
+#tdp
