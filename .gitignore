@@ -1,5 +1,4 @@
-# this is the thing
-
+# ignoring...
 # everything
 *
 
@@ -15,9 +14,16 @@
 !.config/sway
 !.config/sway/config
 
+!.config/i3
+!.config/i3/config
+
 !.config/waybar
 !.config/waybar/config
 !.config/waybar/style.css
+
+!.config/polybar
+!.config/polybar/config.ini
+!.config/polybar/launch.sh
 
 !.config/yofi
 !.config/yofi/yofi.config
@@ -28,7 +34,8 @@
 !.config/ncmpcpp
 !.config/ncmpcpp/config
 
-!.config/wpg/*
+!.config/wpg/
+!.config/wpg/sequences
 
 !.config/vimium
 !.config/vimium/vimium-options.json
