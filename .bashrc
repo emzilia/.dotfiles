@@ -25,11 +25,6 @@ bind 'set show-mode-in-prompt on'
 bind 'set vi-ins-mode-string >'
 bind 'set vi-cmd-mode-string |'
 
-# Terminal color sequence via wpg/wal
-if ! [ "$TERM" = "dumb" ];
-then
-    (cat ~/.config/wpg/sequences &)
-fi
 force_color_prompt=yes
 
 # User specific aliases and functions
@@ -49,7 +44,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 clear
 
 # random quote
-source "$HOME"/.bashrc.d/prompt_quote
+#source "$HOME"/.bashrc.d/prompt_quote
 
 # dotnet
 export DOTNET_ROOT=$HOME/dotnet
@@ -57,3 +52,7 @@ export PATH=$PATH:$HOME/dotnet
 
 # cargo
 . "$HOME/.cargo/env"
+
+date
+tdp
+fortune
