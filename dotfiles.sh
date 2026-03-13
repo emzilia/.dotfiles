@@ -62,7 +62,7 @@ ln -sf "$HOME"/.dotfiles/.config/polybar/launch.sh \
 mkdir -p "$HOME"/.config/qtile
 mkdir -p "$HOME"/.config/picom
 
-ln -sf "$HOME"/.dotfiles/.config/qtile/qtile.py \
+ln -sf "$HOME"/.dotfiles/.config/qtile/config.py \
        "$HOME"/.config/qtile/config.py 
 
 ln -sf "$HOME"/.dotfiles/.config/picom/picom.conf \
