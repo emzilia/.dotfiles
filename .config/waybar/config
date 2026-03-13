@@ -1,7 +1,7 @@
  {  
      // "layer":  "top", 
     "height": 3, 
-    "margin-top": 5,
+    "margin-top": 0,
     "spacing": 0, 
     // Order Of Modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/mpris"],
@@ -23,8 +23,8 @@
     
     // Bluetooth module
     "bluetooth": {
-	"format": "",
-	"format-connected": " {device_alias}",
+	"format": "☢",
+	"format-connected": "☢ {device_alias}",
 	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
 	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
 	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
@@ -56,14 +56,14 @@
 
     // Volume module
      "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format-source": "",
+        "format": "{format_source} {volume}%",
+        "format-source": "☊",
         "format-source-muted": " ⚑",
         "format-bluetooth": "BT {volume}%",
         "format-bluetooth-muted": "BTMuted {volume}%",
         "format-muted": "🕨 0%",
         "format-icons": {
-            "headphone": "🎧︎",
+            "headphone": "☊",
             "speaker": "🕪",
             "headset": "Headset",
         },
