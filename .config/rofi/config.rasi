@@ -35,4 +35,5 @@ configuration {
 #element selected {
     text-color: #9575cd;
 }
-@theme "~/.config/rofi/theme.rasi"
+//@theme "~/.config/rofi/theme.rasi"
+@theme "/usr/share/rofi/themes/arthur.rasi"
