@@ -1,4 +1,4 @@
-### Sway config file, bitch
+### Sway config file
 
 ## Fix dbus issue
 exec systemctl --user import-environment
@@ -88,7 +88,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 #    for_window [title="Alacritty"] floating enable
 
 
-     exec_always libinput-gestures-setup start
+    exec_always libinput-gestures-setup start
 
 #
 # Basics:
@@ -119,7 +119,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'They are trying to fuck our pussies!' -B '*cocks gun* say no more' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'exit this sway desktop session?' -B 'yeah' 'swaymsg exit'
 
     # Screen brightness
     bindsym $mod+F6 exec 'brightnessctl set 10%-'
@@ -202,7 +202,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
     bindsym $mod+Ctrl+F10 input type:touchpad events toggle enabled disabled
 
     # Compose key
-  #  exec swaymsg 'input * xkb_options compose:prsc'
+    #exec swaymsg 'input * xkb_options compose:prsc'
 
     # Mute internal mic 
     bindsym $mod+x exec 'amixer set Capture toggle'
