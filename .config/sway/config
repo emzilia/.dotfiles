@@ -3,7 +3,7 @@
 ## Fix dbus issue
 
 ## Fix gtk theme in wayland
-exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
+#exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 
 ### Variables
     # Use Mod1 for Alt.
@@ -34,10 +34,11 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
     # Window transparency
     for_window [class=".*"] opacity $opacity
     for_window [app_id=".*"] opacity $opacity
+
     bindsym $mod+Shift+o set $opacity 1
     bindsym $mod+Shift+p set $opacity .9
 
-
+    # Application transparency (depr)
     for_window [class="vlc"] opacity 1
     for_window [app_id="pavucontrol"] floating enable
 
@@ -46,14 +47,14 @@ exec_always gsettings set org.gnome.desktop.interface gtk-theme 'Dracula'
 
     client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
     client.unfocused		$bgcolor $bgcolor $bgcolor $bgcolor
-    client.focused			$fgcolor $fgcolor $fgcolor $fgcolor
+    client.focused		$fgcolor $fgcolor $fgcolor $fgcolor
 
     # Hide cursor immediately after it stops moving
     seat seat0 hide_cursor 1500 
 
     exec "gammastep -l 39:-84"
 
-	exec "pulseaudio"
+    exec "pulseaudio"
 
 
 ### Idle configuration
