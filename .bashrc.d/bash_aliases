@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias gits='git status'
 alias gitall='git add -A'
 alias gitcm='git commit -m'
@@ -40,6 +42,36 @@ cdr() {
 		return 0
 	fi
 }
+
+rmr() {
+	if [ "$#" -eq 0 ]; then
+		return 0
+	elif [ "$#" -gt 1 ]; then
+		return 0
+	else
+    while [ "$response" != "y" ] && [ "$response" != "n" ]; do
+      printf "Recursively delete %s? y/n\n" $1
+      read -n 1 response
+    done
+    if [ "$response" == "y" ]; then
+      rm -r "$1"
+      if [ "$?" ]; then
+        printf "\n%s was deleted\n" $1
+        response=""
+        return 0
+      else
+        printf "\nError: %s was NOT deleted\n" $1
+        return 1
+      fi
+    else
+      printf "\n%s was NOT deleted\n" $1
+      response=""
+      return 0
+    fi
+	fi
+}
+
+
 
 gitpeek() {
     # if no arguments given or if the one argument is -h/--help, show the format
