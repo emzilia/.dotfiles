@@ -16,3 +16,5 @@ alias tbe='toolbox enter'
 alias tbr='toolbox run -c'
 
 alias pm='podman'
+
+alias vimbg='vim -p mountainblade.c entities.h entities.c logic.h logic.c actions.h actions.c display.h display.c gtime.h gtime.c'
