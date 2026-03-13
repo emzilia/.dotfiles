@@ -11,6 +11,7 @@ set cursorcolumn
 set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
+set termwinsize=8x0
 
 " Make space the leader key
 let mapleader = " "
@@ -33,6 +34,8 @@ nnoremap <Leader>l gT
 nnoremap <Leader>p :Ve repos<CR>
 " Remap :tabf to Space+t		create new empty tab
 nnoremap <Leader>t :tabnew<CR>
+" Remap :botright term to Space+s	create new terminal buffer in bottom		
+nnoremap <Leader>s :botright term<CR>
 
 " File exploration menu settings
  let g:netrw_banner = 0        " remove directions at top of file listing
