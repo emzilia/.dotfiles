@@ -119,8 +119,13 @@
 (use-package magit
   :config
   (keymap-global-set "C-c g" #'magit-dispatch)
-  (keymap-global-set "C-c f" #'magit-file-dispatch)
+  (keymap-global-set "C-c f" #'magit-file-dispatch))
 
+
+;; Package: treemacs
+(use-package treemacs
+  :config
+  (keymap-global-set "C-c f" #'treemacs))
   
 ;; Enable native compilation
 (when (and (fboundp 'native-comp-available-p)
@@ -135,8 +140,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-show-quick-access t nil nil "Customized with use-package company")
- '(package-selected-packages
-   '(company exec-path-from-shell flycheck lsp-mode magit rustic)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
