@@ -61,3 +61,5 @@ alias howdoiconnect='echo nmcli d wifi connect *ssid* password *password*'
 alias weather='curl wttr.in'
 
 alias tin='tt++ .tintin/run.tin'
+
+alias coderemote='ssh -L 8080:127.0.0.1:8080 remote'
