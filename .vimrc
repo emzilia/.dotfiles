@@ -42,6 +42,9 @@ nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader>s :botright term ++rows=12 ++cols=0<CR>
 " RUSERap 							compile rust package in terminal buffer
 nnoremap <Leader>c :botright term cargo run<CR>
+" RUSERap python build
+nnoremap <Leader>x :botright term python3 %<CR>
+
 " RUSERap :so ~/.vimrc to Space+r		reload vimrc
 nnoremap <Leader>r :so ~/.vimrc<CR>
 " RUSERap :so ~/.writerrc to Space+W	load vim config for writing
