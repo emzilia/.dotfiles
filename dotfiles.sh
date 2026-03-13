@@ -22,6 +22,8 @@ ln -sf "$HOME"/.dotfiles/.writerc \
 ln -sf "$HOME"/.dotfiles/.azotebg \
        "$HOME"/.azotebg
 
+ln -sf "$HOME"/.dotfiles/.emacs \
+       "$HOME"/.emacs
 
 # Wayland - Sway
 
