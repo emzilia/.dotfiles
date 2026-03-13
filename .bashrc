@@ -4,6 +4,9 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
@@ -26,7 +29,9 @@ bind 'set vi-cmd-mode-string |'
 
 # Terminal color sequence via wpg/wal
 (cat ~/.config/wpg/sequences &)
+force_color_prompt=yes
 
+#set term=xterm=256color
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
