@@ -46,5 +46,8 @@
 !.config/rofi/config.rasi
 !.config/rofi/theme.rasi
 
+!.config/picom
+!.config/picom.conf
+
 !.tintin
 !.tintin/run.tin
