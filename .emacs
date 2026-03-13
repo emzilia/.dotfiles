@@ -3,8 +3,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-
-(global-set-key (kbd "C-;") "M-x")
+(global-display-line-numbers-mode)
 
 ;; macro for updating lists in place
 (defmacro append-to-list (target suffix)
