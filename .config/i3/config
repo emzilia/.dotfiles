@@ -31,9 +31,6 @@ exec --no-startup-id "xrandr --output HDMI-0 --auto --primary --output DVI-D-0 -
 assign [class="Signal"] $ws3
 exec --no-startup-id "signal-desktop --use-tray-icon"
 
-# KDE connect
-
-exec --no-startup-id "kdeconnect-indicator"
 
 # notifcations
 
@@ -84,6 +81,8 @@ new_window pixel 1
 for_window [class="^.*"] border pixel 1
 
 gaps inner 6
+
+gaps top 27
 
 exec --no-startup-id picom -b
 
