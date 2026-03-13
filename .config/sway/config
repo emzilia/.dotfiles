@@ -14,10 +14,10 @@
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 
-    set $menu ~/Packages/yofi/yofi/target/release/yofi | xargs swaymsg exec
+    set $menu ~/packages/yofi/target/release/yofi | xargs swaymsg exec
 
 ### Output configuration
-    output * bg /home/emm/Pictures/Wall/newage.jpg fill
+    output * bg /home/emm/Pictures/Wall/wallhaven-r296lw.jpg fill
 
     # Window transparency
     set $opacity .93
@@ -61,7 +61,7 @@
     input "type:keyboard" {
 	   xkb_layout us(intl)
     }
-    input "2:14:ETPS/2_Elantech_Touchpad" {
+    input "type:touchpad" {
 #          dwt enabled 
            tap enabled
            natural_scroll enabled
@@ -96,7 +96,7 @@
     bindsym $mod+space exec $menu
 
     # Lock screen
-    bindsym $mod+Shift+End exec swaylock -i ~/Pictures/Wall/newage.jpg
+    bindsym $mod+Shift+F1 exec swaylock -i ~/Pictures/Wall/wallhaven-r296lw.jpg
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
