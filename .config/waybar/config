@@ -13,7 +13,6 @@
     // Sway Workspaces module
     "sway/workspaces": {
 	 "disable-scroll": true,
-	 "disable-click": true,
          "format": "{icon}",
          "format-icons": {
              "urgent": "!!!",
@@ -44,7 +43,8 @@
     	"return-type": "json",
     	"exec": "waybar-mpris --position --autofocus --order SYMBOL:ARTIST:TITLE:POSITION --play ⠀  --pause ⠀ ",
     	"on-click": "waybar-mpris --send toggle",
-        "on-click-right": "waybar-mpris --send player-next",
+        "on-click-right": "waybar-mpris --send next",
+	"on-click-middle": "waybar-mpris --send prev",
     	// The options below will switch the selected player on scroll
         // "on-scroll-up": "waybar-mpris --send player-next",
         // "on-scroll-down": "waybar-mpris --send player-prev",
