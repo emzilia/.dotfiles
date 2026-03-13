@@ -1,9 +1,9 @@
  {  
     "layer":  "top", 
     "height": 0, 
-    "margin-top": 2,
-	"margin-right": 2,
-	"margin-left": 2,
+    "margin-top": 5,
+	"margin-right": 5,
+	"margin-left": 5,
     "spacing": 0, 
     // Order Of Modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/mpris"],
@@ -15,7 +15,7 @@
     // Sway Workspaces module
     "sway/workspaces": {
 	 "disable-scroll": true,
-         "format": "{icon}",
+         "format": "{name}",
          "format-icons": {
              "urgent": "!!!",
              "focused": "",
@@ -59,12 +59,12 @@
 
     // Volume module
      "pulseaudio": {
-        "format": "{format_source} {volume}%",
+        "format": "{format_source} {volume}% ",
         "format-source": " ",
         "format-source-muted": "",
         "format-bluetooth": "BT {format_source} {volume}%",
         "format-bluetooth-muted": "BTMuted {volume}%",
-        "format-muted": " 0%",
+        "format-muted": " 0% ",
         "format-icons": {
             "headphone": "",
             "speaker": "",
@@ -93,17 +93,17 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [" ", " ", " ", " ", " "]
     },
     
     // Network module
    "network": {
     // "interface": "wlp*", 
-    "format-wifi": "  {essid}",
-    "format-ethernet": "🖧{ipaddr}/{cidr} ",
+    "format-wifi": "  {essid} ",
+    "format-ethernet": "🖧 {ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": " Disconnected",
+    "format-disconnected": "  Disconnected",
     },
 
     // Date module
@@ -111,7 +111,7 @@
     // find a better way to define a calendar without this mess
 		"interval": 1,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "   {:%H:%M:%S   |      %A  %x}",
+        "format": "  {:%H:%M:%S |   %A %x}",
     },
 
     // Tray module
