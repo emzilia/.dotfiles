@@ -2,6 +2,7 @@
 
 ## Fix dbus issue
 exec systemctl --user import-environment
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 ### Variables
     # Use Mod1 for Alt.
@@ -14,12 +15,12 @@ exec systemctl --user import-environment
 
     set $term alacritty
 
-    set $wallpaper ~/Pictures/Wall/cyberpunk01.jpg
+    set $wallpaper ~/Pictures/Wall/wallport.jpg
 
     set $bgcolor #3a5266
     set $fgcolor #ee9699
 
-    set $opacity .8
+    set $opacity .9
 
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -44,7 +45,7 @@ exec systemctl --user import-environment
 
     client.focused_inactive	$bgcolor $bgcolor $bgcolor $bgcolor
     client.unfocused		$bgcolor $bgcolor $bgcolor $bgcolor
-    client.focused		$fgcolor $fgcolor $fgcolor $fgcolor
+    client.focused			$fgcolor $fgcolor $fgcolor $fgcolor
 
     # Hide cursor immediately after it stops moving
     seat seat0 hide_cursor 1500 
