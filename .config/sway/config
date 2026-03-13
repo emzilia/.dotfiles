@@ -17,15 +17,15 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 
     set $wallpaper ~/Pictures/Wall/wallport.jpg
 
-    set $bgcolor #3a5266
-    set $fgcolor #ee9699
+    set $bgcolor #0d0421
+    set $fgcolor #dea5dc
 
     set $opacity .9
 
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 
-    set $menu ~/packages/yofi/target/release/yofi | xargs swaymsg exec
+    set $menu yofi | xargs swaymsg exec
 
 ### Output configuration
     output * bg $wallpaper fill
@@ -124,18 +124,19 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
     # Screen brightness
     bindsym $mod+F6 exec 'brightnessctl set 10%-'
     bindsym $mod+F7 exec 'brightnessctl set 10%+'
-    
+
     # Volume Control
     bindsym $mod+F8 exec 'amixer set Master toggle'
     bindsym $mod+F9 exec 'amixer set Master 10%-'
     bindsym $mod+F10 exec 'amixer set Master 10%+'
 
-    bindsym $mod+F3 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send toggle'
-    bindsym $mod+F2 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send next'
-    bindsym $mod+F1 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send prev'
+    bindsym $mod+F3 exec 'waybar-mpris --send toggle'
+    bindsym $mod+F2 exec 'waybar-mpris --send next'
+    bindsym $mod+F1 exec 'waybar-mpris --send prev'
 
     # Run the git fetch/status script
-    bindsym $mod+Ctrl+p exec '/bin/bash /home/emm/repos/bashscripts/gitstatus.sh'
+    bindsym $mod+Ctrl+p exec 'cgits'
+    bindsym $mod+Ctrl+o exec "alacritty -e bash -ic '~/repos/tagalogpy/gitui.py'"
 
 #
 # Moving around:
@@ -211,7 +212,7 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 #
 # GAPS !!!
 #   
-#    gaps inner 6
+   gaps inner 2
 
 
 
