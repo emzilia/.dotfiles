@@ -40,6 +40,8 @@
     # Hide cursor immediately after it stops moving
     seat seat0 hide_cursor 1500 
 
+    exec "gammastep -l 39:-84"
+
 
 ### Idle configuration
 #
