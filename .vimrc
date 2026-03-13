@@ -67,6 +67,8 @@ nnoremap <Leader>v :VenterToggle<CR>
 " format file with Prettier
 nnoremap <Leader>P <Plug>(Prettier)
 
+nnoremap <F3> "=strftime('%Y-%m-%d')<CR>P
+
 " File exploration menu settings
  let g:netrw_banner = 0        " remove directions at top of file listing
  let g:netrw_liststyle=3       " tree style listing
