@@ -12,6 +12,10 @@ set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
 set termwinsize=8x0
+set ts=4
+set shiftwidth=4
+
+filetype plugin indent on
 
 " Make space the leader key
 let mapleader = " "
