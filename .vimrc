@@ -1,4 +1,4 @@
-" yes
+" Yes
 
 if &compatible
   set nocompatible
@@ -9,35 +9,39 @@ set number
 set cursorline
 set cursorcolumn
 set showcmd
+set statusline=%f%=%l,%c
+set laststatus=2
 
 " Make space the leader key
 let mapleader = " "
 
 " Leader key binds
-" RUSERap Ctrl-w to Space+w
+" RUSERap Ctrl-w to Space+w		control-w modifier with spacebar
 nnoremap <Leader>w <C-w>
-" RUSERap Ctrl-w/Ctrl-q to Space+q
-nnoremap <Leader>q <C-w><C-q>
-" RUSERap :only to Space+o
+" RUSERap Ctrl-w/Ctrl-q to Space+k	kill buffer
+nnoremap <Leader>k <C-w><C-q>
+" RUSERap :only to Space+o		close all buffers but focused one
 nnoremap <Leader>o :on<CR>
-" RUSERap :find to Space+f
+" RUSERap :find to Space+f		:find a file or directory
 nnoremap <Leader>f :find 
-" RUSERap :Vexplore to Space+F
+" RUSERap :Vexplore to Space+F		:Vexplore current dir
 nnoremap <Leader>F :Ve<CR>
-" RUSERap gt and gT to Space+h/Space+l
+" RUSERap gt and gT to Space+h/Space+l	switch tabs with space+h/space+l
 nnoremap <Leader>h gt
 nnoremap <Leader>l gT
-" RUSERap :Vexplore repos to Space+p
+" RUSERap :Vexplore repos to Space+p	open :Vexplore on repos dir
 nnoremap <Leader>p :Ve repos<CR>
+" RUSERap :tabf to Space+t		create new empty tab
+nnoremap <Leader>t :tabnew<CR>
 
-"  file exploration menu settings
+" File exploration menu settings
  let g:netrw_banner = 0        " remove directions at top of file listing
  let g:netrw_liststyle=3       " tree style listing
  let g:netrw_browse_split =4   " split horizontal
  let g:netrw_altv = 1
- let g:netrw_winsize=25        " width of window
+ let g:netrw_winsize=20        " width of window
  let g:netrw_preview=1
  augroup ProjectDrawer autocmd!  autocmd VimEnter * :Vexplore augroup END
 
-"  sudo write
+" Sudo write
 ca w!! w !sudo tee >/dev/null "%"
