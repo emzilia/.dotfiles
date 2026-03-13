@@ -6,7 +6,7 @@ endif
 
 syntax on
 set number
-set cursorline
+"set cursorline
 set showcmd
 set statusline=%f%=%l,%c
 set laststatus=2
@@ -49,7 +49,7 @@ nnoremap <Leader>o :on<CR>
 " :find a file or directory
 nnoremap <Leader>F :find 
 " :Vexplore current dir
-nnoremap <Leader>f :Vex<CR>
+nnoremap <Leader>f :Vex!<CR>
 " switch tabs with space+h/space+l
 nnoremap <Leader>h gt
 nnoremap <Leader>l gT
@@ -58,7 +58,9 @@ nnoremap <Leader>H <C-w>h
 nnoremap <Leader>L <C-w>l
 
 " open :Vexplore on repos dir
-nnoremap <Leader>p :Vex $HOME/repos<CR>
+nnoremap <Leader>P :Vex $HOME/repos<CR>
+" open :Vexplore on repos dir
+nnoremap <Leader>p :Vex <CR>
 " create new empty tab
 nnoremap <Leader>t :tabnew<CR>
 " create new terminal buffer in bottom		
@@ -82,11 +84,11 @@ nnoremap <Leader>W :so ~/.writerc<CR>
 " edit .vimrc
 nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
 
-" fix netrw size
-nnoremap <Leader>v :vertical resize 20<CR>
+" venter
+nnoremap <Leader>v :VenterToggle<CR>
 
 " format file with Prettier
-nnoremap <Leader>P <Plug>(Prettier)
+"nnoremap <Leader>P <Plug>(Prettier)
 
 " insert date
 nnoremap <F3> "=strftime('%Y-%m-%d')<CR>P
@@ -95,7 +97,7 @@ nnoremap <F3> "=strftime('%Y-%m-%d')<CR>P
  let g:netrw_banner = 0        " remove directions at top of file listing
  let g:netrw_liststyle=3       " tree style listing
  let g:netrw_browse_split =4   " split horizontal
- let g:netrw_altv = 1
+ let g:netrw_altv = 0
  let g:netrw_winsize=14        " width of window
  let g:netrw_preview=1
 
@@ -116,7 +118,7 @@ ca w!! w !sudo tee >/dev/null "%"
 
 let g:prettier#config#trailing_comma = 'all'
 
-let g:venter_width = '18'
+let g:venter_width = '48'
 
 call plug#begin()
 
@@ -133,10 +135,13 @@ Plug 'Yggdroot/indentLine'
 " colorscheme
 Plug 'ghifarit53/tokyonight-vim'
 
+Plug 'nvimdev/oceanic-material'
+
 call plug#end()
 
 " Colorscheme
 set termguicolors
-let g:tokyonight_style = 'night'
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
+set background=dark
+"let g:tokyonight_style = 'night'
+"let g:tokyonight_enable_italic = 1
+colorscheme catppuccin

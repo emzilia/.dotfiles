@@ -35,11 +35,11 @@
     set $opacity .9
 
     # Monitors
-    set $monitor1 DP-1
+    set $monitor1 DP-2
     set $monitor2 HDMI-A-1
 
     # Runner
-    set $menu ~/.cargo/bin/yofi | xargs swaymsg exec
+    set $menu sirula | xargs swaymsg exec
 
 
 #
@@ -50,7 +50,7 @@
     output $monitor2 position 1920 0
 
     # Tablet
-    input 1386:886:Wacom_Intuos_BT_S_Pen map_to_output $monitor2
+    input 1386:886:Wacom_Intuos_BT_S_Pen map_to_output $monitor1
 
     # Wallpaper
     exec ~/.azotebg
@@ -65,6 +65,7 @@
     for_window [class=".*"] opacity $opacity
     for_window [app_id=".*"] opacity $opacity
     for_window [class="vlc"] opacity 1
+    for_window [class="Alacritty"] opacity 0.8
     for_window [class="Firefox"] opacity 1
     for_window [class="steam"] opacity 1
 

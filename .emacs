@@ -6,14 +6,21 @@
 (savehist-mode)
 (setq vc-follow-symlinks t)
 (setq inhibit-startup-screen t)
+(setq-default tab-width 4)
+(setq-default tab-stop-list 4)
 (setq c-basic-offset 8)
+(customize-set-variable 'tramp-default-method "ssh")
 (defalias 'yes-or-no-p 'y-or-n-p)
+;;(global-set-key (kbd "TAB") #'self-insert-command)
 
 ;;
 ;; Custom binds
 ;;
 (keymap-global-set "C-x m" #'compile)
 (keymap-global-set "C-x C-g" #'goto-line)
+(keymap-global-set "C-U" #'undo)
+(keymap-global-set "C-B" #'switch-to-buffer)
+(keymap-global-set "C-c SPC" #'fixup-whitespace)
 
 ;;
 ;; Backups/autosaves
@@ -110,8 +117,12 @@
 
 ;; Package: lsp-mode
 (use-package lsp-mode
+  :config
+  (keymap-global-set "C-c C-h" #'lsp-clangd-find-other-file)
   :hook
+  (setq lsp-enable-on-type-formatting nil)
   ((c-mode . lsp))
+  ((csharp-mode . lsp))
   ((python-mode . lsp)))
 
 
@@ -125,7 +136,7 @@
 ;; Package: treemacs
 (use-package treemacs
   :config
-  (keymap-global-set "C-c f" #'treemacs))
+  (keymap-global-set "C-c C-f" #'treemacs))
   
 ;; Enable native compilation
 (when (and (fboundp 'native-comp-available-p)

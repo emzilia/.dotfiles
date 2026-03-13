@@ -9,7 +9,7 @@ fi
 alias ls='ls --color=auto'
 
 # Shell prompt
-PS1=' \[\033[0;35m\]\h\[\033[00m\] \w \$ '
+PS1='\[\033[0;35m\]\h\[\033[00m\] \w \$ '
 
 
 # User specific environment
@@ -26,11 +26,11 @@ EDITOR=vi
 
 
 # Readline settings
-set -o vi
-bind 'set editing-mode vi'
-bind 'set show-mode-in-prompt on'
-bind 'set vi-ins-mode-string >'
-bind 'set vi-cmd-mode-string |'
+#set -o vi
+#bind 'set editing-mode vi'
+#bind 'set show-mode-in-prompt on'
+#bind 'set vi-ins-mode-string >'
+#bind 'set vi-cmd-mode-string |'
 
 # Terminal color sequence via wpg/wal
 #(cat ~/.config/wpg/sequences &)
@@ -47,6 +47,9 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 PATH=~"$HOME/.nix-profile/bin:$PATH"
+PATH=~"$PATH:$HOME/.dotnet"
+PATH=~"$PATH:$HOME/.dotnet/tools"
 export PATH
 
-lastupdate
+sh ~/repos/shellscripts/maintenance.sh
+

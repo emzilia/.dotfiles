@@ -21,6 +21,15 @@ alias pm='podman'
 
 alias cdc='cd $HOME/.config'
 
+alias md='mullvad disconnect && mullvad status'
+alias ms='mullvad status'
+alias mc='mullvad connect && sleep 0.1 && mullvad status'
+
+alias em='emacs -nw'
+
+alias duu='du -h ./* -d 0 -c | sort -h'
+alias dff='df -h'
+
 lastupdate() {
 	last_update="$(awk 'END{sub(/\[/,""); print $1}' /var/log/pacman.log | head -c 10)"
 	printf "Last Update: %s\n" "$last_update"
@@ -70,8 +79,6 @@ rmr() {
     fi
 	fi
 }
-
-
 
 gitpeek() {
     # if no arguments given or if the one argument is -h/--help, show the format
