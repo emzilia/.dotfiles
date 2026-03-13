@@ -14,10 +14,18 @@ set laststatus=2
 set autochdir
 
 set noexpandtab
-set tabstop=8
-set shiftwidth=8
+set tabstop=4
+set shiftwidth=4
 
 filetype plugin indent on
+
+function Set_shindenting()
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+  setlocal expandtab
+endfunction
+
+autocmd Filetype sh call Set_shindenting()
 
 " Make space the leader key
 let mapleader = " "
