@@ -4,7 +4,7 @@
     "margin-top": 5,
     "spacing": 0, 
     // Order Of Modules
-    "modules-left": ["sway/workspaces", "sway/mode", "mpd"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/mpris"],
     "modules-center": ["clock"],
     "modules-right": ["network", "pulseaudio",  "battery",  "backlight", "tray"],
 
@@ -28,21 +28,18 @@
     },
 
     // MPD module
-    "mpd": {
-        "format": "{stateIcon}   {artist}  -  {title}",
-        "format-disconnected":  "( X ｡ X )",
-        "format-stopped": "( ∪ ｡ ∪ ) ｡ ｡ ｡ z z z Z Z Z",
-        "unknown-tag": "Owo",
-        "interval": 2,
-        "title-len": 40,
-        // Icons
-        "state-icons": {
-            "playing": "⏸",
-            "paused": ""
-        },
-        "tooltip-format": "pwaying OwO",
-        "tooltip-format-stopped": "stawpped p-pwaying (・ω・)",
-        "tooltip-format-disconnected": "disconnected (・`ω´・)"
+     "custom/mpris": {
+    	"return-type": "json",
+    	"exec": "waybar-mpris --position --autofocus",
+    	"on-click": "waybar-mpris --send toggle",
+        "on-click-right": "waybar-mpris --send player-next",
+    	// The options below will switch the selected player on scroll
+        // "on-scroll-up": "waybar-mpris --send player-next",
+        // "on-scroll-down": "waybar-mpris --send player-prev",
+    	// The options below will go to next/previous track on scroll
+        // "on-scroll-up": "waybar-mpris --send next",
+        // "on-scroll-down": "waybar-mpris --send prev",
+   	 "escape": true,
     },
 
     // Volume module

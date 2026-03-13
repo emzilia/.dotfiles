@@ -31,6 +31,7 @@
 
 
     for_window [class="vlc"] opacity 1
+    for_window [app_id="pavucontrol"] floating enable
 
 
     default_border pixel 1
