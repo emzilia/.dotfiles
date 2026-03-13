@@ -38,8 +38,7 @@ alias gits='git status'
 alias nmcliup='nmcli connection up DEA_SURVEILLANCE_37'
 alias nmclidown='nmcli connection down DEA_SURVEILLANCE_37'
 
-alias swayconfig='~/.config/sway/config'
-alias wayconfig='~/.config/waybar/config'
+alias rg='ranger'
 
 alias howdoiconnect='echo nmcli d wifi connect *ssid* password *password*'
 
