@@ -5,6 +5,7 @@
 # except the dotties
 !.gitignore
 !.vimrc
+!.emacs
 !.bashrc
 !.inputrc
 !.XCompose
