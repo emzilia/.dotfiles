@@ -130,6 +130,9 @@
     bindsym $mod+F2 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send next'
     bindsym $mod+F1 exec '/home/emm/go/pkg/mod/git.hrfee.pw/waybar-mpris@v0.1.0/waybar-mpris --send prev'
 
+    # Run the git fetch/status script
+    bindsym $mod+Ctrl+p exec '/bin/bash /home/emm/repos/bashscripts/gitstatus.sh'
+
 #
 # Moving around:
 #
