@@ -21,6 +21,7 @@ set cursorcolumn
 "  sudo write
 ca w!! w !sudo tee >/dev/null "%"
 
+<<<<<<< HEAD
 call plug#begin('~/.vim/autoload')
 
 Plug 'theacodes/witchhazel'
@@ -28,3 +29,5 @@ Plug 'theacodes/witchhazel'
 call plug#end()
 
 colorscheme witchhazel
+=======
+>>>>>>> refs/rewritten/fixed-dumb-merge
