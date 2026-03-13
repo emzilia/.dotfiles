@@ -1,3 +1,6 @@
+# azure stuff
+alias azlogin='export AZURE_CONFIG_DIR=~/.azprofiles/azadmin && az login'
+
 # git stuff
 alias gits='git status && check_git_status'
 alias gitp='git push && check_git_status'
