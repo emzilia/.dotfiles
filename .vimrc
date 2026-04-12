@@ -63,7 +63,7 @@ nnoremap <Leader>P :Vex $HOME/repos<CR>
 nnoremap <Leader>p :Vex <CR>
 " create new empty tab
 nnoremap <Leader>t :tabnew<CR>
-" create new terminal buffer in bottom		
+" create new terminal buffer in bottom
 nnoremap <Leader>S :botright term ++rows=12 ++cols=0<CR>
 " split screen vertically
 nnoremap <Leader>s :vsplit<CR>
@@ -86,9 +86,6 @@ nnoremap <Leader>V :tabnew<CR>:find ~/.vimrc<CR>
 
 " venter
 nnoremap <Leader>v :VenterToggle<CR>
-
-" format file with Prettier
-"nnoremap <Leader>P <Plug>(Prettier)
 
 " insert date
 nnoremap <F3> "=strftime('%Y-%m-%d')<CR>P
@@ -116,8 +113,6 @@ hi CocHintHighlight ctermbg=White ctermfg=Brown
 " Sudo write
 ca w!! w !sudo tee >/dev/null "%"
 
-let g:prettier#config#trailing_comma = 'all'
-
 let g:venter_width = '48'
 
 call plug#begin()
@@ -126,14 +121,9 @@ Plug 'neoclide/coc.nvim', {
       \ 'branch': 'release', 
 	    \ 'for': ['json', 'c', 'go', 'cs', 'javascript', 'kotlin', 'typescript', 'python', 'rust',]}
 
-Plug 'prettier/vim-prettier', {
-	  \ 'do': 'yarn install --frozen-lockfile --production',
-	    \ 'for': ['javascript', 'typescript', 'css', 'json', 'markdown', 'yaml', 'html']}
-
 Plug 'Yggdroot/indentLine'
 
 " colorscheme
-Plug 'ghifarit53/tokyonight-vim'
 
 Plug 'nvimdev/oceanic-material'
 
@@ -142,6 +132,4 @@ call plug#end()
 " Colorscheme
 set termguicolors
 set background=dark
-"let g:tokyonight_style = 'night'
-"let g:tokyonight_enable_italic = 1
 colorscheme catppuccin
